@@ -1,0 +1,314 @@
+/* HEADER */
+ .header {
+    position: relative;
+    border-top: 6px solid $primary-color;
+    ._logo {
+        background: url('../img/grizzly-icon-new.jpg') left top no-repeat;
+        background-size: 100% 100%;
+        float: left;
+        width: 42px;
+        height: 42px;
+        display: inline-block;
+    }
+}
+.header__inner {
+    padding: $panel-padding;
+    @extend .group;
+    @include media(min, $desktopmaxplus40) {
+        width: $desktopmax;
+        margin: 0 auto;
+    }
+}
+.header__left {
+    .title {
+        text-align: center;
+        font-weight: bold;
+        color: $secondary-color;
+        font-size: 30px;
+        @include media(min, $mobile-landscape) {
+            font-size: 30px;
+            float: left;
+            text-align: left;
+            margin-top: 2px;
+        }
+        a {
+            color: $secondary-color;
+            span {
+                color: $primary-color;
+                font-style: italic;
+            }
+        }
+    }
+}
+.header__right {
+    text-align: center;
+    @include media(min, $mobile-landscape) {
+        float: right;
+    }
+}
+.header__right--block {
+    h3 {
+        background: $light-grey;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 5px 0;
+        text-align: center;
+        padding: 5px 0;
+    }
+    @include media(min, $mobile-landscape) {
+        display: inline-block;
+    }
+    @include media(min, $mobile-landscape) {
+        h3 {
+            margin-left: 20px;
+            font-size: 20px;
+            margin-top: 12px;
+            background: #fff;
+            padding: 0
+        }
+    }
+}
+.header__left--tagline {
+    display: inline-block;
+    margin: em(6px) 0 0 em(8px);
+    @extend .group;
+    .tagline--big {
+        display: block;
+        margin-bottom: em(2px);
+    }
+    .tagline--small {
+        color: $font-color-tertiary;
+    }
+}
+/* LEFT & RIGHT */
+ .home {
+    //padding: 0 20px;
+
+}
+.home-left {
+    padding: 0 20px;
+    @include media(min, $tablet) {
+        float: left;
+        @include grid(10, 16);
+    }
+    @include media(min, $desktopmax) {
+        @include grid(3, 4);
+    }
+}
+.home-right {
+    padding: 0 20px;
+    @include media(min, $tablet) {
+        @include grid(6, 16);
+        float: left;
+    }
+    @include media(min, $desktopmax) {
+        @include grid(1, 4);
+    }
+}
+/* NAVIGATION */
+ .site-navigation {
+    background-color: $tertiary-color;
+    color: $font-color-secondary;
+    border-top: 4px solid #19232d;
+    @extend .group;
+    ul {
+        margin-bottom: 0;
+    }
+    a {
+        color: $font-color-secondary;
+    }
+    ._logo {
+        background: url('../img/grizzly-icon-new.jpg') left top no-repeat;
+        background-size: 100% 100%;
+        float: left;
+        width: 42px;
+        height: 42px;
+        margin: em(16px) em(14px) em(12px);
+        @include media(min, $tablet-large) {
+            margin: 0;
+            display: none;
+        }
+    }
+}
+.site-navigation__inner {
+    @extend .group;
+    @include media(min, $desktopmaxplus40) {
+        width: $desktopmax;
+        margin: 0 auto;
+    }
+}
+.site-navigation__right {
+    float: right;
+}
+.site-navigation__right--block {
+    display: none;
+}
+.site-navigation-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    opacity: 0.9;
+    .site-navigation__right--block {
+        @include media(min, $tablet-large) {
+            display: block;
+        }
+        @include media(min, $tablet-large) {
+            display: inline-block;
+        }
+    }
+    @include media(min, $tablet-large) {
+        padding: 0px;
+    }
+}
+.m-main-navigation {
+    position: static;
+    float: right;
+    @extend .group;
+    @include media(min, $tablet-large) {
+        position: relative;
+        float: none;
+    }
+    .menu-toggle {
+        display: block;
+        color: inherit;
+        @include transition(none);
+        padding: em(6px) em(14px) em(10px);
+        i {
+            position: relative;
+            top: 3px;
+            line-height: 1em;
+        }
+        @include media(min, $tablet-large) {
+            display: none;
+        }
+    }
+    ul {
+        @include media(minmax, 0, $tablet-large) {
+            z-index: 20;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background-color: $secondary-color;
+            max-height: 0;
+            overflow: hidden;
+            @include transition-property(max-height);
+            @include transition-duration($trans-time);
+        }
+    }
+    li {
+        border-top: 1px solid $border-color-secondary;
+        @include media(minmax, 0, $tablet-large) {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+        @include media(min, $tablet-large) {
+            display: inline-block;
+            border-top: none;
+        }
+        a {
+            display: block;
+            line-height: 1.2em;
+            font-size: em(16px);
+            padding-right: em(20px);
+            padding-left: em(20px);
+            line-height: em(35px);
+            @include media(min, $tablet-large) {
+                font-size: em(16px);
+            }
+        }
+        a.active {
+            background-color: lighten($secondary-color, 5%);
+            @include media(min, $tablet-large) {
+                border-bottom: 4px solid $primary-color;
+                background-color: $secondary-color;
+            }
+        }
+    }
+    li.quote {
+        @include media(min, $desktop) {
+            float: right;
+            a {
+                background: $primary-color;
+            }
+        }
+    }
+}
+.width-restrict {
+    @extend .group;
+}
+/* SIDEBAR */
+ #sidebar {
+    margin-top: 30px;
+}
+.sidebar__inner {
+}
+.sidebar__block {
+    margin-bottom: 30px;
+    h3 {
+        font-size: 18px;
+        position: relative;
+        background: $light-grey;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 5px 10px;
+        margin-bottom: 20px;
+    }
+    .fa-ul li {
+        margin-bottom: 7px;
+        padding-bottom: 7px;
+        line-height: 1.2em;
+        .fa {
+            color: $primary-color;
+        }
+    }
+}
+.google-maps {
+    position: relative;
+    padding-bottom: 75%;
+    // This is the aspect ratio height: 0;
+    overflow: hidden;
+    margin-bottom: 10px
+}
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+/* FOOTER */
+ footer {
+    background-color: $light-grey;
+    color: $grey-dark;
+}
+.footer__inner {
+    text-align: center;
+    padding: 1em 0;
+    @extend .group;
+    @include media(min, $desktopmaxplus40) {
+        width: $desktopmax;
+        margin: 0 auto;
+    }
+    @include media(min, $tablet) {
+        text-align: left;
+    }
+}
+.footer__left-block {
+    margin-bottom: 0.5em;
+    @include media(min, $tablet) {
+        @include grid(1, 2);
+        float: left;
+        margin: 0;
+    }
+}
+.footer__right-block {
+    @include media(min, $tablet) {
+        @include grid(1, 2);
+        float: right;
+        text-align: right;
+        margin: 0
+    }
+}
