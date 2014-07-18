@@ -10,6 +10,10 @@ class MetaBoxes
     const SERVICES_TEMPLATE = 'page-services.php';
     const TESTIMONIALS_TEMPLATE = 'page-testimonials.php';
 
+    const TESTIMONIALS_3_WIDE = '3wide';
+    const TESTIMONIALS_2_WIDE = '2wide';
+    const TESTIMONIALS_FULL_WIDTH = 'fullwidth';
+
     public function get_meta_boxes()
     {
         if (isset($_GET['post'])) {
@@ -41,6 +45,7 @@ class MetaBoxes
         } elseif ($template == self::SERVICES_TEMPLATE) {
             $meta_boxes = array_merge($meta_boxes, $this->_define_service_template_meta_boxes());
         } elseif ($template == self::TESTIMONIALS_TEMPLATE) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_testimonials_template_meta_boxes());
         }
 
         return $meta_boxes;
@@ -364,6 +369,36 @@ class MetaBoxes
         );
     }
 
+    private function _define_testimonials_template_meta_boxes()
+    {
+        return array(
+            array(
+                'id' => 'testimonials-template',
+                'title' => __('Testimonials Template Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::CONTACT_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name'     => __( 'Testimonial Format', 'rwmb' ),
+                        'id'       => "testimonials-format",
+                        'type'     => 'select',
+                        'options'  => array(
+                            self::TESTIMONIALS_3_WIDE => __('3 Wide', 'rwmb'),
+                            self::TESTIMONIALS_2_WIDE => __('2 Wide', 'rwmb'),
+                            self::TESTIMONIALS_FULL_WIDTH => __('Full Width', 'rwmb')
+                        ),
+                        'multiple'    => false,
+                        'std'         => '',
+                        'placeholder' => __('Select the format', 'rwmb'),
+                    ),
+                )
+            )
+        );
+    }
+
     private function _define_testimonial_meta_boxes()
     {
         return array(
@@ -399,7 +434,7 @@ class MetaBoxes
                     ),
                     array(
                         'name' => __('Quote Photo', 'rwmb'),
-                        'id' => 'testimonial-quote-author',
+                        'id' => 'testimonial-quote-photo',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
                     )

@@ -204,7 +204,11 @@ class Theme
         // Get the name of the Page Template file.
         $template = get_post_meta($post_id, '_wp_page_template', true);
 
-        $hide_from_templates = array(MetaBoxes::HOMEPAGE_TEMPLATE, MetaBoxes::SERVICES_TEMPLATE);
+        $hide_from_templates = array(
+            MetaBoxes::HOMEPAGE_TEMPLATE,
+            MetaBoxes::SERVICES_TEMPLATE,
+            MetaBoxes::TESTIMONIALS_TEMPLATE
+        );
 
         if(in_array($template, $hide_from_templates)){ // the filename of the page template
             remove_post_type_support('page', 'editor');

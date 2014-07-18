@@ -61,7 +61,9 @@
                             <div class="form-full">
                                 <p>
                                     <textarea placeholder="How can we help?" rows="4" cols="45" name="describeJob">
-                                    </textarea></p><button type="button" class="btn btn-lg btn-success"><i class="fa fa-hand-o-right"></i> Send Your Message</button>
+                                    </textarea>
+                                </p>
+                                <button type="button" class="btn btn-lg btn-success"><i class="fa fa-hand-o-right"></i> Send Your Message</button>
                             </div>
                         </div>
                     </div>

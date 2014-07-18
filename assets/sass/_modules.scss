@@ -126,6 +126,11 @@ p.panel-testimonials__author {
         color: $primary-color;
     }
 }
+
+.testimonial-row {
+    @extend .group;
+}
+
 /* PANEL CLOSE */
  .panel-close {
     @include grid(1, 1);
