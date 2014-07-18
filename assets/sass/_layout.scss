@@ -210,7 +210,6 @@
         }
         a {
             display: block;
-            line-height: 1.2em;
             font-size: em(16px);
             padding-right: em(20px);
             padding-left: em(20px);
@@ -219,7 +218,7 @@
                 font-size: em(16px);
             }
         }
-        a.active {
+        &.is-active a {
             background-color: lighten($secondary-color, 5%);
             @include media(min, $tablet-large) {
                 border-bottom: 4px solid $primary-color;
@@ -227,13 +226,28 @@
             }
         }
     }
-    li.quote {
+    .quote {
+        display: none;
+
         @include media(min, $desktop) {
             float: right;
+            display: block;
             a {
                 background: $primary-color;
+                display: block;
+                font-size: em(16px);
+                padding-right: em(20px);
+                padding-left: em(20px);
+                line-height: em(35px);
+                @include media(min, $tablet-large) {
+                    font-size: em(16px);
+                }
             }
         }
+    }
+
+    .navigation {
+        float: left;
     }
 }
 .width-restrict {

@@ -150,6 +150,15 @@ p.panel-testimonials__author {
 }
 .panel-close__inner {
     text-align: center;
+
+    p {
+        font-size: 125%;
+        span, em {
+            background-color: #fffdcc;
+            padding: 1px 3px;
+            vertical-align: baseline;
+        }
+    }
 }
 .panel-close__block {
     margin-bottom: 1em;

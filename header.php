@@ -24,13 +24,19 @@
                 </div>
 
                 <div class="header__right">
-                    <div class="header__right--block">
-                        <h3><i class="fa fa-mobile"></i> <span class="header__right--mobile-num"><a href="tel:+13174562564">123-456-789</a></span></h3>
-                    </div>
+                    <?php $cell_number = get_option('tradesman_cell_number'); ?>
+                    <?php if ($cell_number) : ?>
+                        <div class="header__right--block">
+                            <h3><i class="fa fa-mobile"></i> <span class="header__right--mobile-num"><a href="tel:<?php echo $cell_number; ?>"><?php echo $cell_number; ?></a></span></h3>
+                        </div>
+                    <?php endif; ?>
 
-                    <div class="header__right--block">
-                        <h3><i class="fa fa-phone"></i> <span class="header__right--phone-num"><a href="tel:+13174562564">123-456-789</a></span></h3>
-                    </div>
+                    <?php $phone_number = get_option('tradesman_phone_number'); ?>
+                    <?php if ($phone_number) : ?>
+                        <div class="header__right--block">
+                            <h3><i class="fa fa-phone"></i> <span class="header__right--phone-num"><a href="tel:<?php echo $phone_number; ?>"><?php echo $phone_number; ?></a></span></h3>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -40,36 +46,8 @@
                         <nav class="m-main-navigation">
                             <a data-target="menu-toggle" class="menu-toggle" href="javascript:void(0);"><i class="fa fa-align-justify fa-2x"></i></a>
 
-                            <ul>
-                                <!-- Output like this to avoid 4px gap put in when using inline-block -->
-
-                                <li>
-                                    <a href="#" class="active">Home</a>
-                                </li>
-
-                                <li>
-                                    <a href="#">Services</a>
-                                </li>
-
-                                <li>
-                                    <a href="#">Testimonials</a>
-                                </li>
-
-                                <li>
-                                    <a href="#">About Us</a>
-                                </li>
-
-                                <li>
-                                    <a href="#">Contact Us</a>
-                                </li>
-
-                                <li class="quote">
-                                    <a href="#">Free Quote</a>
-                                </li>
-                            </ul>
-
                             <?php
-                            /*wp_nav_menu(
+                            wp_nav_menu(
                                 array(
                                     'theme_location' => 'header_navigation',
                                     'container' => 'nav',
@@ -79,34 +57,34 @@
                                     'depth' => 1,
                                     'walker' => new WordPress\Themes\Tradesman\Tradesman_Walker()
                                 )
-                            );*/
+                            );
                             ?>
+
+                            <div class="quote">
+                                <a href="#">Free Quote</a>
+                            </div>
                         </nav>
                     </div>
                 </div>
             </section>
 
             <?php if (is_front_page()) : ?>
+                <?php $post_id = get_option('page_on_front'); ?>
                 <div class="home-cta">
                     <div class="home-cta__inner">
                         <div class="home-cta__left">
-                            <h2>Why Choose Us?</h2>
+                            <h2><?php echo get_post_meta($post_id, 'home-cta-list-headline', true); ?></h2>
 
                             <ul class="home-cta__left--check-list fa-ul">
-                                <li><i class="fa fa-li fa-check-square-o"></i>Free Quote</li>
-
-                                <li><i class="fa fa-li fa-check-square-o"></i>No Call Out Charge</li>
-
-                                <li><i class="fa fa-li fa-check-square-o"></i>Full Guarantee on all Works</li>
-
-                                <li><i class="fa fa-li fa-check-square-o"></i>Available 24/7</li>
-
-                                <li><i class="fa fa-li fa-check-square-o"></i>Quote WEB10 and save 10%</li>
+                                <?php $items =  get_post_meta($post_id, 'home-cta-list-items', true); ?>
+                                <?php foreach ($items as $item) : ?>
+                                    <li><i class="fa fa-li fa-check-square-o"></i><?php echo $item;?></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
 
                         <div class="home-cta__right">
-                            <h2>Request Your Free Quote</h2>
+                            <h2><?php echo get_post_meta($post_id, 'home-cta-form-headline', true); ?></h2>
 
                             <div class="row">
                                 <div class="form-half">
@@ -127,7 +105,10 @@
                             </div>
                         </div>
 
-                        <div class="home-cta__right-far"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/tradesman-1.png"></div>
+                        <?php $attach_id =  get_post_meta($post_id, 'home-cta-image', true); ?>
+                        <?php if ($attach_id) : ?>
+                            <div class="home-cta__right-far"><img src="<?php echo wp_get_attachment_url($attach_id); ?>"></div>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endif; ?>

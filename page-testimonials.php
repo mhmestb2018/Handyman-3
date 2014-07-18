@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Home Page Template
+ Template Name: Testimonials Template
 */
 ?>
 <?php get_header(); ?>

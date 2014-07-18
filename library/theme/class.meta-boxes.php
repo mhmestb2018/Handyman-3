@@ -4,16 +4,44 @@ namespace Wordpress\Themes\Tradesman;
 
 class MetaBoxes
 {
+    const HOMEPAGE_TEMPLATE = 'page-home.php';
+    const ABOUT_TEMPLATE = 'page-about-us.php';
+    const CONTACT_TEMPLATE = 'page-contact.php';
+    const SERVICES_TEMPLATE = 'page-services.php';
+    const TESTIMONIALS_TEMPLATE = 'page-testimonials.php';
+
     public function get_meta_boxes()
     {
+        if (isset($_GET['post'])) {
+            $post_id = intval($_GET['post']);
+        } elseif (isset($_POST['post_ID'])) {
+            $post_id = intval($_POST['post_ID']);
+        } else {
+            $post_id = false;
+        }
+
+        $post_id = (int)$post_id;
+
+        $template = get_post_meta($post_id, '_wp_page_template', true);
+
         $meta_boxes = array_merge(
-            $this->_define_homepage_meta_boxes(),
             $this->_define_testimonial_meta_boxes(),
             $this->_define_service_meta_boxes(),
-            $this->_define_service_template_meta_boxes(),
-            $this->_define_about_template_meta_boxes(),
             $this->_define_team_member_meta_boxes()
         );
+
+        error_log($template);
+
+        if ($template == self::HOMEPAGE_TEMPLATE) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_homepage_meta_boxes());
+        } elseif ($template == self::CONTACT_TEMPLATE) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_contact_template_meta_boxes());
+        } elseif ($template == self::ABOUT_TEMPLATE) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_about_template_meta_boxes());
+        } elseif ($template == self::SERVICES_TEMPLATE) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_service_template_meta_boxes());
+        } elseif ($template == self::TESTIMONIALS_TEMPLATE) {
+        }
 
         return $meta_boxes;
     }
@@ -25,7 +53,7 @@ class MetaBoxes
                 'id' => 'home-cta',
                 'title' => __('Homepage CTA Fields', 'rwmb'),
                 'pages' => array('page'),
-                'template' => 'page-home.php',
+                'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
@@ -50,6 +78,12 @@ class MetaBoxes
                         'type' => 'text',
                         'std' => __('Request Your Free Quote', 'rwmb'),
                         'clone' => false,
+                    ),
+                    array(
+                        'name' => __('Header Image', 'rwmb'),
+                        'id' => 'home-cta-image',
+                        'type' => 'image_advanced',
+                        'max_file_uploads' => 1
                     )
                 )
             ),
@@ -57,7 +91,7 @@ class MetaBoxes
                 'id' => 'home-feature-blocks',
                 'title' => __('Homepage Feature Block Fields', 'rwmb'),
                 'pages' => array('page'),
-                'template' => 'page-home.php',
+                'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
@@ -126,7 +160,67 @@ class MetaBoxes
                         'type' => 'textarea',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
+                    )
+                )
+            ),
+            array(
+                'id' => 'home-testimonials',
+                'title' => __('Homepage Testimonials', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::HOMEPAGE_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name' => __('Testimonials Headline', 'rwmb'),
+                        'id' => 'home-testimonials-headline',
+                        'type' => 'text',
+                        'std' => __('', 'rwmb'),
+                        'clone' => false,
                     ),
+                    array(
+                        'name'    => __('Testimonials', 'rwmb'),
+                        'id'      => "home-testimonial-posts",
+                        'type'    => 'post',
+                        'post_type' => 'testimonials',
+                        'field_type' => 'select_advanced',
+                        'clone' => true,
+                        'query_args' => array(
+                            'post_status' => 'publish',
+                            'posts_per_page' => '-1',
+                        )
+                    )
+                )
+            ),
+            array(
+                'id' => 'home-bottom',
+                'title' => __('Homepage Bottom Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::HOMEPAGE_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name' => __('Bottom Headline', 'rwmb'),
+                        'id' => 'home-bottom-headline',
+                        'type' => 'text',
+                        'std' => __('', 'rwmb'),
+                        'clone' => false,
+                    ),
+                    array(
+                        'name' => __('Bottom Content', 'rwmb'),
+                        'id' => 'home-bottom-content',
+                        'type' => 'wysiwyg',
+                        'std' => __('', 'rwmb'),
+                        'clone' => false,
+                        'options' => array(
+                            'textarea_rows' => 10,
+                            'teeny'         => true,
+                            'media_buttons' => false,
+                        )
+                    )
                 )
             )
         );
@@ -139,11 +233,18 @@ class MetaBoxes
                 'id' => 'services-template',
                 'title' => __('Services Template Fields', 'rwmb'),
                 'pages' => array('page'),
-                'template' => 'page-services.php',
+                'template' => self::SERVICES_TEMPLATE,
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
                 'fields' => array(
+                    array(
+                        'name' => __('Page Headline', 'rwmb'),
+                        'id' => 'services-template-page-headline',
+                        'type' => 'text',
+                        'std' => __('', 'rwmb'),
+                        'clone' => false,
+                    ),
                     array(
                         'name' => __('Block Headline', 'rwmb'),
                         'id' => 'services-template-block-headline',
@@ -157,6 +258,11 @@ class MetaBoxes
                         'type' => 'wysiwyg',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
+                        'options' => array(
+                            'textarea_rows' => 10,
+                            'teeny'         => true,
+                            'media_buttons' => false,
+                        )
                     ),
                     array(
                         'name' => __('Form Headline', 'rwmb'),
@@ -184,7 +290,7 @@ class MetaBoxes
                 'id' => 'about-template',
                 'title' => __('About Template Fields', 'rwmb'),
                 'pages' => array('page'),
-                'template' => 'page-about-us.php',
+                'template' => self::ABOUT_TEMPLATE,
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
@@ -193,7 +299,65 @@ class MetaBoxes
                         'name' => __('Content Image', 'rwmb'),
                         'id' => 'about-template-image',
                         'type' => 'image_advanced',
+                        'max_file_uploads' => 1
+                    )
+                )
+            ),
+            array(
+                'id' => 'about-testimonials',
+                'title' => __('About Page Testimonials', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::ABOUT_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name'    => __('Testimonials', 'rwmb'),
+                        'id'      => "about-testimonial-posts",
+                        'type'    => 'post',
+                        'post_type' => 'testimonials',
+                        'field_type' => 'select_advanced',
+                        'clone' => true,
+                        'query_args' => array(
+                            'post_status' => 'publish',
+                            'posts_per_page' => '-1',
+                        )
+                    )
+                )
+            )
+        );
+    }
+
+    private function _define_contact_template_meta_boxes()
+    {
+        return array(
+            array(
+                'id' => 'contact-template',
+                'title' => __('Contact Page Template Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::CONTACT_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name' => __('Page Headline', 'rwmb'),
+                        'id' => 'contact-headline',
+                        'type' => 'text',
                         'clone' => false,
+                    ),
+                    array(
+                        'name'    => __('Testimonials', 'rwmb'),
+                        'id'      => "contact-testimonial-posts",
+                        'type'    => 'post',
+                        'post_type' => 'testimonials',
+                        'field_type' => 'select_advanced',
+                        'clone' => true,
+                        'query_args' => array(
+                            'post_status' => 'publish',
+                            'posts_per_page' => '-1',
+                        )
                     )
                 )
             )
@@ -237,29 +401,7 @@ class MetaBoxes
                         'name' => __('Quote Photo', 'rwmb'),
                         'id' => 'testimonial-quote-author',
                         'type' => 'image_advanced',
-                        'std' => __('', 'rwmb'),
-                        'clone' => false,
-                    ),
-                    array(
-                        'name' => __('Show on Homepage', 'rwmb'),
-                        'id'   => "testimonial-show-on-homepage",
-                        'type' => 'checkbox',
-                        'desc'  => __('Checking this box will cause the quote to appear on the homepage', 'rwmb'),
-                        'std'  => 0,
-                    ),
-                    array(
-                        'name' => __('Show on About Us Page', 'rwmb'),
-                        'id'   => "testimonial-show-on-about",
-                        'type' => 'checkbox',
-                        'desc'  => __('Checking this box will cause the quote to appear on the about us page', 'rwmb'),
-                        'std'  => 0,
-                    ),
-                    array(
-                        'name' => __('Show on Contact Us Page', 'rwmb'),
-                        'id'   => "testimonial-show-on-contact",
-                        'type' => 'checkbox',
-                        'desc'  => __('Checking this box will cause the quote to appear on the contact us page', 'rwmb'),
-                        'std'  => 0,
+                        'max_file_uploads' => 1
                     )
                 )
             )
@@ -281,7 +423,7 @@ class MetaBoxes
                         'name' => __('Header Image', 'rwmb'),
                         'id' => 'service-image',
                         'type' => 'image_advanced',
-                        'clone' => false,
+                        'max_file_uploads' => 1
                     ),
                     array(
                         'name' => __('Content', 'rwmb'),
@@ -289,6 +431,11 @@ class MetaBoxes
                         'type' => 'wysiwyg',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
+                        'options' => array(
+                            'textarea_rows' => 10,
+                            'teeny'         => true,
+                            'media_buttons' => false,
+                        )
                     )
                 )
             )
@@ -310,7 +457,7 @@ class MetaBoxes
                         'name' => __('Profile Picture', 'rwmb'),
                         'id' => 'team-member-image',
                         'type' => 'image_advanced',
-                        'clone' => false,
+                        'max_file_uploads' => 1
                     ),
                     array(
                         'name' => __('Job title', 'rwmb'),
@@ -324,6 +471,11 @@ class MetaBoxes
                         'type' => 'wysiwyg',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
+                        'options' => array(
+                            'textarea_rows' => 10,
+                            'teeny'         => true,
+                            'media_buttons' => false,
+                        )
                     )
                 )
             )

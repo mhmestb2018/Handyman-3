@@ -7,121 +7,67 @@
 
 <div class="home">
     <div class="container">
-        <section class="panel post-content panel-services">
-            <div class="panel__inner">
-                <div class="heading">
-                    <h1><i class="fa fa-wrench"></i> Our services</h1>
+        <?php if (have_posts()): the_post(); // load the page ?>
+            <?php $post_id = get_the_ID(); ?>
+            <section class="panel post-content panel-services">
+                <div class="panel__inner">
+                    <div class="heading">
+                        <h1><i class="fa fa-wrench"></i> <?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
+                    </div>
+
+                    <?php $args = array('post_type' => 'services'); ?>
+                    <?php $query = new WP_Query($args); ?>
+
+                    <?php if ($query->have_posts()) : ?>
+                        <?php while ($query->have_posts()) : ?>
+                            <?php $query->the_post(); ?>
+                            <?php $service_id = get_the_ID(); ?>
+                            <div class="panel-services__block">
+                                <?php $attach_id =  get_post_meta($service_id, 'service-image', true); ?>
+                                <?php if ($attach_id) : ?>
+                                    <img src="<?php echo wp_get_attachment_url($attach_id); ?>" alt="<?php the_title();?>" title="<?php the_title();?>">
+                                <?php endif; ?>
+                                <h3><?php the_title(); ?></h3>
+
+                                <?php echo get_post_meta($service_id, 'service-content', true); ?>
+                            </div>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
                 </div>
+            </section>
 
-                <div class="panel-services__block">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/service-1.jpg">
+            <section class="panel panel-why-us">
+                <div class="panel__inner">
+                    <div class="panel-why-us__choose">
+                        <h2><i class="fa fa-question-circle"></i> <?php echo get_post_meta($post_id, 'services-template-block-headline', true); ?></h2>
+                        <?php echo get_post_meta($post_id, 'services-template-block-content', true); ?>
+                    </div>
 
-                    <h3>Service 1</h3>
+                    <div class="panel-why-us__contact panel-contact">
+                        <h2><i class="fa fa-envelope-o"></i> <?php echo get_post_meta($post_id, 'services-template-form-headline', true); ?></h2>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        <p><?php echo get_post_meta($post_id, 'services-template-form-content', true); ?></p>
 
-                    <h4>Service 1 Services Include:</h4>
+                        <div class="row">
+                            <div class="form-half">
+                                <input type="text" placeholder="Name" value="" name="name">
+                            </div>
 
-                    <ul>
-                        <li>Same day service on water heater installation, service or repairs</li>
+                            <div class="form-half">
+                                <input type="text" placeholder="Email" value="" name="email">
+                            </div>
 
-                        <li>Repairs and service on all brands of water heaters</li>
-
-                        <li>Bradford White water heater installation</li>
-
-                        <li>Natural gas and electric water heater service</li>
-
-                        <li>Tankless water heater installation</li>
-
-                        <li>Remove and dispose of old water heaters</li>
-                    </ul>
-                </div>
-
-                <div class="panel-services__block">
-                    <img src="../tradesman-theme/assets/img/service-2.jpg">
-
-                    <h3>Service 2</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-
-                    <h4>Service 2 Services Include:</h4>
-
-                    <ul>
-                        <li>Same day service on water heater installation, service or repairs</li>
-
-                        <li>Repairs and service on all brands of water heaters</li>
-
-                        <li>Bradford White water heater installation</li>
-
-                        <li>Natural gas and electric water heater service</li>
-
-                        <li>Tankless water heater installation</li>
-
-                        <li>Remove and dispose of old water heaters</li>
-                    </ul>
-                </div>
-
-                <div class="panel-services__block">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/service-3.jpg">
-
-                    <h3>Toilet & Drain Unblocking</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-
-                    <h4>Toilet & Drain Services Include:</h4>
-
-                    <ul>
-                        <li>Same day service on water heater installation, service or repairs</li>
-
-                        <li>Repairs and service on all brands of water heaters</li>
-
-                        <li>Bradford White water heater installation</li>
-
-                        <li>Natural gas and electric water heater service</li>
-
-                        <li>Tankless water heater installation</li>
-
-                        <li>Remove and dispose of old water heaters</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="panel panel-why-us">
-            <div class="panel__inner">
-                <div class="panel-why-us__choose">
-                    <h2><i class="fa fa-question-circle"></i> Why Choose Us?</h2>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                </div>
-
-                <div class="panel-why-us__contact panel-contact">
-                    <h2><i class="fa fa-envelope-o"></i> Get in Touch</h2>
-
-                    <p>Whether you'd like to request a free quote or ask a question, please don't hesitate to get in touch</p>
-
-                    <div class="row">
-                        <div class="form-half">
-                            <input type="text" placeholder="Name" value="" name="name">
-                        </div>
-
-                        <div class="form-half">
-                            <input type="text" placeholder="Email" value="" name="email">
-                        </div>
-
-                        <div class="form-full">
-                            <p>
-                                <textarea placeholder="How can we help?" rows="4" cols="45" name="describeJob">
-                                </textarea></p><button type="button" class="btn btn-lg btn-success"><i class="fa fa-hand-o-right"></i> Send Your Message</button>
+                            <div class="form-full">
+                                <p>
+                                    <textarea placeholder="How can we help?" rows="4" cols="45" name="describeJob">
+                                    </textarea></p><button type="button" class="btn btn-lg btn-success"><i class="fa fa-hand-o-right"></i> Send Your Message</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>
     </div>
 </div>
 

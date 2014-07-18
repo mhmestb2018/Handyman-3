@@ -45,12 +45,12 @@
 		<p>
 			<label for="pbpanel_footer_showlinks"><?php echo __('Phone Number', 'tradesman'); ?></label>
 			<span class="helptext"><?php echo __('The phone number appears in the header of the website across all pages', 'tradesman'); ?></span>
-			<input type="text" name="pbpanel_footer_showlinks" id="pbpanel_footer_showlinks" value="<?php echo stripslashes_deep(get_option('tradesman_phone_number')); ?>">
+			<input type="text" name="tradesman_phone_number" id="tradesman_phone_number" value="<?php echo stripslashes_deep(get_option('tradesman_phone_number')); ?>">
 		</p>
             <p>
                 <label for="pbpanel_footer_showlinks"><?php echo __('Cell Phone Number', 'tradesman'); ?></label>
                 <span class="helptext"><?php echo __('The cell phone number appears in the header of the website across all pages', 'tradesman'); ?></span>
-                <input type="text" name="pbpanel_footer_showlinks" id="pbpanel_footer_showlinks" value="<?php echo stripslashes_deep(get_option('tradesman_cell_phone_number')); ?>">
+                <input type="text" name="tradesman_cell_number" id="tradesman_cell_number" value="<?php echo stripslashes_deep(get_option('tradesman_cell_number')); ?>">
             </p>
 		<p>
 			<label for="pbpanel_footer_copyright"><?php echo __('Footer text', 'tradesman'); ?></label>

@@ -2,59 +2,60 @@
 
 namespace Wordpress\Themes\Tradesman;
 
-class Theme {
+class Theme
+{
 
-	public $theme_information = FALSE;
+    public $theme_information = FALSE;
 
-	public function __construct()
-	{
-		$this->theme_information = $this->_get_theme_information();
-	}
+    public function __construct()
+    {
+        $this->theme_information = $this->_get_theme_information();
+    }
 
-	public function run()
-	{
-		// Instantiated classes and libraries.
-		$this->_register_utility();
-		$this->_manage_assets();
-		$this->_manage_plugin_dependencies();
-		$this->_manage_post_types();
-		$this->_manage_meta_boxes();
-		$this->_register_ajax_methods();
-		$this->_register_shortcodes();
+    public function run()
+    {
+        // Instantiated classes and libraries.
+        $this->_register_utility();
+        $this->_manage_assets();
+        $this->_manage_plugin_dependencies();
+        $this->_manage_post_types();
+        $this->_manage_meta_boxes();
+        $this->_register_ajax_methods();
+        $this->_register_shortcodes();
 
-		add_action('init', array($this, 'register_menus'));
-	}
+        add_action('init', array($this, 'register_menus'));
+        add_action('admin_init', array($this, 'hide_editor'));
+    }
 
-	private function _get_theme_information()
-	{
-		return wp_get_theme();
-	}
+    private function _get_theme_information()
+    {
+        return wp_get_theme();
+    }
 
-	private function _register_utility()
-	{
-		$this->_require_from_library('theme', 'class.utility.php');
-	}
+    private function _register_utility()
+    {
+        $this->_require_from_library('theme', 'class.utility.php');
+    }
 
-	private function _manage_assets()
-	{
-		$this->_require_from_library('theme', 'class.assets.php');
+    private function _manage_assets()
+    {
+        $this->_require_from_library('theme', 'class.assets.php');
 
-		$assets = new Assets();
-		$assets->register_assets();
-		$assets->enqueue_assets();
-	}
+        $assets = new Assets();
+        $assets->register_assets();
+        $assets->enqueue_assets();
+    }
 
-	private function _require_from_library($folder, $file)
-	{
-		$file = trailingslashit(STYLESHEETPATH . '/library/' . $folder) . $file;
+    private function _require_from_library($folder, $file)
+    {
+        $file = trailingslashit(STYLESHEETPATH . '/library/' . $folder) . $file;
 
-		if(!file_exists($file))
-		{
-			wp_die("The file at location {$file} doesn't exist. Check your paths!");
-		}
+        if (!file_exists($file)) {
+            wp_die("The file at location {$file} doesn't exist. Check your paths!");
+        }
 
-		require_once $file;
-	}
+        require_once $file;
+    }
 
 	private function _manage_plugin_dependencies()
 	{
@@ -161,8 +162,7 @@ class Theme {
 		register_nav_menus(
 			array(
 				'header_navigation' => __('Header Navigation'),
-				'footer_navigation' => __('Footer Navigation'),
-				'copyright_navigation' => __('Copyright Navigation')
+				'footer_navigation' => __('Footer Navigation')
 			)
 		);
 	}
@@ -178,4 +178,36 @@ class Theme {
 
 		require_once $file;
 	}
+
+    /**
+     * Hide editor on specific pages.
+     *
+     */
+    public function hide_editor()
+    {
+        // Get the Post ID.
+        $post_id = false;
+
+        if (isset($_GET['post'])) {
+            $post_id = $_GET['post'];
+        }
+
+        if (isset($_GET['post_ID'])) {
+            $post_id = $_GET['post_ID'];
+        }
+
+        if(!$post_id) {
+            return;
+        }
+
+        // Hide the editor on a page with a specific page template
+        // Get the name of the Page Template file.
+        $template = get_post_meta($post_id, '_wp_page_template', true);
+
+        $hide_from_templates = array(MetaBoxes::HOMEPAGE_TEMPLATE, MetaBoxes::SERVICES_TEMPLATE);
+
+        if(in_array($template, $hide_from_templates)){ // the filename of the page template
+            remove_post_type_support('page', 'editor');
+        }
+    }
 }
