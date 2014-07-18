@@ -219,6 +219,7 @@ class MetaBoxes
                         'id' => 'home-bottom-content',
                         'type' => 'wysiwyg',
                         'std' => __('', 'rwmb'),
+                        'description' => __('Use italics to produce the highlight', 'rwmb'),
                         'clone' => false,
                         'options' => array(
                             'textarea_rows' => 10,
@@ -301,6 +302,12 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
+                        'name' => __('Page Headline', 'rwmb'),
+                        'id' => 'about-template-page-headline',
+                        'type' => 'text',
+                        'clone' => false
+                    ),
+                    array(
                         'name' => __('Content Image', 'rwmb'),
                         'id' => 'about-template-image',
                         'type' => 'image_advanced',
@@ -308,6 +315,24 @@ class MetaBoxes
                     )
                 )
             ),
+            array(
+                'id' => 'about-team',
+                'title' => __('About Team Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::ABOUT_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name' => __('Team Headline', 'rwmb'),
+                        'id' => 'about-template-team-headline',
+                        'type' => 'text',
+                        'clone' => false
+                    )
+                )
+            ),
+
             array(
                 'id' => 'about-testimonials',
                 'title' => __('About Page Testimonials', 'rwmb'),
@@ -318,6 +343,12 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
+                        'name' => __('Testimonials Headline', 'rwmb'),
+                        'id' => 'about-template-testimonials-headline',
+                        'type' => 'text',
+                        'clone' => false
+                    ),
+                    array(
                         'name'    => __('Testimonials', 'rwmb'),
                         'id'      => "about-testimonial-posts",
                         'type'    => 'post',
@@ -327,6 +358,38 @@ class MetaBoxes
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                        )
+                    )
+                )
+            ),
+
+            array(
+                'id' => 'about-bottom',
+                'title' => __('About Page Bottom Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::HOMEPAGE_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name' => __('Bottom Headline', 'rwmb'),
+                        'id' => 'about-bottom-headline',
+                        'type' => 'text',
+                        'std' => __('', 'rwmb'),
+                        'clone' => false,
+                    ),
+                    array(
+                        'name' => __('Bottom Content', 'rwmb'),
+                        'id' => 'about-bottom-content',
+                        'description' => __('Use italics to produce the highlight', 'rwmb'),
+                        'type' => 'wysiwyg',
+                        'std' => __('', 'rwmb'),
+                        'clone' => false,
+                        'options' => array(
+                            'textarea_rows' => 10,
+                            'teeny'         => true,
+                            'media_buttons' => false,
                         )
                     )
                 )
@@ -352,6 +415,23 @@ class MetaBoxes
                         'type' => 'text',
                         'clone' => false,
                     ),
+                )
+            ),
+            array(
+                'id' => 'contact-testimonials',
+                'title' => __('Contact Page Testimonials', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::ABOUT_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
+                    array(
+                        'name' => __('Testimonials Headline', 'rwmb'),
+                        'id' => 'contact-template-testimonials-headline',
+                        'type' => 'text',
+                        'clone' => false
+                    ),
                     array(
                         'name'    => __('Testimonials', 'rwmb'),
                         'id'      => "contact-testimonial-posts",
@@ -365,7 +445,7 @@ class MetaBoxes
                         )
                     )
                 )
-            )
+            ),
         );
     }
 
