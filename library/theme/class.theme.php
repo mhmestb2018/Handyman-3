@@ -122,6 +122,9 @@ class Theme {
 		$this->_require_from_library('theme', 'class.post-types.php');
 
 		$post_types = new PostTypes();
+        add_action('init', array($post_types, 'register_testimonials_post_type'));
+        add_action('init', array($post_types, 'register_services_post_type'));
+        add_action('init', array($post_types, 'register_team_members_post_type'));
 	}
 
 	private function _manage_meta_boxes()
@@ -132,9 +135,9 @@ class Theme {
 		$this->_require_from_library('meta-box', 'meta-box.php');
 		$this->_require_from_library('theme', 'class.meta-boxes.php');
 
-		$meta_boxes = new MetaBoxes();
-
-		add_filter('rwmb_meta_boxes', array($meta_boxes, 'get_meta_boxes'));
+        $meta_boxes = new MetaBoxes();
+        //$meta_boxes = $meta_boxes_obj->get_meta_boxes();
+        add_filter('rwmb_meta_boxes', array($meta_boxes, 'get_meta_boxes'));
 	}
 
 	private function _register_ajax_methods()

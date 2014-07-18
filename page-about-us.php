@@ -30,7 +30,7 @@
                 <h2>Meet The Team</h2>
 
                 <div class="panel-meet-team__team-member">
-                    <img src="../tradesman-theme/assets/img/team-1.jpg">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/team-1.jpg">
 
                     <h3>Team name</h3>
 
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="panel-meet-team__team-member">
-                    <img src="../tradesman-theme/assets/img/team-1.jpg">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/team-1.jpg">
 
                     <h3>Team name</h3>
 
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="panel-meet-team__team-member">
-                    <img src="../tradesman-theme/assets/img/team-1.jpg">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/team-1.jpg">
 
                     <h3>Team name</h3>
 
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="panel-meet-team__team-member">
-                    <img src="../tradesman-theme/assets/img/team-1.jpg">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/team-1.jpg">
 
                     <h3>Team name</h3>
 
