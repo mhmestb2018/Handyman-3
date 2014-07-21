@@ -5,7 +5,7 @@
 ?>
 <?php get_header(); ?>
 
-<div class="home">
+<div class="wrapper">
     <div class="container">
         <?php if (have_posts()): the_post(); // load the page ?>
             <?php $post_id = get_the_ID(); ?>
@@ -50,21 +50,7 @@
                         <p><?php echo get_post_meta($post_id, 'services-template-form-content', true); ?></p>
 
                         <div class="row">
-                            <div class="form-half">
-                                <input type="text" placeholder="Name" value="" name="name">
-                            </div>
-
-                            <div class="form-half">
-                                <input type="text" placeholder="Email" value="" name="email">
-                            </div>
-
-                            <div class="form-full">
-                                <p>
-                                    <textarea placeholder="How can we help?" rows="4" cols="45" name="describeJob">
-                                    </textarea>
-                                </p>
-                                <button type="button" class="btn btn-lg btn-success"><i class="fa fa-hand-o-right"></i> Send Your Message</button>
-                            </div>
+                            <?php echo do_shortcode(get_post_meta($post_id, 'services-template-form-shortcode', true)); ?>
                         </div>
                     </div>
                 </div>

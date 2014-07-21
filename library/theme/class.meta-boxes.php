@@ -85,6 +85,14 @@ class MetaBoxes
                         'clone' => false,
                     ),
                     array(
+                        'name' => __('Form Shortcode', 'rwmb'),
+                        'id' => 'home-cta-form-shortcode',
+                        'type' => 'text',
+                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
+                        'clone' => false,
+                    ),
+                    array(
                         'name' => __('Header Image', 'rwmb'),
                         'id' => 'home-cta-image',
                         'type' => 'image_advanced',
@@ -283,6 +291,14 @@ class MetaBoxes
                         'type' => 'textarea',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
+                    ),
+                    array(
+                        'name' => __('Form Shortcode', 'rwmb'),
+                        'id' => 'services-template-form-shortcode',
+                        'type' => 'text',
+                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
+                        'clone' => false,
                     )
                 )
             )
@@ -329,6 +345,18 @@ class MetaBoxes
                         'id' => 'about-template-team-headline',
                         'type' => 'text',
                         'clone' => false
+                    ),
+                    array(
+                        'name'    => __('Team Members', 'rwmb'),
+                        'id'      => "about-team-posts",
+                        'type'    => 'post',
+                        'post_type' => 'team-members',
+                        'field_type' => 'select_advanced',
+                        'clone' => true,
+                        'query_args' => array(
+                            'post_status' => 'publish',
+                            'posts_per_page' => '-1',
+                        )
                     )
                 )
             ),
@@ -415,6 +443,14 @@ class MetaBoxes
                         'type' => 'text',
                         'clone' => false,
                     ),
+                    array(
+                        'name' => __('Form Shortcode', 'rwmb'),
+                        'id' => 'contact-form-shortcode',
+                        'type' => 'text',
+                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
+                        'clone' => false,
+                    )
                 )
             ),
             array(

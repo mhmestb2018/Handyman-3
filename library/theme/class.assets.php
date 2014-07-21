@@ -80,8 +80,8 @@ class Assets extends Theme {
 	private function _get_front_end_scripts()
 	{
 		$scripts = (object) array(
-			'front-end' => (object) array(
-				'source' => get_stylesheet_directory_uri() . '/assets/scripts/front-end.min.js',
+			'tradesman-main' => (object) array(
+				'source' => get_stylesheet_directory_uri() . '/assets/js/main.js',
 				'dependencies' => array('jquery'),
 				'version' => $this->theme_information->Version,
 				'in_footer' => TRUE
@@ -151,12 +151,12 @@ class Assets extends Theme {
 		$gravity_forms_private_key = $gravity_forms_settings['private_key'];
 		$gravity_forms_public_key = $gravity_forms_settings['public_key'];
 
-		wp_enqueue_script('front-end');
+		wp_enqueue_script('tradesman-main');
 		$translation_array = array(
 			'stylesheet_directory_uri' => get_stylesheet_directory_uri(),
 			'gf_public_key' => $gravity_forms_public_key,
 			'gf_private_key' => $gravity_forms_private_key
 		);
-		wp_localize_script('front-end', 'wordpress', $translation_array);
+		wp_localize_script('tradesman-main', 'wordpress', $translation_array);
 	}
 }

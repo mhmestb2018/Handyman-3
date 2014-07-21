@@ -14,24 +14,26 @@
 	<body <?php body_class(); ?>>
         <header class="header">
             <div class="header__inner">
-                <!--[if lt IE 10]>
-                <div class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a class="button is-white is-outlined" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-                <![endif]-->
                 <div class="header__left">
                     <div class="title">
-                        <a rel="home" title="TradePLumber" href="/">TRADE<span>PLUMBER</span></a>
+                        <?php
+                            $company_name = of_get_option('tradesman_company_name');
+                            $name_start = substr($company_name, 0, strpos($company_name, ' '));
+                            $name_end = substr($company_name, strpos($company_name, ' ')+1);
+                        ?>
+                        <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>"><?php echo $name_start; ?><span><?php echo $name_end; ?></span></a>
                     </div>
                 </div>
 
                 <div class="header__right">
-                    <?php $cell_number = get_option('tradesman_cell_number'); ?>
+                    <?php $cell_number = of_get_option('tradesman_cell_number'); ?>
                     <?php if ($cell_number) : ?>
                         <div class="header__right--block">
                             <h3><i class="fa fa-mobile"></i> <span class="header__right--mobile-num"><a href="tel:<?php echo $cell_number; ?>"><?php echo $cell_number; ?></a></span></h3>
                         </div>
                     <?php endif; ?>
 
-                    <?php $phone_number = get_option('tradesman_phone_number'); ?>
+                    <?php $phone_number = of_get_option('tradesman_phone_number'); ?>
                     <?php if ($phone_number) : ?>
                         <div class="header__right--block">
                             <h3><i class="fa fa-phone"></i> <span class="header__right--phone-num"><a href="tel:<?php echo $phone_number; ?>"><?php echo $phone_number; ?></a></span></h3>
@@ -50,8 +52,8 @@
                             wp_nav_menu(
                                 array(
                                     'theme_location' => 'header_navigation',
-                                    'container' => 'nav',
-                                    'container_class' => 'navigation',
+                                    'container' => '',
+                                    'container_class' => '',
                                     'menu_class' => 'navigation__items',
                                     'items_wrap' => '<ul class="%2$s">%3$s</ul>',
                                     'depth' => 1,
@@ -87,21 +89,7 @@
                             <h2><?php echo get_post_meta($post_id, 'home-cta-form-headline', true); ?></h2>
 
                             <div class="row">
-                                <div class="form-half">
-                                    <input type="text" name="name" value="" placeholder="Name">
-                                </div>
-
-                                <div class="form-half">
-                                    <input type="text" name="email" value="" placeholder="Email">
-                                </div>
-
-                                <div class="form-full">
-                                    <p>
-                                        <textarea name="describeJob" cols="45" rows="4" placeholder="Describe your job">
-                                        </textarea></p>
-
-                                    <p><button class="btn btn-lg btn-success" type="button"><i class="fa fa-hand-o-right"></i> Get Your Quote</button></p>
-                                </div>
+                                <?php echo do_shortcode(get_post_meta($post_id, 'home-cta-form-shortcode', true)); ?>
                             </div>
                         </div>
 

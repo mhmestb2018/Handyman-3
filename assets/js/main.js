@@ -13,11 +13,11 @@
         this.ajaxObject = {};
         this.ajaxDelay = 200;
 
-        this.modernizerChecks = function() {
+        /*this.modernizerChecks = function() {
             if(Modernizr.input.placeholder) {
                 $('html').addClass('placeholder');
             }
-        };
+        };*/
 
         this.touchScroll = function() {
             $(window).on('touchmove', function() {
@@ -144,20 +144,12 @@
             } */
         };
 
-        this.instagramFeed = function() {
-            $("#instagram-feed").jqinstapics({
-                "user_id": "9416756",
-                "access_token": "9416756.674061d.b61b721b7e244ebfa936f2e064ba733a",
-                "count": 6
-            });
-        };
 
         this.appInit = function() {
-            contractor.modernizerChecks();
+            //contractor.modernizerChecks();
             contractor.touchScroll();
 
             //contractor.homepageSlider();
-            contractor.instagramFeed();
             contractor.navigation();
         };
 

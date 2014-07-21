@@ -25,6 +25,7 @@
         font-weight: bold;
         color: $secondary-color;
         font-size: 30px;
+        text-transform: uppercase;
         @include media(min, $mobile-landscape) {
             font-size: 30px;
             float: left;
@@ -81,10 +82,10 @@
     }
 }
 /* LEFT & RIGHT */
- .home {
-    //padding: 0 20px;
-
+ .wrapper {
+    padding: 0 20px;
 }
+
 .home-left {
     padding: 0 20px;
     @include media(min, $tablet) {

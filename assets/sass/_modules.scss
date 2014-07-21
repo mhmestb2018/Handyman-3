@@ -214,7 +214,7 @@ p.panel-testimonials__author {
     padding: $grid-gutter;
     border-bottom: 1px solid $border-color-primary;
     @include media(min, $tablet) {
-        padding: 2em 1em;
+        padding: 2em 1em 0;
     }
     @extend .group;
     h2:before {
@@ -264,11 +264,7 @@ p.panel-testimonials__author {
     @include media(min, $desktopmax) {
         @include grid(7, 16);
     }
-    input[type="submit"] {
-        background-color: $green;
-        color: #fff;
-        border: none;
-    }
+
     input[type="text"] {
         float: left;
         @include media(min, $mobile-landscape) {
@@ -296,7 +292,7 @@ p.panel-testimonials__author {
         display: block;
         img {
             position: absolute;
-            bottom: -28px;
+            bottom: 0;
             right: 0;
             height: 290px;
         }
@@ -327,11 +323,7 @@ p.panel-testimonials__author {
  .panel-contact {
     @extend .group;
     border-bottom: 1px solid $border-color-primary;
-    input[type="submit"] {
-        background-color: $green;
-        color: #fff;
-        border: none;
-    }
+
     input[type="text"] {
         float: left;
         @include media(min, $mobile-landscape) {

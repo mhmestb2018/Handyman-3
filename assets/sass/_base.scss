@@ -111,21 +111,31 @@ input[type="text"], input[type="email"], input[type="url"], input[type="search"]
     @include transition(background-color 300ms ease-outs);
     @include border-radius(4px);
 }
+
+
 input[type="submit"] {
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+    background-color: #5cb85c;
+    border: 1px solid #4cae4c;
+    color: #fff;
     cursor: pointer;
-    margin: 0;
-    padding: 13px 20px;
-    border: 1px solid #fff;
-    border-radius: 0;
-    background-color: #EEE;
-    color: #000;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    -webkit-appearance: none;
-    @include transition(background-color 300ms ease-out);
-    @include border-radius(4px);
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: #449d44;
+        border-color: #398439;
+        color: #fff;
+    }
 }
+
+
 .red {
     color: $red;
 }
@@ -362,9 +372,9 @@ input[type="submit"] {
     margin-top: 5px;
 }
 /* PULL */
- img.pull-left {
+ img.alignleft {
     margin-right: 20px;
 }
-img.pull-right {
+img.alignright {
     margin-left: 20px;
 }

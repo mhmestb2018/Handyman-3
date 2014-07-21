@@ -5,7 +5,7 @@
 ?>
 <?php get_header(); ?>
 
-<div class="home">
+<div class="wrapper">
     <div class="container">
         <?php if (have_posts()): the_post(); // load the page ?>
             <?php

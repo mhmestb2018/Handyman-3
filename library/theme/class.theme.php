@@ -16,6 +16,7 @@ class Theme
     {
         // Instantiated classes and libraries.
         $this->_register_utility();
+        $this->_register_widgets();
         $this->_manage_assets();
         $this->_manage_plugin_dependencies();
         $this->_manage_post_types();
@@ -35,6 +36,13 @@ class Theme
     private function _register_utility()
     {
         $this->_require_from_library('theme', 'class.utility.php');
+    }
+
+    private function _register_widgets()
+    {
+        $this->_require_from_library('theme', 'class.sidebars.php');
+        $this->_require_from_library('theme', 'class.gmap.widget.php');
+        $this->_require_from_library('theme', 'class.services.widget.php');
     }
 
     private function _manage_assets()
@@ -105,16 +113,16 @@ class Theme
 	private function _get_plugin_dependencies()
 	{
 		return array(
-			array(
+			/*array(
 				'name' => 'Force Strong Passwords',
 				'slug' => 'force-strong-passwords',
 				'required' => TRUE,
-			),
-			array(
+			),*/
+			/*array(
 				'name' => 'WordPress SEO',
 				'slug' => 'wordpress-seo',
 				'required' => TRUE,
-			)
+			)*/
 		);
 	}
 
