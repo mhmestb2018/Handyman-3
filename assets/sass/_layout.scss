@@ -114,6 +114,7 @@
     @extend .group;
     ul {
         margin-bottom: 0;
+        float: left;
     }
     a {
         color: $font-color-secondary;
