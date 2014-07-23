@@ -18,10 +18,17 @@
                     <div class="title">
                         <?php
                             $company_name = of_get_option('tradesman_company_name');
+                            $pos = strpos($company_name, ' ');
                             $name_start = substr($company_name, 0, strpos($company_name, ' '));
                             $name_end = substr($company_name, strpos($company_name, ' ')+1);
                         ?>
-                        <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>"><?php echo $name_start; ?><span><?php echo $name_end; ?></span></a>
+                        <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>">
+                            <?php if ($pos === false) : ?>
+                                <?php echo $company_name; ?>
+                            <?php else: ?>
+                                <?php echo $name_start; ?><span><?php echo $name_end; ?></span>
+                            <?php endif; ?>
+                        </a>
                     </div>
                 </div>
 
@@ -79,9 +86,11 @@
 
                             <ul class="home-cta__left--check-list fa-ul">
                                 <?php $items =  get_post_meta($post_id, 'home-cta-list-items', true); ?>
-                                <?php foreach ($items as $item) : ?>
-                                    <li><i class="fa fa-li fa-check-square-o"></i><?php echo $item;?></li>
-                                <?php endforeach; ?>
+                                <?php if ($items) : ?>
+                                    <?php foreach ($items as $item) : ?>
+                                        <li><i class="fa fa-li fa-check-square-o"></i><?php echo $item;?></li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </ul>
                         </div>
 

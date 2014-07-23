@@ -32,17 +32,11 @@
                         <h1><?php the_title(); ?></h1>
                     </div>
 
-
-
-                    <?php $args = array('post_type' => 'testimonials'); ?>
-                    <?php $query = new WP_Query($args); ?>
-
-                    <?php if ($query->have_posts()) : ?>
+                    <?php $testimonials = get_post_meta($post_id, 'testimonial-posts', true); ?>
+                    <?php if (is_array($testimonials) && count($testimonials) > 0) : ?>
                         <?php $count = 1; ?>
-                        <?php while ($query->have_posts()) : ?>
-                            <?php $query->the_post(); ?>
-                            <?php $testimonial_id = get_the_ID(); ?>
-
+                        <?php foreach ($testimonials as $testimonial) : ?>
+                            <?php $testimonial_id = $testimonial; ?>
                             <?php if ($count % $row_size == 1 || $row_size == 1) : ?>
                                 <?php if ($count != 1) :  //close the row ?>
                                     </div>
@@ -56,18 +50,17 @@
                             <div class="panel-testimonials__block<?php echo $format_class; ?>">
                                 <?php if ($attach_id) : ?>
                                     <img src="<?php echo wp_get_attachment_url($attach_id); ?>">
-                                    <div class="testimonial">
+                                        <div class="testimonial">
                                 <?php endif; ?>
-                                    <i class="fa fa-quote-left fa-2x pull-left"></i>
-                                    <p><?php echo get_post_meta($testimonial_id, 'testimonial-quote-text', true); ?></p>
-                                    <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial_id, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
+                                <i class="fa fa-quote-left fa-2x pull-left"></i>
+                                <p><?php echo get_post_meta($testimonial_id, 'testimonial-quote-text', true); ?></p>
+                                <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial_id, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
                                 <?php if ($attach_id) : ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
                             <?php $count++; ?>
-                        <?php endwhile; ?>
-                        </div> <!-- close the last row -->
+                        <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
             </section>

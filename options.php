@@ -34,10 +34,22 @@ function optionsframework_options() {
         'type' => 'heading');
 
     $options[] = array(
-        'name' => __('Company Name', 'options_framework_theme'),
+        'name' => __('Logo Text', 'options_framework_theme'),
         'desc' => __('', 'options_framework_theme'),
         'id' => 'tradesman_company_name',
         'type' => 'text');
+
+    $options[] = array(
+        'name' => __('Logo Image', 'options_framework_theme'),
+        'desc' => __('', 'options_framework_theme'),
+        'id' => 'tradesman_company_logo',
+        'type' => 'upload');
+
+    $options[] = array(
+        'name' => __('Logo Image Retina (2x)', 'options_framework_theme'),
+        'desc' => __('', 'options_framework_theme'),
+        'id' => 'tradesman_company_logo_retina',
+        'type' => 'upload');
 
     $options[] = array(
         'name' => __('Phone Number', 'options_framework_theme'),

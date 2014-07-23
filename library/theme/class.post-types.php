@@ -16,14 +16,15 @@ class PostTypes
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,
-            'rewrite' => array('slug' => 'testimonials'),
+            //'rewrite' => array('slug' => 'testimonials'),
             'publicly_queryable' => true,
             'query_var' => 'people',
             'show_in_nav_menus' => true,
             'show_ui' => true,
             'show_in_menu' => true,
             'can_export' => true,
-            'exclude_from_search' => false
+            'exclude_from_search' => false,
+            'menu_icon' => 'dashicons-format-chat'
         );
 
         register_post_type('testimonials', $arguments);
@@ -41,14 +42,15 @@ class PostTypes
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,
-            'rewrite' => array('slug' => 'services'),
+            //'rewrite' => array('slug' => 'services'),
             'publicly_queryable' => true,
             'query_var' => 'people',
             'show_in_nav_menus' => true,
             'show_ui' => true,
             'show_in_menu' => true,
             'can_export' => true,
-            'exclude_from_search' => false
+            'exclude_from_search' => false,
+            'menu_icon' => 'dashicons-hammer'
         );
 
         register_post_type('services', $arguments);
@@ -66,14 +68,15 @@ class PostTypes
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,
-            'rewrite' => array('slug' => 'team-member'),
+            //'rewrite' => array('slug' => 'team-member'),
             'publicly_queryable' => true,
             'query_var' => 'people',
             'show_in_nav_menus' => true,
             'show_ui' => true,
             'show_in_menu' => true,
             'can_export' => true,
-            'exclude_from_search' => false
+            'exclude_from_search' => false,
+            'menu_icon' => 'dashicons-admin-users'
         );
 
         register_post_type('team-members', $arguments);

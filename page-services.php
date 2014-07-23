@@ -15,24 +15,21 @@
                         <h1><i class="fa fa-wrench"></i> <?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
                     </div>
 
-                    <?php $args = array('post_type' => 'services'); ?>
-                    <?php $query = new WP_Query($args); ?>
-
-                    <?php if ($query->have_posts()) : ?>
-                        <?php while ($query->have_posts()) : ?>
-                            <?php $query->the_post(); ?>
+                    <?php $services = get_post_meta($post_id, 'service-posts', true); ?>
+                    <?php if (is_array($services) && count($services) > 0) : ?>
+                        <?php foreach ($services as $service) : ?>
+                            <?php $service_post = get_post($service); ?>
                             <?php $service_id = get_the_ID(); ?>
                             <div class="panel-services__block">
-                                <?php $attach_id =  get_post_meta($service_id, 'service-image', true); ?>
+                                <?php $attach_id =  get_post_meta($service, 'service-image', true); ?>
                                 <?php if ($attach_id) : ?>
-                                    <img src="<?php echo wp_get_attachment_url($attach_id); ?>" alt="<?php the_title();?>" title="<?php the_title();?>">
+                                    <img src="<?php echo wp_get_attachment_url($attach_id); ?>" alt="<?php echo $service_post->post_title;?>" title="<?php echo $service_post->post_title;?>">
                                 <?php endif; ?>
-                                <h3><?php the_title(); ?></h3>
+                                <h3><?php echo $service_post->post_title;?></h3>
 
-                                <?php echo get_post_meta($service_id, 'service-content', true); ?>
+                                <?php echo get_post_meta($service, 'service-content', true); ?>
                             </div>
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
+                        <?php endforeach;?>
                     <?php endif; ?>
                 </div>
             </section>

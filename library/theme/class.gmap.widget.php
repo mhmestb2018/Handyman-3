@@ -20,7 +20,7 @@ class tradesman_gmap_widget extends WP_Widget
         // This is where you run the code and display the output
         echo '<h3>' . $args['before_title'] . $instance['title'] .  $args['after_title'] . '</h3>';
         echo '<div class="google-maps">';
-        echo '<iframe src="' . $instance['gmap_url']. '" width="400" height="300" frameborder="0" style="border:0"></iframe>';
+        echo html_entity_decode($instance['gmap_url']);
         echo '</div>';
         echo '<address>';
         echo nl2br($instance['address']);
@@ -59,7 +59,7 @@ class tradesman_gmap_widget extends WP_Widget
                    value="<?php echo esc_attr($title); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('gmap_url'); ?>"><?php _e('Google Maps Embed URL:'); ?></label>
+            <label for="<?php echo $this->get_field_id('gmap_url'); ?>"><?php _e('Google Maps Embed:'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('gmap_url'); ?>"
                    name="<?php echo $this->get_field_name('gmap_url'); ?>" type="text"
                    value="<?php echo esc_attr($gmap_url); ?>"/>
@@ -77,7 +77,7 @@ class tradesman_gmap_widget extends WP_Widget
     {
         $instance = array();
         $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-        $instance['gmap_url'] = (!empty($new_instance['gmap_url'])) ? strip_tags($new_instance['gmap_url']) : '';
+        $instance['gmap_url'] = (!empty($new_instance['gmap_url'])) ? esc_html($new_instance['gmap_url']) : '';
         $instance['address'] = (!empty($new_instance['address'])) ? strip_tags($new_instance['address']) : '';
         return $instance;
     }

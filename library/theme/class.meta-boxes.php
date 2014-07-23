@@ -260,6 +260,18 @@ class MetaBoxes
                         'clone' => false,
                     ),
                     array(
+                        'name'    => __('Services', 'rwmb'),
+                        'id'      => "service-posts",
+                        'type'    => 'post',
+                        'post_type' => 'services',
+                        'field_type' => 'select_advanced',
+                        'clone' => true,
+                        'query_args' => array(
+                            'post_status' => 'publish',
+                            'posts_per_page' => '-1',
+                        )
+                    ),
+                    array(
                         'name' => __('Block Headline', 'rwmb'),
                         'id' => 'services-template-block-headline',
                         'type' => 'text',
@@ -510,6 +522,18 @@ class MetaBoxes
                         'std'         => '',
                         'placeholder' => __('Select the format', 'rwmb'),
                     ),
+                    array(
+                        'name'    => __('Testimonials', 'rwmb'),
+                        'id'      => "testimonial-posts",
+                        'type'    => 'post',
+                        'post_type' => 'testimonials',
+                        'field_type' => 'select_advanced',
+                        'clone' => true,
+                        'query_args' => array(
+                            'post_status' => 'publish',
+                            'posts_per_page' => '-1',
+                        )
+                    )
                 )
             )
         );
