@@ -30,7 +30,7 @@
             <?php if (is_array($team_members) && count($team_members) > 0) : ?>
                 <section class="panel panel-meet-team">
                     <div class="panel__inner">
-                        <h2><?php echo get_post_meta($post_id, 'about-template-team-headline', true); ?></h2>
+                        <h2><?php echo the_title(); ?></h2>
 
                         <?php foreach ($team_members as $team_member) : ?>
                             <?php $team_member_post = get_post($team_member); ?>
