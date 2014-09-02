@@ -18,7 +18,7 @@ class tradesman_gmap_widget extends WP_Widget
         echo $args['before_widget'];
 
         // This is where you run the code and display the output
-        echo '<h3>' . $args['before_title'] . $instance['title'] .  $args['after_title'] . '</h3>';
+        echo '<h3><span>' . $args['before_title'] . $instance['title'] .  $args['after_title'] . '</span></h3>';
         echo '<div class="google-maps">';
         echo html_entity_decode($instance['gmap_url']);
         echo '</div>';

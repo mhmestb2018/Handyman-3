@@ -62,7 +62,7 @@
 			background: rgb(250, 250, 250);
 		}
 
-		section { padding-top: 150px; }
+		section {     padding-bottom: 50px; padding-top: 12px; }
 		
 		section li {
 			padding: 2px;
@@ -214,8 +214,7 @@
 					</ol>
 
 
-					<p><span class="label label-warning">Important</span> After activation, you will be presented with several plugins that you <strong>have to activate</strong>. Do not 
-					forget to activate them all or not all of the theme features will be available.</p>
+					<p><span class="label label-warning">Important</span> After activation, you will be presented with several plugins that you <strong>must activate</strong> in order for all of the theme features to be available.</p>
 
 					<h3>Sample Content Import (optional)</h3>
 
@@ -225,7 +224,7 @@
                         most likely will <storng>fail</storng> on shared web hosts. Uncheck "import attachments" option if it fails and try again.
                     </p>
 
-					<p><span class="label label-warning">Warning</span> Please <strong>do not</strong> import content on a WordPress installation that already has a lot of content. Or the very least, make a backup first. A catastrophic mess can be created.</p>
+					<p><span class="label label-important">Warning</span> Please <strong>do not</strong> import content on a WordPress installation that already has a lot of content. Or the very least, make a backup first. A catastrophic mess can be created.</p>
 
 					<ol>
 						<li>
@@ -269,7 +268,7 @@
 				<section id="creating-pages">
 					
 					<div class="page-header">
-						<h1>Creating Pages</h1>
+						<h1><a href="#creating-pages">Creating Pages</a></h1>
 					</div>
 					
 					<p>The Tradesman Theme comes equipped with several page templates. Each of the templates achieves a specific page layout that is demonstrated on the <a href="#">demo site</a>.</p>
@@ -326,13 +325,13 @@
 
                     <p>The homepage serves as the front page of your website. It is the first thing the user will see when they arrive. You can see an example of what the homepage looks like on the <a href="#">demo site</a>.</p>
 
-                    <p>When creating the homepage, make sure to select the <strong>Homepage Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
+                    <p>When creating the homepage, make sure to select the <strong>Homepage Template</strong>. Refer to <a href="#creating-pages"><a href="#creating-pages">Creating Pages</a></a> for instructions on how to create a new page.</p>
 
                     <h3>Hompeage Template Fields</h3>
 
                     <ol>
                         <li>
-                            Call to Action Fields
+                            Benefits and Quote Request Form
                             <ul>
                                 <li>The <strong>Form Shortcode</strong> field expects a shortcode for a Contact Form 7 form</li>
                                 <li><p>Refer to the <a href="#setup-contact-forms">Setup Contact Forms</a> section for instructions on how to generate the shortcode.</p></li>
@@ -341,12 +340,12 @@
                             <img src="assets/img/tradesman-screens/homepage/cta-fields.png" alt="Homepage CTA Fields" class="img-polaroid" />
                         </li>
                         <li>
-                            <p>Feature Block Fields</p>
+                            <p>Features Block Fields</p>
                             <img src="assets/img/tradesman-screens/homepage/features.png" alt="Homepage Features" class="img-polaroid" />
                             <img src="assets/img/tradesman-screens/homepage/feature-fields.png" alt="Homepage Features Fields" class="img-polaroid" />
                         </li>
                         <li>
-                            Testimonial Fields
+                            Testimonial Block Fields
                             <ul>
                                 <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
                                 <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.</li>
@@ -356,7 +355,7 @@
                             <img src="assets/img/tradesman-screens/homepage/testimonial-fields.png" alt="Homepage Testimonial Fields" class="img-polaroid" />
                         </li>
                         <li>
-                            <p>Bottom Fields</p>
+                            <p>Call to Action Block Fields</p>
                             <img src="assets/img/tradesman-screens/homepage/bottom.png" alt="Homepage Bottom" class="img-polaroid" />
                             <img src="assets/img/tradesman-screens/homepage/bottom-fields.png" alt="Homepage Bottom Fields" class="img-polaroid" />
                         </li>
@@ -371,7 +370,7 @@
                             <p>Go to <strong>Settings > Reading</strong>.</p>
                             <img src="assets/img/tradesman-screens/homepage/settings-reading.png" alt="Homepage Bottom" class="img-polaroid" />
                         </li>
-                        <li>Choose <strong>"A static page"</strong> option for <em>Front page displays</em>.</li>
+                        <li>Under <em>Front page displays</em> choose <strong>"A static page"</strong> option.</li>
                         <li>
                             <p>Next to <em>Front Page</em>, select the page you created to be used as the homepage.</p>
                             <img src="assets/img/tradesman-screens/homepage/frontpage-settings.png" alt="Homepage Bottom" class="img-polaroid" />
@@ -410,21 +409,21 @@
                         <h1>Services Page</h1>
                     </div>
 
-                    <p>Blurb about the services page</p>
-                    <p>When creating the services page, make sure to select the <strong>Services Template</strong>. Refer to Creating Pages for instructions on how to create a new page.</p>
+                    <p>The services page is for you to list the services you provide to your customers. The services page includes a contact form to enable the visitor to quickly contact you without leaving the page, helping increase conversions.</p>
+                    <p>When creating the services page, make sure to select the <strong>Services Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>Services Template Fields</h3>
 
                     <ul>
                         <li>The <strong>Services</strong> field will allow you to select existing services from the dropdown.</li>
                         <li>Refer to the <a href="#adding-services">Adding Services</a> section for details on how to create the services that appear in the dropdown.</li>
-                        <li>The Services page supports 3 services.</li>
+                        <li>You can add as many services as you like, on desktop they will appear 3 in a row.</li>
                     </ul>
                     <img src="assets/img/tradesman-screens/services-template/services-1.png" alt="Services Template" class="img-polaroid" />
                     <img src="assets/img/tradesman-screens/services-template/services-1-fields.png" alt="Services Template Fields" class="img-polaroid" />
                     <p>&nbsp;</p>
                     <ul>
-                        <li>The Form Shortcode field expects a shortcode for a Contact Form 7 form</li>
+                        <li>The Form Shortcode field requires a shortcode from the plugin: Contact Form 7</li>
                         <li>Refer to the <a href="#setup-contact-forms">Setup Contact Forms</a> section for instructions on how to generate the shortcode.</li>
                     </ul>
                     <img src="assets/img/tradesman-screens/services-template/services-2.png" alt="Services Template 2" class="img-polaroid" />
@@ -436,15 +435,15 @@
                     <div class="page-header">
                         <h1>Testimonials Page</h1>
                     </div>
-                    <p>Blurb about the testimonials page</p>
-                    <p>When creating the testimonials page, make sure to select the <strong>Testimonials Template</strong>. Refer to Creating Pages for instructions on how to create a new page.</p>
+                    <p>The testimonials page is for you to show off the awesome things your customers have to say about you. Try to include as much information about each customer, this will ensure the testimonial looks legit.</p>
+                    <p>When creating the testimonials page, make sure to select the <strong>Testimonials Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>Testimonials Template Fields</h3>
                     <ul>
-                        <li>The <strong>Testimonial Format</strong> specifies the page layout for the page. The testimonials can be formatted to show 1, 2, or 3 per row.</li>
+                        <li>The <strong>Testimonial Format</strong> specifies the layout for the page. The testimonials can be formatted to show 1, 2, or 3 per row.</li>
+                        <li>You can add unlimited testimonials.</li>
                         <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
-                        <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.</li>
-                        <li><p>The homepage supports 3 testimonials.</p></li>
+                        <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials.</li>
                     </ul>
                     <img src="assets/img/tradesman-screens/testimonials/testimonials.png" alt="Testimonials Template" class="img-polaroid" />
                     <img src="assets/img/tradesman-screens/testimonials/testimonial-fields.png" alt="Testimonials Template Fields" class="img-polaroid" />
@@ -455,8 +454,8 @@
                     <div class="page-header">
                         <h1>About Us Page</h1>
                     </div>
-                    <p>Blurb about the about us page</p>
-                    <p>When creating the about us page, make sure to select the <strong>About Us Template</strong>. Refer to Creating Pages for instructions on how to create a new page.</p>
+                    <p>The about us page is for you tell your visitors all about your company and what makes it unique. On this page you can also add your team members, testimonials and a call to action at the bottom of the page to aid conversions.</p>
+                    <p>When creating the about us page, make sure to select the <strong>About Us Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>About Us Template Fields</h3>
 
@@ -467,22 +466,22 @@
                             <img src="assets/img/tradesman-screens/about/about-fields.png" alt="About Top Fields" class="img-polaroid" />
                         </li>
                         <li>
-                            <p>Team Fields</p>
+                            <p>Meet The Team Block Fields</p>
                             <img src="assets/img/tradesman-screens/about/about-team.png" alt="About Team" class="img-polaroid" />
                             <img src="assets/img/tradesman-screens/about/about-team-fields.png" alt="About Team Fields" class="img-polaroid" />
                         </li>
                         <li>
-                            Testimonial Fields
+                            Testimonials Block Fields
                             <ul>
                                 <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
-                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.</li>
-                                <li><p>The about page supports 3 testimonials.</p></li>
+                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials.</li>
+                                <li><p>The about page supports up to 3 testimonials.</p></li>
                             </ul>
                             <img src="assets/img/tradesman-screens/about/about-testimonials.png" alt="About Testimonials" class="img-polaroid" />
                             <img src="assets/img/tradesman-screens/about/about-testimonial-fields.png" alt="About Testimonial Fields" class="img-polaroid" />
                         </li>
                         <li>
-                            <p>Bottom Fields</p>
+                            <p>Call to Action Fields</p>
                             <img src="assets/img/tradesman-screens/about/about-bottom.png" alt="About Bottom" class="img-polaroid" />
                             <img src="assets/img/tradesman-screens/about/about-bottom-fields.png" alt="About Bottom Fields" class="img-polaroid" />
                         </li>
@@ -494,8 +493,8 @@
                     <div class="page-header">
                         <h1>Contact Us Page</h1>
                     </div>
-                    <p>Blurb about the contact us page</p>
-                    <p>When creating the contact us page, make sure to select the <strong>Contact Us Template</strong>. Refer to Creating Pages for instructions on how to create a new page.</p>
+                    <p>The contact us page is for your to provide details on how your customers can contact you. This page also supports testimonials to aid conversions.h </p>
+                    <p>When creating the contact us page, make sure to select the <strong>Contact Us Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>Contact Us Template Fields</h3>
 
@@ -523,12 +522,8 @@
                     <div class="page-header">
                         <h1>Default Page</h1>
                     </div>
-                    <p>Blurb about the default page</p>
-                    <p>When creating a default page, make sure to select the <strong>Default Template</strong>. Refer to Creating Pages for instructions on how to create a new page.</p>
-
-                    <h3>Default Template Fields</h3>
-                    <img src="assets/img/tradesman-screens/default/default.png" alt="Testimonials Template" class="img-polaroid" />
-                    <img src="assets/img/tradesman-screens/default/default-fields.png" alt="Testimonials Template Fields" class="img-polaroid" />
+                    <p>The default template is for you to create additional pages, for example a privacy policy.</p>
+                    <p>When creating a default page, make sure to select the <strong>Default Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                 </section>
 
@@ -605,6 +600,7 @@
                     <h3>Team Member Fields</h3>
 
                     <img src="assets/img/tradesman-screens/team/team-member.png" alt="Testimonial" class="img-polaroid" />
+                    <div class="clearfix"></div>
                     <img src="assets/img/tradesman-screens/team/team-member-fields.png" alt="Testimonial Fields" class="img-polaroid" />
 
                 </section>
@@ -872,6 +868,7 @@
                     <h4>Google Map Widget Fields</h4>
 
                     <img src="assets/img/tradesman-screens/widgets/google-map.png" style="margin-right: 8px;" alt="Google Map" class="img-polaroid" />
+                    <div class="clearfix"></div>
                     <img src="assets/img/tradesman-screens/widgets/google-map-fields.png" alt="Google Map" class="img-polaroid" />
 
                     <h3>Tradesman Services Widget</h3>
@@ -881,6 +878,7 @@
                     <h4>Services Widget Fields</h4>
 
                     <img src="assets/img/tradesman-screens/widgets/services.png" style="margin-right: 8px;" alt="Services Widget" class="img-polaroid" />
+                    <div class="clearfix"></div>
                     <img src="assets/img/tradesman-screens/widgets/service-fields.png" alt="Services Widget Fields" class="img-polaroid" />
 
                 </section>

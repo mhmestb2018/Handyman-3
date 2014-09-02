@@ -20,7 +20,7 @@ class tradesman_services_widget extends WP_Widget
         $services = preg_split('/$\R?^/m', $instance['services']);
 
         // This is where you run the code and display the output
-        echo '<h3>' . $args['before_title'] . $instance['title'] .  $args['after_title'] . '</h3>';
+        echo '<h3><span>' . $args['before_title'] . $instance['title'] .  $args['after_title'] . '</span></h3>';
         echo '<ul class="fa-ul">';
 
         foreach ($services as $service) {

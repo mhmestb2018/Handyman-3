@@ -38,7 +38,7 @@ p {
 h1, h2, h3, h4, h5 {
     font-family:'Raleway', sans-serif;
     font-weight: 600;
-    color: darken($font-color-primary, 30);
+    color: $secondary-color;
     margin-bottom: 15px;
 }
 h1 {
@@ -118,8 +118,8 @@ input[type="submit"] {
     font-size: 18px;
     line-height: 1.33;
     padding: 10px 16px;
-    background-color: #5cb85c;
-    border: 1px solid #4cae4c;
+    background-color: $primary-color;
+    border: 1px solid;
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -127,30 +127,18 @@ input[type="submit"] {
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
+    -webkit-transition: background 1s ease;
+	-moz-transition: background 1s ease;
+	-ms-transition: background 1s ease;
+	transition: background 1s ease;
+	animation: 0.5s ease 8s both flip;
 
     &:hover {
-        background-color: #449d44;
-        border-color: #398439;
+        background-color: darken($primary-color, 10%);
         color: #fff;
     }
 }
 
-
-.red {
-    color: $red;
-}
-.green {
-    color: $green;
-}
-.orage {
-    color: $orange;
-}
-.blue {
-    color: $blue;
-}
-.purple {
-    color: $purple;
-}
 .row {
     margin: none;
     margin-left: -15px;

@@ -52,8 +52,7 @@
                                     <img src="<?php echo wp_get_attachment_url($attach_id); ?>">
                                         <div class="testimonial">
                                 <?php endif; ?>
-                                <i class="fa fa-quote-left fa-2x pull-left"></i>
-                                <p><?php echo get_post_meta($testimonial_id, 'testimonial-quote-text', true); ?></p>
+                                <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial_id, 'testimonial-quote-text', true); ?></p>
                                 <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial_id, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
                                 <?php if ($attach_id) : ?>
                                     </div>

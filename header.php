@@ -97,17 +97,18 @@
                         <div class="home-cta__right">
                             <h2><?php echo get_post_meta($post_id, 'home-cta-form-headline', true); ?></h2>
 
-                            <div class="row">
+                            <div class="home-cta__holder">
                                 <?php echo do_shortcode(get_post_meta($post_id, 'home-cta-form-shortcode', true)); ?>
                             </div>
                         </div>
 
-                        <?php $attach_id =  get_post_meta($post_id, 'home-cta-image', true); ?>
-                        <?php if ($attach_id) : ?>
-                            <div class="home-cta__right-far"><img src="<?php echo wp_get_attachment_url($attach_id); ?>"></div>
-                        <?php endif; ?>
                     </div>
+                    <div class="home-cta__background">
+                	<div class="header-pattern"></div>
+                	</div>
+                	
                 </div>
+                
             <?php endif; ?>
         </header>
 		
