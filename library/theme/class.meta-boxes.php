@@ -14,8 +14,36 @@ class MetaBoxes
     const TESTIMONIALS_2_WIDE = '2wide';
     const TESTIMONIALS_FULL_WIDTH = 'fullwidth';
 
+
+
     public function get_meta_boxes()
     {
+        $icons = array(
+            'fa-bolt' => 'Bolt',
+            'fa-bullhorn' => 'Bull Horn',
+            'fa-car' => 'Car',
+            'fa-check-square-o' => 'Check Box',
+            'fa-cog' => 'Cog/Gear',
+            'fa-envelope-o' => 'Envelop',
+            'fa-home' => 'Home',
+            'fa-lightbulb-o' => 'Light Bulb',
+            'fa-mobile' => 'Mobile Phone',
+            'fa-phone' => 'Phone',
+            'fa-road' => 'Road',
+            'fa-star' => 'Star',
+            'fa-thumbs-o-up' => 'Thumbs Up',
+            'fa-truck' => 'Truck',
+            'fa-wrench' => 'Wrench',
+            'fa-fire' => 'Fire',
+            'fa-info-circle' => 'Info Circle',
+            'fa-search' => 'Search',
+            'fa-tint' => 'Tint',
+            'fa-twitter' => 'Twitter',
+            'fa-facebook' => 'Facebook',
+            'fa-youtube' => 'Youtube'
+        );
+
+
         if (isset($_GET['post'])) {
             $post_id = intval($_GET['post']);
         } elseif (isset($_POST['post_ID'])) {
@@ -34,10 +62,9 @@ class MetaBoxes
             $this->_define_team_member_meta_boxes()
         );
 
-        error_log($template);
 
         if ($template == self::HOMEPAGE_TEMPLATE) {
-            $meta_boxes = array_merge($meta_boxes, $this->_define_homepage_meta_boxes());
+            $meta_boxes = array_merge($meta_boxes, $this->_define_homepage_meta_boxes($icons));
         } elseif ($template == self::CONTACT_TEMPLATE) {
             $meta_boxes = array_merge($meta_boxes, $this->_define_contact_template_meta_boxes());
         } elseif ($template == self::ABOUT_TEMPLATE) {
@@ -51,12 +78,12 @@ class MetaBoxes
         return $meta_boxes;
     }
 
-    private function _define_homepage_meta_boxes()
+    private function _define_homepage_meta_boxes($icons)
     {
         return array(
             array(
                 'id' => 'home-cta',
-                'title' => __('Homepage CTA Fields', 'rwmb'),
+                'title' => __('Header Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
@@ -64,36 +91,37 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('List Headline', 'rwmb'),
+                        'name' => __('Benefits Title', 'rwmb'),
                         'id' => 'home-cta-list-headline',
                         'type' => 'text',
-                        'std' => __('Why Choose Us?', 'rwmb'),
+                        'placeholder' => __('Why Choose Us?', 'rwmb'),
+                        'desc' => __('(e.g. Benefits)', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('List Items', 'rwmb'),
+                        'name' => __('Benefits', 'rwmb'),
                         'id' => 'home-cta-list-items',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'clone' => true,
                     ),
                     array(
-                        'name' => __('Form Headline', 'rwmb'),
+                        'name' => __('Form Title', 'rwmb'),
                         'id' => 'home-cta-form-headline',
                         'type' => 'text',
-                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'placeholder' => __('Request Your Free Quote', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
                         'name' => __('Form Shortcode', 'rwmb'),
                         'id' => 'home-cta-form-shortcode',
                         'type' => 'text',
-                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'std' => __('', 'rwmb'),
                         'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Header Image', 'rwmb'),
+                        'name' => __('Your Photo', 'rwmb'),
                         'id' => 'home-cta-image',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
@@ -102,7 +130,7 @@ class MetaBoxes
             ),
             array(
                 'id' => 'home-feature-blocks',
-                'title' => __('Homepage Feature Block Fields', 'rwmb'),
+                'title' => __('Feature Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
@@ -110,14 +138,16 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Feature 1 Icon', 'rwmb'),
-                        'id' => 'home-feature-1-icon',
-                        'type' => 'text',
-                        'std' => __('', 'rwmb'),
-                        'clone' => false,
+                        'name'     => __('Feture 1 Icon', 'rwmb'),
+                        'id'       => "home-feature-1-icon",
+                        'type'     => 'select',
+                        'options'  => $icons,
+                        'multiple'    => false,
+                        'std'         => '',
+                        'placeholder' => __('Select an Icon', 'rwmb'),
                     ),
                     array(
-                        'name' => __('Feature 1 Headline', 'rwmb'),
+                        'name' => __('Feature 1 Title', 'rwmb'),
                         'id' => 'home-feature-1-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
@@ -132,14 +162,16 @@ class MetaBoxes
                     ),
 
                     array(
-                        'name' => __('Feature 2 Icon', 'rwmb'),
-                        'id' => 'home-feature-2-icon',
-                        'type' => 'text',
-                        'std' => __('', 'rwmb'),
-                        'clone' => false,
+                        'name'     => __('Feture 2 Icon', 'rwmb'),
+                        'id'       => "home-feature-2-icon",
+                        'type'     => 'select',
+                        'options'  => $icons,
+                        'multiple'    => false,
+                        'std'         => '',
+                        'placeholder' => __('Select an Icon', 'rwmb'),
                     ),
                     array(
-                        'name' => __('Feature 2 Headline', 'rwmb'),
+                        'name' => __('Feature 2 Title', 'rwmb'),
                         'id' => 'home-feature-2-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
@@ -154,14 +186,16 @@ class MetaBoxes
                     ),
 
                     array(
-                        'name' => __('Feature 3 Icon', 'rwmb'),
-                        'id' => 'home-feature-3-icon',
-                        'type' => 'text',
-                        'std' => __('', 'rwmb'),
-                        'clone' => false,
+                        'name'     => __('Feture 3 Icon', 'rwmb'),
+                        'id'       => "home-feature-3-icon",
+                        'type'     => 'select',
+                        'options'  => $icons,
+                        'multiple'    => false,
+                        'std'         => '',
+                        'placeholder' => __('Select an Icon', 'rwmb'),
                     ),
                     array(
-                        'name' => __('Feature 3 Headline', 'rwmb'),
+                        'name' => __('Feature 3 Title', 'rwmb'),
                         'id' => 'home-feature-3-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
@@ -178,7 +212,7 @@ class MetaBoxes
             ),
             array(
                 'id' => 'home-testimonials',
-                'title' => __('Homepage Testimonials', 'rwmb'),
+                'title' => __('Testimonials Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
@@ -186,10 +220,11 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Testimonials Headline', 'rwmb'),
+                        'name' => __('Titile', 'rwmb'),
                         'id' => 'home-testimonials-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
+                        'desc' => __('(e.g. Testimonials)', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
@@ -199,6 +234,7 @@ class MetaBoxes
                         'post_type' => 'testimonials',
                         'field_type' => 'select_advanced',
                         'clone' => true,
+                        'desc' => __('You can have a maximum of 3 testimonials on the homepage. Click the blue [+] button to the right to add another testimonial and then use the dropdown to select the testimonial you\'d like to add', 'rwmb'),
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
@@ -208,7 +244,7 @@ class MetaBoxes
             ),
             array(
                 'id' => 'home-bottom',
-                'title' => __('Homepage Bottom Fields', 'rwmb'),
+                'title' => __('Call To Action Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
@@ -216,14 +252,14 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Bottom Headline', 'rwmb'),
+                        'name' => __('Title', 'rwmb'),
                         'id' => 'home-bottom-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Bottom Content', 'rwmb'),
+                        'name' => __('Content', 'rwmb'),
                         'id' => 'home-bottom-content',
                         'type' => 'wysiwyg',
                         'std' => __('', 'rwmb'),
@@ -322,7 +358,7 @@ class MetaBoxes
         return array(
             array(
                 'id' => 'about-template',
-                'title' => __('About Template Fields', 'rwmb'),
+                'title' => __('Introduction Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::ABOUT_TEMPLATE,
                 'context' => 'normal',
@@ -330,13 +366,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Page Headline', 'rwmb'),
-                        'id' => 'about-template-page-headline',
-                        'type' => 'text',
-                        'clone' => false
-                    ),
-                    array(
-                        'name' => __('Content Image', 'rwmb'),
+                        'name' => __('Featured Image', 'rwmb'),
                         'id' => 'about-template-image',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
@@ -345,7 +375,7 @@ class MetaBoxes
             ),
             array(
                 'id' => 'about-team',
-                'title' => __('About Team Fields', 'rwmb'),
+                'title' => __('Meet The Team Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::ABOUT_TEMPLATE,
                 'context' => 'normal',
@@ -353,7 +383,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Team Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'about-template-team-headline',
                         'type' => 'text',
                         'clone' => false
@@ -375,7 +405,7 @@ class MetaBoxes
 
             array(
                 'id' => 'about-testimonials',
-                'title' => __('About Page Testimonials', 'rwmb'),
+                'title' => __('Testimonials Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::ABOUT_TEMPLATE,
                 'context' => 'normal',
@@ -383,7 +413,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Testimonials Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'about-template-testimonials-headline',
                         'type' => 'text',
                         'clone' => false
@@ -405,7 +435,7 @@ class MetaBoxes
 
             array(
                 'id' => 'about-bottom',
-                'title' => __('About Page Bottom Fields', 'rwmb'),
+                'title' => __('Call To Action Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::HOMEPAGE_TEMPLATE,
                 'context' => 'normal',
@@ -413,14 +443,14 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Bottom Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'about-bottom-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Bottom Content', 'rwmb'),
+                        'name' => __('Block Content', 'rwmb'),
                         'id' => 'about-bottom-content',
                         'description' => __('Use italics to produce the highlight', 'rwmb'),
                         'type' => 'wysiwyg',
@@ -442,7 +472,7 @@ class MetaBoxes
         return array(
             array(
                 'id' => 'contact-template',
-                'title' => __('Contact Page Template Fields', 'rwmb'),
+                'title' => __('Contact Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::CONTACT_TEMPLATE,
                 'context' => 'normal',
@@ -450,7 +480,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Page Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'contact-headline',
                         'type' => 'text',
                         'clone' => false,
@@ -467,7 +497,7 @@ class MetaBoxes
             ),
             array(
                 'id' => 'contact-testimonials',
-                'title' => __('Contact Page Testimonials', 'rwmb'),
+                'title' => __('Testimonials Block', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::ABOUT_TEMPLATE,
                 'context' => 'normal',
@@ -475,7 +505,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Testimonials Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'contact-template-testimonials-headline',
                         'type' => 'text',
                         'clone' => false
@@ -502,7 +532,7 @@ class MetaBoxes
         return array(
             array(
                 'id' => 'testimonials-template',
-                'title' => __('Testimonials Template Fields', 'rwmb'),
+                'title' => __('Testimonials', 'rwmb'),
                 'pages' => array('page'),
                 'template' => self::CONTACT_TEMPLATE,
                 'context' => 'normal',
@@ -510,7 +540,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name'     => __( 'Testimonial Format', 'rwmb' ),
+                        'name'     => __( 'Format', 'rwmb' ),
                         'id'       => "testimonials-format",
                         'type'     => 'select',
                         'options'  => array(
@@ -595,7 +625,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Header Image', 'rwmb'),
+                        'name' => __('Photo', 'rwmb'),
                         'id' => 'service-image',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
@@ -629,7 +659,7 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Profile Picture', 'rwmb'),
+                        'name' => __('Team Member Photo', 'rwmb'),
                         'id' => 'team-member-image',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
@@ -641,7 +671,7 @@ class MetaBoxes
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Content', 'rwmb'),
+                        'name' => __('Job Description', 'rwmb'),
                         'id' => 'team-member-content',
                         'type' => 'wysiwyg',
                         'std' => __('', 'rwmb'),

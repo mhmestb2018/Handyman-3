@@ -15,9 +15,11 @@
                         <div class="panel__inner panel-features__inner">
                             <div class="panel-features__block">
                                 <div class="panel-features__block--tile">
+                                    <?php $icon = get_post_meta($post_id, 'home-feature-1-icon', true); ?>
+                                    <?php $icon = $icon ? $icon : 'fa-question'; ?>
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-dollar fa-stack-1x fa-inverse"></i>
+                                        <i class="fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
                                     </span>
                                     <h3><?php echo get_post_meta($post_id, 'home-feature-1-headline', true); ?></h3>
                                     <p><?php echo get_post_meta($post_id, 'home-feature-1-content', true); ?></p>
@@ -25,9 +27,11 @@
                             </div>
                             <div class="panel-features__block">
                                 <div class="panel-features__block--tile">
+                                    <?php $icon = get_post_meta($post_id, 'home-feature-1-icon', true); ?>
+                                    <?php $icon = $icon ? $icon : 'fa-question'; ?>
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
+                                        <i class="fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
                                     </span>
                                     <h3><?php echo get_post_meta($post_id, 'home-feature-2-headline', true); ?></h3>
                                     <p><?php echo get_post_meta($post_id, 'home-feature-2-content', true); ?></p>
@@ -35,9 +39,11 @@
                             </div>
                             <div class="panel-features__block">
                                 <div class="panel-features__block--tile">
+                                    <?php $icon = get_post_meta($post_id, 'home-feature-1-icon', true); ?>
+                                    <?php $icon = $icon ? $icon : 'fa-question'; ?>
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                                        <i class="fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
                                     </span>
                                     <h3><?php echo get_post_meta($post_id, 'home-feature-3-headline', true); ?></h3>
                                     <p><?php echo get_post_meta($post_id, 'home-feature-3-content', true); ?></p>

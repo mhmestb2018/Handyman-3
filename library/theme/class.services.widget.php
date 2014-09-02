@@ -53,11 +53,12 @@ class tradesman_services_widget extends WP_Widget
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
                    name="<?php echo $this->get_field_name('title'); ?>" type="text"
-                   value="<?php echo esc_attr($title); ?>"/>
+                   value="<?php echo esc_attr($title); ?>"
+                   placeholder="e.g. Our Services"/>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('services'); ?>"><?php _e('Services:'); ?></label>
-            <textarea class="widefat" rows="5" id="<?php echo $this->get_field_id('services'); ?>" name="<?php echo $this->get_field_name('services'); ?>"><?php echo esc_attr($services); ?></textarea>
+            <textarea class="widefat" rows="5" placeholder="One Service Per Line" id="<?php echo $this->get_field_id('services'); ?>" name="<?php echo $this->get_field_name('services'); ?>"><?php echo esc_attr($services); ?></textarea>
         </p>
     <?php
     }
