@@ -103,8 +103,9 @@
                         </div>
 
                     </div>
-                    <div class="home-cta__background">
-                	<div class="header-pattern"></div>
+                    <?php $bg_image = get_post_meta($post_id, 'home-cta-bg-image', true); ?>
+                    <div class="home-cta__background"<?php if ($bg_image) : ?> style="background-image: url('<?php echo wp_get_attachment_url($bg_image);?>')"<?php endif; ?>>
+                	    <div class="header-pattern"></div>
                 	</div>
                 	
                 </div>

@@ -26,6 +26,14 @@ function optionsframework_option_name() {
  */
 
 function optionsframework_options() {
+    $color_scheme_array = array(
+        'default' => 'Default',
+        'blue' => 'Blue',
+        'orange' => 'Orange',
+        'purple' => 'Purple',
+        'red' => 'Red',
+        'yellow' => 'Yellow'
+    );
 
     $options = array();
 
@@ -50,6 +58,14 @@ function optionsframework_options() {
         'desc' => __('', 'options_framework_theme'),
         'id' => 'tradesman_company_logo_retina',
         'type' => 'upload');
+
+    $options[] = array(
+        "name" => "Color Scheme",
+        "id" => "tradesman_color_scheme",
+        "std" => "fresh",
+        "type" => "select",
+        "class" => "mini", //mini, tiny, small
+        "options" => $color_scheme_array);
 
     $options[] = array(
         'name' => __('Phone Number', 'options_framework_theme'),

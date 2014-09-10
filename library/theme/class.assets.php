@@ -21,6 +21,9 @@ class Assets extends Theme {
 
 	private function _get_front_end_stylesheets()
 	{
+        $color_scheme = of_get_option('tradesman_color_scheme');
+        $color_scheme = $color_scheme ? $color_scheme : 'default';
+
 		$stylesheets = (object) array(
             'font-awesome' => (object) array(
                 'source' => get_stylesheet_directory_uri() . '/assets/css/icon-font/font-awesome.css',
@@ -28,7 +31,7 @@ class Assets extends Theme {
                 'version' => $this->theme_information->Version
             ),
 			'front-end' => (object) array(
-				'source' => get_stylesheet_directory_uri() . '/assets/css/app.css',
+				'source' => get_stylesheet_directory_uri() . '/assets/css/app-'.$color_scheme.'.css',
 				'dependencies' => FALSE,
 				'version' => $this->theme_information->Version
 			)

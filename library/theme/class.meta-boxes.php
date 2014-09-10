@@ -120,9 +120,15 @@ class MetaBoxes
                         'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
                         'clone' => false,
                     ),
-                    array(
+                    /*array(
                         'name' => __('Your Photo', 'rwmb'),
                         'id' => 'home-cta-image',
+                        'type' => 'image_advanced',
+                        'max_file_uploads' => 1
+                    ),*/
+                    array(
+                        'name' => __('Background Image', 'rwmb'),
+                        'id' => 'home-cta-bg-image',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
                     )
@@ -294,7 +300,18 @@ class MetaBoxes
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
-                    ),
+                    )
+                )
+            ),
+            array(
+                'id' => 'services-block-template',
+                'title' => __('Services Block Template Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::SERVICES_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
                     array(
                         'name'    => __('Services', 'rwmb'),
                         'id'      => "service-posts",
@@ -306,9 +323,20 @@ class MetaBoxes
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
                         )
-                    ),
+                    )
+                )
+            ),
+            array(
+                'id' => 'services-about-template',
+                'title' => __('About Block Template Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::SERVICES_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
                     array(
-                        'name' => __('Block Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'services-template-block-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
@@ -325,23 +353,34 @@ class MetaBoxes
                             'teeny'         => true,
                             'media_buttons' => false,
                         )
-                    ),
+                    )
+                )
+            ),
+            array(
+                'id' => 'services-contact-template',
+                'title' => __('Contact Block Template Fields', 'rwmb'),
+                'pages' => array('page'),
+                'template' => self::SERVICES_TEMPLATE,
+                'context' => 'normal',
+                'priority' => 'high',
+                'autosave' => true,
+                'fields' => array(
                     array(
-                        'name' => __('Form Headline', 'rwmb'),
+                        'name' => __('Block Title', 'rwmb'),
                         'id' => 'services-template-form-headline',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Form Content', 'rwmb'),
+                        'name' => __('Block Content', 'rwmb'),
                         'id' => 'services-template-form-content',
                         'type' => 'textarea',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Form Shortcode', 'rwmb'),
+                        'name' => __('Contact Shortcode', 'rwmb'),
                         'id' => 'services-template-form-shortcode',
                         'type' => 'text',
                         'std' => __('Request Your Free Quote', 'rwmb'),
