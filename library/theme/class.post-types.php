@@ -42,7 +42,7 @@ class PostTypes
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,
-            //'rewrite' => array('slug' => 'services'),
+            'rewrite' => array('slug' => 'service'),
             'publicly_queryable' => true,
             'query_var' => 'people',
             'show_in_nav_menus' => true,
