@@ -130,6 +130,7 @@ h1, h2, h3, h4, h5 {
         @include grid(1, 1);
     }
 }
+
 p.panel-testimonials__author {
     font-weight: bold;
     margin-top: 10px;
@@ -417,6 +418,7 @@ p.panel-testimonials__author {
     margin-bottom: 30px;
     text-align: center;
     img {
+        margin: 0 auto;
         @include border-radius(10px);
     }
     h3 {
@@ -430,14 +432,29 @@ p.panel-testimonials__author {
     }
     p.team-description {
     }
+
     @include media(min, $mobile-landscape) {
         @include grid(6, 12);
         float: left;
     }
-    @include media(min, $tablet) {
-        @include grid(3, 12);
+}
+
+.panel-meet-team-4-wide {
+    .panel-meet-team__team-member {
+        @include media(min, $tablet) {
+            @include grid(3, 12);
+        }
     }
 }
+
+.panel-meet-team-3-wide {
+    .panel-meet-team__team-member {
+        @include media(min, $tablet) {
+            @include grid(4, 12);
+        }
+    }
+}
+
 /* SERVICES */
  .panel-services__block {
     float: left;
@@ -461,13 +478,19 @@ p.panel-testimonials__author {
     }
 }
 .panel-why-us__choose {
-    @include grid(1, 2);
-    float: left
+    @include media(min, $tablet) {
+        @include grid(1, 2);
+        float: left
+    }
 }
 .panel-why-us__contact {
-    @include grid(1, 2);
-    float: left;
     border-bottom: none;
+
+    @include media(min, $tablet) {
+        @include grid(1, 2);
+        float: left;
+    }
+
 }
 /* POST CONTENT */
  .post-content {

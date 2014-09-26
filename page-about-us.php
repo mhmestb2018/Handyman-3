@@ -28,7 +28,8 @@
 
             <?php $team_members = get_post_meta($post_id, 'about-team-posts', true); ?>
             <?php if (is_array($team_members) && count($team_members) > 0) : ?>
-                <section class="panel panel-meet-team">
+                <?php $wide = count($team_members) > 4 ? 4 : count($team_members); ?>
+                <section class="panel panel-meet-team panel-meet-team-<?php echo $wide; ?>-wide">
                     <div class="panel__inner">
                         <h2><?php echo the_title(); ?></h2>
 
@@ -57,7 +58,7 @@
                         <div>
                             <?php foreach ($testimonials as $testimonial) : ?>
                                 <?php $location = get_post_meta($testimonial, 'testimonial-author-location', true); ?>
-                                <div class="panel-testimonials__block">
+                                <div class="panel-testimonials__block block-<?php echo count($testimonials); ?>">
                                     <i class="fa fa-quote-left fa-2x pull-left"></i>
                                     <p><?php echo get_post_meta($testimonial, 'testimonial-quote-text', true); ?></p>
                                     <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>

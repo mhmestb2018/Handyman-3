@@ -24,7 +24,7 @@ class MetaBoxes
             'fa-car' => 'Car',
             'fa-check-square-o' => 'Check Box',
             'fa-cog' => 'Cog/Gear',
-            'fa-envelope-o' => 'Envelop',
+            'fa-envelope-o' => 'Envelope',
             'fa-home' => 'Home',
             'fa-lightbulb-o' => 'Light Bulb',
             'fa-mobile' => 'Mobile Phone',
@@ -383,7 +383,7 @@ class MetaBoxes
                         'name' => __('Contact Shortcode', 'rwmb'),
                         'id' => 'services-template-form-shortcode',
                         'type' => 'text',
-                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'std' => __('', 'rwmb'),
                         'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
                         'clone' => false,
                     )
@@ -528,7 +528,7 @@ class MetaBoxes
                         'name' => __('Form Shortcode', 'rwmb'),
                         'id' => 'contact-form-shortcode',
                         'type' => 'text',
-                        'std' => __('Request Your Free Quote', 'rwmb'),
+                        'std' => __('', 'rwmb'),
                         'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
                         'clone' => false,
                     )
@@ -620,32 +620,32 @@ class MetaBoxes
                 'autosave' => true,
                 'fields' => array(
                     array(
-                        'name' => __('Quote Text', 'rwmb'),
+                        'name' => __('Testimonial', 'rwmb'),
                         'id' => 'testimonial-quote-text',
                         'type' => 'textarea',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Quote Author', 'rwmb'),
+                        'name' => __('Author', 'rwmb'),
                         'id' => 'testimonial-quote-author',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
                     array(
-                        'name' => __('Quote Author Location', 'rwmb'),
+                        'name' => __('Photo (optional)', 'rwmb'),
+                        'id' => 'testimonial-quote-photo',
+                        'type' => 'image_advanced',
+                        'max_file_uploads' => 1
+                    ),
+                    array(
+                        'name' => __('Location', 'rwmb'),
                         'id' => 'testimonial-author-location',
                         'type' => 'text',
                         'std' => __('', 'rwmb'),
                         'desc'  => __('The location of the quote author', 'rwmb'),
                         'clone' => false,
-                    ),
-                    array(
-                        'name' => __('Quote Photo', 'rwmb'),
-                        'id' => 'testimonial-quote-photo',
-                        'type' => 'image_advanced',
-                        'max_file_uploads' => 1
                     )
                 )
             )

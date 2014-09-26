@@ -117,6 +117,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         @include grid(1, 4);
     }
 }
+
 /* NAVIGATION */
  .site-navigation {
     background-color: darken($quaternary-color-background,10%);
