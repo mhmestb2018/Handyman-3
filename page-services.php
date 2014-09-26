@@ -36,20 +36,30 @@
 
             <section class="panel panel-why-us">
                 <div class="panel__inner">
-                    <div class="panel-why-us__choose">
-                        <h2><i class="fa fa-question-circle"></i> <?php echo get_post_meta($post_id, 'services-template-block-headline', true); ?></h2>
-                        <?php echo get_post_meta($post_id, 'services-template-block-content', true); ?>
-                    </div>
+                    <?php $headline = get_post_meta($post_id, 'services-template-block-headline', true); ?>
+                    <?php $content = get_post_meta($post_id, 'services-template-block-content', true); ?>
 
-                    <div class="panel-why-us__contact panel-contact">
-                        <h2><i class="fa fa-envelope-o"></i> <?php echo get_post_meta($post_id, 'services-template-form-headline', true); ?></h2>
-
-                        <p><?php echo get_post_meta($post_id, 'services-template-form-content', true); ?></p>
-
-                        <div class="row">
-                            <?php echo do_shortcode(get_post_meta($post_id, 'services-template-form-shortcode', true)); ?>
+                    <?php if ($headline != '' || $content != '') : ?>
+                        <div class="panel-why-us__choose">
+                            <h2><i class="fa fa-question-circle"></i> <?php echo $headline; ?></h2>
+                            <?php echo $content; ?>
                         </div>
-                    </div>
+                    <?php endif; ?>
+
+                    <?php $headline = get_post_meta($post_id, 'services-template-form-headline', true); ?>
+                    <?php $content = get_post_meta($post_id, 'services-template-form-content', true); ?>
+                    <?php $shortcode = get_post_meta($post_id, 'services-template-form-shortcode', true); ?>
+                    <?php if ($headline != '' || $content != '' || $shortcode != '') : ?>
+                        <div class="panel-why-us__contact panel-contact">
+                            <h2><i class="fa fa-envelope-o"></i> <?php echo $headline; ?></h2>
+
+                            <p><?php echo $content; ?></p>
+
+                            <div class="row">
+                                <?php echo do_shortcode($shortcode); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </section>
         <?php endif; ?>
