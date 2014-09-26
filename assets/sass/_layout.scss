@@ -1,9 +1,8 @@
 /* HEADER */
- .header {
+ .headers {
     position: relative;
-    background: $primary-color;
+    background: #fff;
     ._logo {
-        background: url('../img/grizzly-icon-new.jpg') left top no-repeat;
         background-size: 100% 100%;
         float: left;
         width: 42px;
@@ -33,9 +32,9 @@
             margin-top: 2px;
         }
         a {
-            color: #fff;
+            color: #4e4e4e;
             span {
-                color: $trans-color-dark;
+                color: $primary-color;
                 font-style: italic;
             }
         }
@@ -51,9 +50,9 @@
 	display: inline-block;
     margin: 0 5px;
     h3 {
-        font-size: 16px;
+        font-size: 14px;
         font-family: "Franklin Gothic", Times New Roman, Serif;
-        letter-spacing: 1px;
+        letter-spacing: 0.3px;
         font-weight: bold;
         margin: 5px 0;
         text-align: center;
@@ -63,20 +62,23 @@
         	background: transparent;
         	}
         	.fa {
-	        	color: $trans-color-dark;
+	        	color: rgba(0, 0, 0, 0.2);
+	        	font-size: 30px;
+				margin-top: -5px;
+				vertical-align: middle;
         	}
     }
     @include media(min, $mobile-landscape) {
         h3 {
-            margin-left: 20px;
-            font-size: 20px;
-            margin-top: 12px;
-            padding: 0
+            font-size: 24px;
+			margin-left: 20px;
+			margin-top: 6px;
+			padding: 0;
         }
     }
 }
 span.header__right--mobile-num a, .header__right--phone-num a {
-	color: #fff
+	color: #666
 }
 .header__left--tagline {
     display: inline-block;
@@ -117,8 +119,8 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 }
 /* NAVIGATION */
  .site-navigation {
-    background-color: $secondary-color;
-    color: $font-color-secondary;
+    background-color: darken($quaternary-color-background,10%);
+    color: $secondary-color-font;
     padding: 8px 0;
     @extend .group;
     ul {
@@ -209,7 +211,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         }
     }
     li {
-        border-top: 1px solid $border-color-secondary;
+        border-top: 1px solid $primary-color-border;
         @include media(minmax, 0, $tablet-large) {
             position: relative;
             width: 100%;
@@ -230,9 +232,6 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         }
         &.is-active a {
             color: #fff;
-            @include media(min, $tablet-large) {
-                background-color: $secondary-color;
-            }
         }
     }
     .quote {
@@ -242,7 +241,8 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             float: right;
             display: block;
             a {
-                background-color: rgba(0, 0, 0, 0.3);
+            	color: $tertiary-color-font;
+                background-color: lighten($quaternary-color-background,5);
                 display: block;
                 border-radius: 5px;
                 -webkit-border-radius: 5px;
@@ -306,7 +306,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         padding-bottom: 7px;
         line-height: 1.2em;
         .fa {
-            color: $secondary-color;
+            color: lighten($primary-color-font,40%);
         }
     }
 }
@@ -326,8 +326,8 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 }
 /* FOOTER */
  footer {
-    background-color: $light-grey;
-    color: $grey-dark;
+    background-color: $secondary-color-background;
+    color: lighten($primary-color-font,40);
 }
 .footer__inner {
     text-align: center;

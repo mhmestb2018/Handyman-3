@@ -10,9 +10,9 @@ html, body {
     height: 100%
 }
 body {
+	background: $primary-color-background;
     font: 14px/1.5'Merriweather', sans-serif;
-    ;
-    color: $font-color-primary;
+    color: $primary-color-font;
     font-size: $base-font-size;
 }
 hr {
@@ -31,14 +31,14 @@ a {
     color: $link-color;
 }
 p {
-    color: $font-color-primary;
+    color: $primary-color-font;
     line-height: 24px;
     margin-bottom: em(20px);
 }
 h1, h2, h3, h4, h5 {
     font-family:'Raleway', sans-serif;
     font-weight: 600;
-    color: $secondary-color;
+    color: lighten($primary-color-font,40%);
     margin-bottom: 15px;
 }
 h1 {
@@ -47,7 +47,7 @@ h1 {
 .heading {
     h1 {
         font-size: 32px;
-        background: white;
+        background: $primary-color-background;
         display: inline-block;
         padding: 0 10px;
         margin-bottom: $grid-margin;
@@ -61,8 +61,8 @@ h1 {
         right: 0;
         top: 30%;
         z-index: -1;
-        border-top: 1px solid $border-color-primary;
-        border-bottom: 1px solid $border-color-primary;
+        border-top: 1px solid $primary-color-border;
+        border-bottom: 1px solid $primary-color-border;
     }
 }
 h2 {
@@ -102,7 +102,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="search"]
     width: 100%;
     margin: 0;
     padding: 10px;
-    border: 1px solid $border-color-primary;
+    border: 1px solid $primary-color-border;
     border-radius: 0;
     background: #fff;
     font-size: 100%;

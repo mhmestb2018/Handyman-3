@@ -1,6 +1,6 @@
 h1, h2, h3, h4, h5 {
     .fa {
-        color: lighten($font-color-primary, 10%);
+        color: lighten($primary-color-font, 10%);
     }
 }
 /* PANELS */
@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid $border-color-primary;
+    border-bottom: 1px solid $primary-color-border;
     &:last-of-type {
         border-bottom: none;
     }
@@ -31,13 +31,13 @@ h1, h2, h3, h4, h5 {
  .panel-features {
     @include media(min, $mobile-landscape) {
         @include grid(1, 1);
-        background-color: $bg-color-primary;
+        background-color: transparent;
         img {
             width: 90%;
             margin: 0 auto;
         }
         h2 {
-            color: $font-color-primary;
+            color: $primary-color-font;
             text-align: center;
             font-size: em(32px);
             margin-bottom: em(18px);
@@ -57,10 +57,10 @@ h1, h2, h3, h4, h5 {
         margin: 0;
     }
     .fa {
-        color: $secondary-color;
+        color: $primary-color;
     }
     .fa-circle {
-        color: $font-color-secondary;
+        color: darken($primary-color-background,2%);
     }
     h3 {
         font-size: 20px;
@@ -81,8 +81,8 @@ h1, h2, h3, h4, h5 {
 .panel-features__block--tile {
     padding: 20px;
     border-radius: 10px;
-    background-color: lighten($light-grey, 1%);
-    border-bottom: 4px solid #e5e5e5;
+    background-color: $tertiary-color-background;
+    border-bottom: 4px solid $primary-color-border;
     .fa {
     	cursor: pointer;
 	    &:hover {
@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5 {
         float: left;
     }
     .fa {
-	    color: lighten($secondary-color, 15%);
+	    color: lighten($primary-color-font,60%);
     }
     @include media(min, $mobile-landscape) {
         @include grid(1, 2);
@@ -146,7 +146,7 @@ p.panel-testimonials__author {
 /* PANEL CLOSE */
  .panel-close {
     @include grid(1, 1);
-    background-color: $bg-color-primary;
+    background-color: $primary-color-background;
     img {
         width: 90%;
         margin: 0 auto;
@@ -221,13 +221,13 @@ p.panel-testimonials__author {
 }
 /* HOME CTA */
 .home-cta {
-    background-color: $bg-color-secondary;
-    color: $font-color-primary;
+    background-color: lighten($quaternary-color-background,10);
+    color: $primary-color-font;
     position: relative;
     border-bottom: 3px solid rgba(0, 0, 0, 0.9);;
     @extend .group;
     h2 {
-    	color: $font-color-secondary;
+    	color: $tertiary-color-font;
     	text-shadow:0px 0px 2px #333333;
         font-size: em(22px);
         margin-bottom: em(8px);
@@ -251,7 +251,7 @@ p.panel-testimonials__author {
     top: 0;
     padding: 2em 1em 0;
     z-index: 1;
-    opacity: 0.1;
+    opacity: 0.25;
     width: 100%;
     height: 100%;
         @include media(min, $desktopmax) {
@@ -263,7 +263,7 @@ p.panel-testimonials__author {
 	position: relative;
 	bottom: -3px;
 	animation: 0.5s ease 6.5s normal forwards 1 bounce;
-	background-color: #fff;
+	background-color: $primary-color-background;
 	background-repeat: repeat;
     border-radius: 5px;
     overflow: hidden;
@@ -335,7 +335,7 @@ p.panel-testimonials__author {
     li {
     	position: relative;
         margin-bottom: em(3px);
-        color: $font-color-secondary;
+        color: $secondary-color-font;
         font-weight: 500;
         color: rgba(255,255,255,0.7);
         @include media(min, $mobile-landscape) {
@@ -365,7 +365,7 @@ p.panel-testimonials__author {
     }
     i.fa {
         margin-right: em(4px);
-        color: $font-color-secondary;
+        color: $tertiary-color-font;
     }
 }
 .header-pattern {
@@ -386,7 +386,7 @@ p.panel-testimonials__author {
 /* CONTACT PAGE */
  .panel-contact {
     @extend .group;
-    border-bottom: 1px solid $border-color-primary;
+    border-bottom: 1px solid $primary-color-border;
 
     input[type="text"] {
         float: left;
