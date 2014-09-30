@@ -1,5 +1,5 @@
 /* HEADER */
- .headers {
+ .header {
     position: relative;
     background: #fff;
     ._logo {
@@ -19,13 +19,16 @@
     }
 }
 .header__left {
+	@include media(min, $tablet) {
+		padding-left: 20px;
+	}
     .title {
         text-align: center;
         font-weight: bold;
         color: $secondary-color;
         font-size: 30px;
         text-transform: uppercase;
-        @include media(min, $mobile-landscape) {
+        @include media(min, $tablet) {
             font-size: 30px;
             float: left;
             text-align: left;
@@ -42,17 +45,17 @@
 }
 .header__right {
     text-align: center;
-    @include media(min, $mobile-landscape) {
+    @include media(min, $tablet) {
         float: right;
+        padding-right: 20px;
     }
 }
 .header__right--block {
 	display: inline-block;
-    margin: 0 5px;
     h3 {
-        font-size: 14px;
+        font-size: 16px;
         font-family: "Franklin Gothic", Times New Roman, Serif;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.1px;
         font-weight: bold;
         margin: 5px 0;
         text-align: center;
@@ -60,12 +63,16 @@
         display: inline-block;
         @include media(min, $mobile-landscape) {
         	background: transparent;
+        	letter-spacing: 0.3px;
         	}
         	.fa {
 	        	color: rgba(0, 0, 0, 0.2);
-	        	font-size: 30px;
+	        	font-size: 20px;
 				margin-top: -5px;
 				vertical-align: middle;
+				@include media(min, $mobile-landscape) {
+				 	font-size: 30px;
+				}
         	}
     }
     @include media(min, $mobile-landscape) {
@@ -127,6 +134,9 @@ span.header__right--mobile-num a, .header__right--phone-num a {
     ul {
         margin-bottom: 0;
         float: left;
+        @include media(min, $tablet) {
+        	padding-left: 20px;
+        }
     }
     a {
         color: rgba(255, 255, 255, 0.5);
@@ -188,7 +198,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         display: block;
         color: inherit;
         @include transition(none);
-        padding: em(6px) em(14px) em(10px);
+        padding: em(0) em(14px) em(0) em(0);
         i {
             position: relative;
             top: 3px;
@@ -204,7 +214,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             position: absolute;
             left: 0;
             width: 100%;
-            background-color: $secondary-color;
+            background-color: darken($quaternary-color-background,10%);
             max-height: 0;
             overflow: hidden;
             @include transition-property(max-height);
@@ -212,7 +222,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         }
     }
     li {
-        border-top: 1px solid $primary-color-border;
+        border-top: 1px solid $quaternary-color-background;
         @include media(minmax, 0, $tablet-large) {
             position: relative;
             width: 100%;
@@ -225,10 +235,12 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         a {
             display: block;
             font-size: em(16px);
-            margin-right: em(35px);
             line-height: em(35px);
+            padding-left: em(20px);
             @include media(min, $tablet-large) {
                 font-size: em(16px);
+                padding-left: 0;
+                padding-right: em(20px);
             }
         }
         &.is-active a {
@@ -241,6 +253,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         @include media(min, $desktop) {
             float: right;
             display: block;
+            padding-right: 20px;
             a {
             	color: $tertiary-color-font;
                 background-color: lighten($quaternary-color-background,5);
