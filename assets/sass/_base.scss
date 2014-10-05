@@ -10,9 +10,9 @@ html, body {
     height: 100%
 }
 body {
+	background: $primary-color-background;
     font: 14px/1.5'Merriweather', sans-serif;
-    ;
-    color: $font-color-primary;
+    color: $primary-color-font;
     font-size: $base-font-size;
 }
 hr {
@@ -31,14 +31,14 @@ a {
     color: $link-color;
 }
 p {
-    color: $font-color-primary;
+    color: $primary-color-font;
     line-height: 24px;
     margin-bottom: em(20px);
 }
 h1, h2, h3, h4, h5 {
     font-family:'Raleway', sans-serif;
     font-weight: 600;
-    color: $secondary-color;
+    color: lighten($primary-color-font,40%);
     margin-bottom: 15px;
 }
 h1 {
@@ -46,11 +46,17 @@ h1 {
 }
 .heading {
     h1 {
-        font-size: 32px;
-        background: white;
+        font-size: 28px;
+        line-height: 32px;
+        background: $primary-color-background;
         display: inline-block;
         padding: 0 10px;
-        margin-bottom: $grid-margin;
+        margin-bottom: 0;
+         @include media(min, $tablet-large) {
+         font-size: 32px;
+         line-height: 36px;
+         }
+        
     }
     h1:after {
         content:"";
@@ -61,21 +67,33 @@ h1 {
         right: 0;
         top: 30%;
         z-index: -1;
-        border-top: 1px solid $border-color-primary;
-        border-bottom: 1px solid $border-color-primary;
+        border-top: 1px solid $primary-color-border;
+        border-bottom: 1px solid $primary-color-border;
     }
 }
 h2 {
-    font-size: em(28px);
+    font-size: em(22px);
+    @include media(min, $tablet-large) {
+    	font-size: em(28px);
+    }
 }
 h3 {
-    font-size: em(24px);
+    font-size: em(20px);
+    @include media(min, $tablet-large) {
+    	font-size: em(26px);
+    }
 }
 h4 {
-    font-size: em(18px)
+    font-size: em(18px);
+     @include media(min, $tablet-large) {
+    	font-size: em(24px);
+    }
 }
 h5 {
-    font-size: em(16px)
+    font-size: em(16px);
+     @include media(min, $tablet-large) {
+    	font-size: em(22px);
+    }
 }
 .heading {
     text-align: center;
@@ -102,7 +120,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="search"]
     width: 100%;
     margin: 0;
     padding: 10px;
-    border: 1px solid $border-color-primary;
+    border: 1px solid $primary-color-border;
     border-radius: 0;
     background: #fff;
     font-size: 100%;

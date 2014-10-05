@@ -1,9 +1,8 @@
 /* HEADER */
  .header {
     position: relative;
-    background: $primary-color;
+    background: #fff;
     ._logo {
-        background: url('../img/grizzly-icon-new.jpg') left top no-repeat;
         background-size: 100% 100%;
         float: left;
         width: 42px;
@@ -24,6 +23,9 @@
     }
 }
 .header__left {
+	@include media(min, $tablet) {
+		padding-left: 20px;
+	}
     .title {
         text-align: center;
         font-weight: bold;
@@ -37,9 +39,9 @@
             margin-top: 2px;
         }
         a {
-            color: #fff;
+            color: #4e4e4e;
             span {
-                color: $trans-color-dark;
+                color: $primary-color;
                 font-style: italic;
             }
         }
@@ -49,15 +51,15 @@
     text-align: center;
     @include media(min, $tablet) {
         float: right;
+        padding-right: 20px;
     }
 }
 .header__right--block {
 	display: inline-block;
-    margin: 0 5px;
     h3 {
         font-size: 16px;
         font-family: "Franklin Gothic", Times New Roman, Serif;
-        letter-spacing: 1px;
+        letter-spacing: 0.1px;
         font-weight: bold;
         margin: 5px 0;
         text-align: center;
@@ -65,22 +67,29 @@
         display: inline-block;
         @include media(min, $mobile-landscape) {
         	background: transparent;
+        	letter-spacing: 0.3px;
         	}
         	.fa {
-	        	color: $trans-color-dark;
+	        	color: rgba(0, 0, 0, 0.2);
+	        	font-size: 20px;
+				margin-top: -5px;
+				vertical-align: middle;
+				@include media(min, $mobile-landscape) {
+				 	font-size: 30px;
+				}
         	}
     }
     @include media(min, $mobile-landscape) {
         h3 {
-            margin-left: 20px;
-            font-size: 20px;
-            margin-top: 12px;
-            padding: 0
+            font-size: 24px;
+			margin-left: 20px;
+			margin-top: 6px;
+			padding: 0;
         }
     }
 }
 span.header__right--mobile-num a, .header__right--phone-num a {
-	color: #fff
+	color: #666
 }
 .header__left--tagline {
     display: inline-block;
@@ -122,13 +131,16 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 
 /* NAVIGATION */
  .site-navigation {
-    background-color: $secondary-color;
-    color: $font-color-secondary;
+    background-color: darken($quaternary-color-background,10%);
+    color: $secondary-color-font;
     padding: 8px 0;
     @extend .group;
     ul {
         margin-bottom: 0;
         float: left;
+        @include media(min, $tablet) {
+        	padding-left: 20px;
+        }
     }
     a {
         color: rgba(255, 255, 255, 0.5);
@@ -194,7 +206,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         display: block;
         color: inherit;
         @include transition(none);
-        padding: em(6px) em(14px) em(10px);
+        padding: em(0) em(14px) em(0) em(0);
         i {
             position: relative;
             top: 3px;
@@ -210,7 +222,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             position: absolute;
             left: 0;
             width: 100%;
-            background-color: $secondary-color;
+            background-color: darken($quaternary-color-background,10%);
             max-height: 0;
             overflow: hidden;
             @include transition-property(max-height);
@@ -218,7 +230,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         }
     }
     li {
-        border-top: 1px solid $border-color-secondary;
+        border-top: 1px solid $quaternary-color-background;
         @include media(minmax, 0, $tablet-large) {
             position: relative;
             width: 100%;
@@ -236,13 +248,12 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             line-height: em(35px);
             @include media(min, $tablet-large) {
                 font-size: em(16px);
+                padding-left: 0;
+                padding-right: em(20px);
             }
         }
         &.is-active a {
             color: #fff;
-            @include media(min, $tablet-large) {
-                background-color: $secondary-color;
-            }
         }
     }
     .quote {
@@ -251,8 +262,10 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         @include media(min, $desktop) {
             float: right;
             display: block;
+            padding-right: 20px;
             a {
-                background-color: rgba(0, 0, 0, 0.3);
+            	color: $tertiary-color-font;
+                background-color: lighten($quaternary-color-background,5);
                 display: block;
                 border-radius: 5px;
                 -webkit-border-radius: 5px;
@@ -316,7 +329,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         padding-bottom: 7px;
         line-height: 1.2em;
         .fa {
-            color: $secondary-color;
+            color: lighten($primary-color-font,40%);
         }
     }
 }
@@ -336,8 +349,8 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 }
 /* FOOTER */
  footer {
-    background-color: $light-grey;
-    color: $grey-dark;
+    background-color: $secondary-color-background;
+    color: lighten($primary-color-font,40);
 }
 .footer__inner {
     text-align: center;
