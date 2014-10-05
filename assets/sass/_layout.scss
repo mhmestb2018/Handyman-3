@@ -18,6 +18,10 @@
         width: $desktopmax;
         margin: 0 auto;
     }
+
+    @include media(min, $mobile-landscape) {
+        margin: 0 1em;
+    }
 }
 .header__left {
     .title {
@@ -26,7 +30,7 @@
         color: $secondary-color;
         font-size: 30px;
         text-transform: uppercase;
-        @include media(min, $mobile-landscape) {
+        @include media(min, $tablet) {
             font-size: 30px;
             float: left;
             text-align: left;
@@ -43,7 +47,7 @@
 }
 .header__right {
     text-align: center;
-    @include media(min, $mobile-landscape) {
+    @include media(min, $tablet) {
         float: right;
     }
 }
@@ -148,6 +152,10 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         width: $desktopmax;
         margin: 0 auto;
     }
+
+    @include media(min, $tablet-large) {
+        margin: 0 1em;
+    }
 }
 .site-navigation__right {
     float: right;
@@ -223,7 +231,8 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         a {
             display: block;
             font-size: em(16px);
-            margin-right: em(35px);
+            padding-right: em(35px);
+            padding-left: 1em;
             line-height: em(35px);
             @include media(min, $tablet-large) {
                 font-size: em(16px);
