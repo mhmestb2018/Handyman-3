@@ -13,13 +13,13 @@
 .header__inner {
     padding: 0.75em 0;
     @extend .group;
+    @include media(min, $mobile-landscape) {
+        margin: 0 1em;
+    }
+
     @include media(min, $desktopmaxplus40) {
         width: $desktopmax;
         margin: 0 auto;
-    }
-
-    @include media(min, $mobile-landscape) {
-        margin: 0 1em;
     }
 }
 .header__left {
@@ -160,13 +160,14 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 }
 .site-navigation__inner {
     @extend .group;
-    @include media(min, $desktopmaxplus40) {
-        width: $desktopmax;
-        margin: 0 auto;
-    }
 
     @include media(min, $tablet-large) {
         margin: 0 1em;
+    }
+
+    @include media(min, $desktopmaxplus40) {
+        width: $desktopmax;
+        margin: 0 auto;
     }
 }
 .site-navigation__right {
