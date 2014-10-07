@@ -20,7 +20,7 @@
                         <img src="<?php echo wp_get_attachment_url($attach_id); ?>">
                     <?php endif; ?>
 
-                    <div class="panel__inner-about-wrapper">
+                    <div class="panel__inner-about-wrapper<?php if (!$attach_id) : ?> panel__inner-about-wrapper-full<?php endif; ?>">
                         <?php the_content(); ?>
                     </div>
                 </div>
