@@ -12,7 +12,7 @@
             <section class="panel panel-about">
                 <div class="panel__inner">
                     <div class="heading">
-                        <h1><?php echo get_post_meta($post_id, 'about-template-page-headline', true); ?></h1>
+                        <h1><?php the_title(); ?></h1>
                     </div>
 
                     <?php $attach_id =  get_post_meta($post_id, 'about-template-image', true); ?>
