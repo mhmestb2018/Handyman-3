@@ -12,7 +12,7 @@
             <section class="panel post-content panel-services">
                 <div class="panel__inner">
                     <div class="heading">
-                        <h1><i class="fa fa-wrench"></i> <?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
+                        <h1><?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
                     </div>
 
                     <?php $services = get_post_meta($post_id, 'service-posts', true); ?>
@@ -41,7 +41,7 @@
 
                     <?php if ($headline != '' || $content != '') : ?>
                         <div class="panel-why-us__choose">
-                            <h2><i class="fa fa-question-circle"></i> <?php echo $headline; ?></h2>
+                            <h2><?php echo $headline; ?></h2>
                             <?php echo $content; ?>
                         </div>
                     <?php endif; ?>

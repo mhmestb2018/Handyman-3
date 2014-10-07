@@ -26,7 +26,7 @@
 
             ?>
 
-            <section class="panel panel-testimonials">
+            <section class="panel post-content panel-testimonials">
                 <div class="panel__inner panel-testimonials__inner">
                     <div class="heading">
                         <h1><?php the_title(); ?></h1>
