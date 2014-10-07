@@ -9,7 +9,7 @@
     <div class="container">
         <?php if (have_posts()): the_post(); // load the page ?>
             <?php $post_id = get_the_ID(); ?>
-            <section class="panel panel-about">
+            <section class="panel post-content panel-about">
                 <div class="panel__inner">
                     <div class="heading">
                         <h1><?php the_title(); ?></h1>
@@ -59,8 +59,7 @@
                             <?php foreach ($testimonials as $testimonial) : ?>
                                 <?php $location = get_post_meta($testimonial, 'testimonial-author-location', true); ?>
                                 <div class="panel-testimonials__block block-<?php echo count($testimonials); ?>">
-                                    <i class="fa fa-quote-left fa-2x pull-left"></i>
-                                    <p><?php echo get_post_meta($testimonial, 'testimonial-quote-text', true); ?></p>
+                                    <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial, 'testimonial-quote-text', true); ?></p>
                                     <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
                                 </div>
                             <?php endforeach; ?>
