@@ -81,7 +81,7 @@ class Theme
 				'default_path' => '',
 				'menu' => 'tgmpa-install-plugins',
 				'has_notices' => TRUE,
-				'dismissable' => FALSE,
+				'dismissable' => TRUE,
 				'dismiss_msg' => '',
 				'is_automatic' => FALSE,
 				'message' => '',
@@ -113,16 +113,16 @@ class Theme
 	private function _get_plugin_dependencies()
 	{
 		return array(
-			/*array(
-				'name' => 'Force Strong Passwords',
-				'slug' => 'force-strong-passwords',
+			array(
+				'name' => 'Contact Form 7',
+				'slug' => 'contact-form-7',
 				'required' => TRUE,
-			),*/
-			/*array(
-				'name' => 'WordPress SEO',
-				'slug' => 'wordpress-seo',
-				'required' => TRUE,
-			)*/
+			),
+			array(
+				'name' => 'Flamingo',
+				'slug' => 'flamingo',
+				'required' => FALSE,
+			)
 		);
 	}
 
