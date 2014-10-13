@@ -23,9 +23,14 @@
                             <div class="panel-services__block">
                                 <?php $attach_id =  get_post_meta($service, 'service-image', true); ?>
                                 <?php if ($attach_id) : ?>
-                                    <img src="<?php echo wp_get_attachment_url($attach_id); ?>" alt="<?php echo $service_post->post_title;?>" title="<?php echo $service_post->post_title;?>">
+                                    <div class="panel-services__block-image-wrapper">
+                                        <img src="<?php echo wp_get_attachment_url($attach_id); ?>" alt="<?php echo $service_post->post_title;?>" title="<?php echo $service_post->post_title;?>">
+                                        <h3><?php echo $service_post->post_title;?></h3>
+                                    </div>
+                                <?php else : ?>
+                                    <h3><?php echo $service_post->post_title;?></h3>
                                 <?php endif; ?>
-                                <h3><?php echo $service_post->post_title;?></h3>
+
 
                                 <?php echo get_post_meta($service, 'service-content', true); ?>
                             </div>
