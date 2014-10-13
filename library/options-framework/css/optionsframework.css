@@ -154,6 +154,8 @@
 }
 #optionsframework .mini .explain {
 	max-width:74%;
+    float: none;
+    clear: left;
 }
 
 /* Editor */

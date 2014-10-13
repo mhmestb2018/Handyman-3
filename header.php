@@ -69,9 +69,12 @@
                             );
                             ?>
 
-                            <div class="quote">
-                                <a href="#">Free Quote</a>
-                            </div>
+                            <?php $contact_page = of_get_option('tradesman_contact_page'); ?>
+                            <?php if ($contact_page && $contact_page > 0) : ?>
+                                <div class="quote">
+                                    <a href="<?php echo get_permalink($contact_page); ?>">Free Quote</a>
+                                </div>
+                            <?php endif; ?>
                         </nav>
                     </div>
                 </div>

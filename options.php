@@ -26,6 +26,7 @@ function optionsframework_option_name() {
  */
 
 function optionsframework_options() {
+    //the color options for the theme
     $color_scheme_array = array(
         'default' => 'Default',
         'blue' => 'Blue',
@@ -34,6 +35,20 @@ function optionsframework_options() {
         'red' => 'Red',
         'yellow' => 'Yellow'
     );
+
+    //load the pages for selecting the contact page
+    $args = array(
+        'post_type' => 'page',
+        'posts_per_page' => -1,
+    );
+
+    $page_query = new WP_Query($args);
+    $pages = $page_query->get_posts();
+    $page_options = array(-1 => 'None');
+
+    foreach ($pages as $page) {
+        $page_options[$page->ID] = $page->post_title;
+    }
 
     $options = array();
 
@@ -66,6 +81,15 @@ function optionsframework_options() {
         "type" => "select",
         "class" => "mini", //mini, tiny, small
         "options" => $color_scheme_array);
+
+    $options[] = array(
+        "name" => "Contact Page",
+        "id" => "tradesman_contact_page",
+        "desc" => __('The Free Quote button in the header will go to the page selected here', 'options_framework_theme'),
+        "std" => "fresh",
+        "type" => "select",
+        "class" => "mini", //mini, tiny, small
+        "options" => $page_options);
 
     $options[] = array(
         'name' => __('Phone Number', 'options_framework_theme'),
