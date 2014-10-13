@@ -588,6 +588,7 @@ p.panel-testimonials__author {
     p, ul, dl, blockquote, ol {
         margin-bottom: $grid-margin;
     }
+
     ul li {
         list-style: square outside none;
         margin-bottom: 7px;
@@ -597,5 +598,9 @@ p.panel-testimonials__author {
         list-style: decimal outside none;
         margin-bottom: 7px;
         margin-left: 14px;
+    }
+
+    input, textarea {
+        margin-bottom: 12px;
     }
 }
