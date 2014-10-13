@@ -40,7 +40,17 @@ class MetaBoxes
             'fa-tint' => 'Tint',
             'fa-twitter' => 'Twitter',
             'fa-facebook' => 'Facebook',
-            'fa-youtube' => 'Youtube'
+            'fa-youtube' => 'Youtube',
+            'fa-credit-card' => 'Credit Card',
+            'fa-image' => 'Image',
+            'fa-thumbs-up' => 'Thumbs Up',
+            'fa-usd' => 'USD',
+            'fa-euro' => 'Euro',
+            'fa-gbp' => 'GBP',
+            'fa-arrow-up' => 'Arrow Up',
+            'fa-arrow-down' => 'Arrow Down',
+            'fa-arrow-left' => 'Arrow Left',
+            'fa-arrow-right' => 'Arrow Right'
         );
 
 
