@@ -17,18 +17,29 @@
                 <div class="header__left">
                     <div class="title">
                         <?php
+                            $company_logo = of_get_option('tradesman_company_logo');
                             $company_name = of_get_option('tradesman_company_name');
-                            $pos = strpos($company_name, ' ');
-                            $name_start = substr($company_name, 0, strpos($company_name, ' '));
-                            $name_end = substr($company_name, strpos($company_name, ' ')+1);
                         ?>
-                        <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>">
-                            <?php if ($pos === false) : ?>
-                                <?php echo $company_name; ?>
-                            <?php else: ?>
-                                <?php echo $name_start; ?><span><?php echo $name_end; ?></span>
-                            <?php endif; ?>
-                        </a>
+                        
+                        <?php if ($company_logo) : ?>
+                            <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>">
+                                <img src="<?php echo $company_logo; ?>" alt="<?php echo $company_name; ?>" title="<?php echo $company_name; ?>"/>
+                            </a>
+                        <?php else : ?>
+                            <?php
+
+                                $pos = strpos($company_name, ' ');
+                                $name_start = substr($company_name, 0, strpos($company_name, ' '));
+                                $name_end = substr($company_name, strpos($company_name, ' ')+1);
+                            ?>
+                            <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>">
+                                <?php if ($pos === false) : ?>
+                                    <?php echo $company_name; ?>
+                                <?php else: ?>
+                                    <?php echo $name_start; ?><span><?php echo $name_end; ?></span>
+                                <?php endif; ?>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
 
