@@ -37,14 +37,6 @@
                         <?php $count = 1; ?>
                         <?php foreach ($testimonials as $testimonial) : ?>
                             <?php $testimonial_id = $testimonial; ?>
-                            <?php if ($count % $row_size == 1 || $row_size == 1) : ?>
-                                <?php if ($count != 1) :  //close the row ?>
-                                    </div>
-                                    <hr>
-                                <?php endif; ?>
-                                <div class="row testimonial-row">
-                            <?php endif; ?>
-
                             <?php $location = get_post_meta($testimonial_id, 'testimonial-author-location', true); ?>
                             <?php $attach_id =  get_post_meta($testimonial_id, 'testimonial-quote-photo', true); ?>
                             <div class="panel-testimonials__block<?php echo $format_class; ?>">

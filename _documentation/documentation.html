@@ -1,365 +1,450 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Tradesman Theme - Documentation</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="theme-sphere.com">
-	
-	<!-- Le styles -->
-	<link href="assets/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="assets/css/docs.css" rel="stylesheet">
-	<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-	
-	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	<script src="assets/js/html5shiv.js"></script>
-	<![endif]-->
-	
-	<style type="text/css">
-		body {
-			padding-top: 0;
-			line-height: 24px; 
-		}
+    <meta charset="utf-8">
 
-		h1, h2, h3, h4 { line-height: 60px; }
-		ul, ol, pre, dl, dd { margin-bottom: 1em; } 
-		
-		li, dt, dd { line-height: inherit; }
+    <title>Tradesman Theme - Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="theme-sphere.com"><!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet"><!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
 
-		.bs-docs-sidenav a { color: #444; }
-		.container {
-			margin: 0 0 0 300px;
-			width: auto;
-			max-width: 1170px;
-		}
-		
-		.row { width: 100%; }
-		
-		.bs-docs-sidenav {
-			margin: 0 0;
-			padding: 0;
-			box-shadow: 0;
-			-webkit-box-shadow: 0;
-			left: 0;
-			top: 0;
-			right: auto;
-			bottom: 0;
-			left: 0;
-			background-color: #F8F5F5;
-			border-right: 1px solid #DDD7CC;
-			padding-top: 150px; 
-			position: fixed;
-			overflow-y: auto;
-		}
-		
-		.bs-docs-sidenav.affix { top: 0; }
-		.bs-docs-sidenav > li:first-child > a, .bs-docs-sidenav > li:last-child > a { border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; }
-		.bs-docs-sidenav > li > a { 
-			border-right: 0;
-			padding-left: 20px;
-			background: rgb(250, 250, 250);
-		}
+    <style type="text/css">
+    body {
+            padding-top: 0;
+            line-height: 24px; 
+        }
 
-		section {     padding-bottom: 50px; padding-top: 12px; }
-		
-		section li {
-			padding: 2px;
-		}
+        h1, h2, h3, h4 { line-height: 60px; }
+        ul, ol, pre, dl, dd { margin-bottom: 1em; } 
+        
+        li, dt, dd { line-height: inherit; }
 
-		.label { margin-right: 5px; }
+        .bs-docs-sidenav a { color: #444; }
+        .container {
+            margin: 0 0 0 300px;
+            width: auto;
+            max-width: 1170px;
+        }
+        
+        .row { width: 100%; }
+        
+        .bs-docs-sidenav {
+            margin: 0 0;
+            padding: 0;
+            box-shadow: 0;
+            -webkit-box-shadow: 0;
+            left: 0;
+            top: 0;
+            right: auto;
+            bottom: 0;
+            left: 0;
+            background-color: #F8F5F5;
+            border-right: 1px solid #DDD7CC;
+            padding-top: 150px; 
+            position: fixed;
+            overflow-y: auto;
+        }
+        
+        .bs-docs-sidenav.affix { top: 0; }
+        .bs-docs-sidenav > li:first-child > a, .bs-docs-sidenav > li:last-child > a { border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; }
+        .bs-docs-sidenav > li > a { 
+            border-right: 0;
+            padding-left: 20px;
+            background: rgb(250, 250, 250);
+        }
 
-		.sc-sample {
-			max-height: 200px;
-			overflow: auto;
-		}
+        section {     padding-bottom: 50px; padding-top: 12px; }
+        
+        section li {
+            padding: 2px;
+        }
 
-		.logo {
-			margin-top: -120px;
-			margin-bottom: 30px;
-			margin-left: 15px;
-			font-size: 3em;
-		}
+        .label { margin-right: 5px; }
 
-		.about-online { 
-			position: fixed;
-			margin-left: 259px;
-			padding: 10px;
-			padding-left: 95px;
-			top: 0;
-			width: 100%;
-			display: none; 
-		}
+        .sc-sample {
+            max-height: 200px;
+            overflow: auto;
+        }
 
-		.about-online a { font-weight: bold; color: #2c3e50; }
-		
-		::-webkit-scrollbar { width: 4px; }
-		::-webkit-scrollbar-track { background-color: #F8F5F5; }
-		::-webkit-scrollbar-thumb { background-color: #ece6da; }
-		
-		body::-webkit-scrollbar { width: 8px; } 
+        .logo {
+            margin-top: -120px;
+            margin-bottom: 30px;
+            margin-left: 15px;
+            font-size: 3em;
+        }
 
-	</style>
+        .about-online { 
+            position: fixed;
+            margin-left: 259px;
+            padding: 10px;
+            padding-left: 95px;
+            top: 0;
+            width: 100%;
+            display: none; 
+        }
+
+        .about-online a { font-weight: bold; color: #2c3e50; }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background-color: #F8F5F5; }
+        ::-webkit-scrollbar-thumb { background-color: #ece6da; }
+        
+        body::-webkit-scrollbar { width: 8px; } 
+
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".bs-docs-sidebar" data-offset-top="0">
-
-<!--
+    <!--
 <div class="about-online btn-danger">WARNING: This documentation might be outdated. <a href="http://theme-sphere.com/smart-mag/documentation/">Click Here</a> to view the latest documentation.</div>
 -->
-	<div class="container">
 
-		<div class="bs-docs-sidebar">
-			
-			<ul class="nav nav-list bs-docs-sidenav">
-				<li><h1 class="logo">Trade</h1></li>
+    <div class="container">
+        <div class="bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav">
+                <li>
+                    <h1 class="logo">Trade</h1>
+                </li>
 
+                <li>
+                    <a href="#introduction">Introduction</a>
+                </li>
+                
+                <li>
+                	<a href="#quickstart">Quick Start</a>
+                </li>
 
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#installation">Installation</a></li>
-                <li><a href="#creating-pages">Creating Pages</a></li>
-                <li><a href="#homepage">--Homepage</a></li>
-                <li><a href="#services-page">--Services Page</a></li>
-                <li><a href="#testimonials-page">--Testimonials Page</a></li>
-                <li><a href="#about-us-page">--About Us Page</a></li>
-                <li><a href="#contact-us-page">--Contact Us Page</a></li>
-                <li><a href="#default-page">--Default Page</a></li>
-                <li><a href="#adding-content">Adding Content</a></li>
-                <li><a href="#adding-services">--Adding Services</a></li>
-                <li><a href="#adding-testimonials">--Adding Testimonials</a></li>
-                <li><a href="#adding-team-members">--Adding Team Members</a></li>
-                <li><a href="#setup-contact-forms">Setup Contact Forms</a></li>
-                <li><a href="#setup-navigation">Setup Navigation</a></li>
-                <li><a href="#header-setup">Header & Logo Setup</a></li>
-                <li><a href="#widgets">Sidebar & Widgets</a></li>
-                <li><a href="#footer-setup">Footer Setup</a></li>
-                <li><a href="#internationalization">Translation &amp; Internationalization</a></li>
-                <li><a href="#customizations">Advanced Customizations</a></li>
-                <li><a href="#credits">Copyright & Credits</a></li>
-			</ul>
-		</div>
+                <li>
+                    <a href="#installation">Installation</a>
+                </li>
 
-		<div class="row">
+                <li>
+                    <a href="#creating-pages">Creating Pages</a>
+                </li>
 
-			<div class="span9">
+                <li>
+                    <a href="#homepage">--Homepage</a>
+                </li>
 
+                <li>
+                    <a href="#services-page">--Services Page</a>
+                </li>
 
-				<section id="introduction">
-					<div class="page-header">
-						<h1>Welcome to the Tradesman Theme!</h1>
-					</div>
+                <li>
+                    <a href="#testimonials-page">--Testimonials Page</a>
+                </li>
 
-					<h3>Thanks for Buying</h3>
+                <li>
+                    <a href="#about-us-page">--About Us Page</a>
+                </li>
 
-					<p>First of all, thank you for buying this theme. This document provides detailed information on how to get the theme up and running quickly. If you're stuck with anything, please don't hesitate to contact us.</p>
+                <li>
+                    <a href="#contact-us-page">--Contact Us Page</a>
+                </li>
 
-					<ul>
-						<li>Created By: Company Name</li>
-						<li>Support Site: <a href="http://theme-sphere.com">Will we have support forums?</a></li>
-						<li>Version: 1.0</li>
+                <li>
+                    <a href="#default-page">--Default Page</a>
+                </li>
 
-					</ul>
+                <li>
+                    <a href="#adding-content">Adding Content</a>
+                </li>
 
-				</section>
+                <li>
+                    <a href="#adding-services">--Adding Services</a>
+                </li>
 
+                <li>
+                    <a href="#adding-testimonials">--Adding Testimonials</a>
+                </li>
 
+                <li>
+                    <a href="#adding-team-members">--Adding Team Members</a>
+                </li>
 
-				<section id="installation">
-					<div class="page-header">
-						<h1>Installation</h1>
-					</div>
+                <li>
+                    <a href="#setup-contact-forms">Setup Contact Forms</a>
+                </li>
 
+                <li>
+                    <a href="#setup-navigation">Setup Navigation</a>
+                </li>
 
-					<p>There are two methods to install the theme. If the standard installation method (A) is not supported by your web host, you will have to use the alternative option (B).</p>
+                <li>
+                    <a href="#header-setup">Header & Logo Setup</a>
+                </li>
 
-					<h3>A. Normal Installation</h3>
+                <li>
+                    <a href="#widgets">Sidebar & Widgets</a>
+                </li>
 
-					<ol>
-						<li>
-                            <p>Login to the WordPress Admin and browse to <strong>Appearance > Themes.</strong></p>
-                            <img src="assets/img/tradesman-screens/a1-screen.png" alt="Themes Menu Navigation" class="img-polaroid">
+                <li>
+                    <a href="#footer-setup">Footer Setup</a>
+                </li>
+
+                <li>
+                    <a href="#internationalization">Translation &amp; Internationalization</a>
+                </li>
+
+                <li>
+                    <a href="#customizations">Advanced Customizations</a>
+                </li>
+
+                <li>
+                    <a href="#credits">Copyright & Credits</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="span9">
+                <section id="introduction">
+                    <div class="page-header">
+                        <h1>Welcome to Trade Theme!</h1>
+                    </div>
+                    
+                    <p>Trade Theme has been designed specifically for tradesman such as electricians, builders, plumbers etc. Our objective with Trade Theme is to provide a clean design that works on all devices and converts visitors in to customers.</p>
+
+                    <h3>Thanks for Buying</h3>
+
+                    <p>Thank you for buying this theme. This document provides detailed information on how to get the theme up and running quickly. If you're stuck with anything, please don't hesitate to contact us.</p>
+
+                    <ul>
+                        <li>Created By: Company Name</li>
+
+                        <li>Support Site: <a href="http://theme-sphere.com">Will we have support forums?</a>
                         </li>
 
-						<li>
-                            <p>Click on the <strong>Add New</strong> (or "Install Themes" tab for older versions) button and then click <strong>Upload Theme</strong> on the next page.</p>
-                            <img src="assets/img/tradesman-screens/a2-screen.png" alt="Add New Theme" class="img-polaroid" style="margin-bottom: 8px;">
-                            <img src="assets/img/tradesman-screens/a2-1-screen.png" alt="Upload Theme" class="img-polaroid">
+                        <li>Version: 1.0</li>
+                    </ul>
+                </section>
+                
+                <section id="quickstart">
+                	<div class="page-header">
+                		<h1>Quick Start</h1>
+                	</div>
+                	
+                	<ol>
+                		<li>Install theme</li>
+						<li>Import sample data</li>
+						<li><strong>Settings</strong> &gt; <strong>Reading</strong> &gt; <strong>Set Front Page to static page</strong> (Home)</li>
+						<li>Set permalinks to Post Name</li>
+						<li>Set menu locations</li>
+						<li><strong>Appearance</strong> &gt; <strong>Theme Options</strong> (set site name, logo, phone number, copyright, color scheme)</li>
+						<li>Set Widgets</li>
+                	</ol>
+                	
+                	
+                </section>
+
+                <section id="installation">
+                    <div class="page-header">
+                        <h1>Installation</h1>
+                    </div>
+
+                    <p>There are two methods to install themes in Wordpress. If the standard installation method (A) is not supported by your web host, you will have to use the alternative method (B).</p>
+
+                    <h3>A. Normal Installation</h3>
+
+                    <ol>
+                        <li>
+                            <p>Login to the WordPress Admin and browse to <strong>Appearance &gt; Themes.</strong></p><img src="assets/img/tradesman-screens/a1-screen.png" alt="Themes Menu Navigation" class="img-polaroid">
                         </li>
-						<li>
-                            <p>Browse your computer to select "tradesman.zip" (it's located in the zip file you downloaded after purchasing the theme). Click <strong>"Install Now"</strong> button.</p>
-                            <img src="assets/img/tradesman-screens/a3-screen.png" alt="Install Now" class="img-polaroid">
+
+                        <li>
+                            <p>Click on the <strong>Add New</strong> (or "Install Themes" tab for older versions) button and then click <strong>Upload Theme</strong> on the next page.</p><img src="assets/img/tradesman-screens/a2-screen.png" alt="Add New Theme" class="img-polaroid" style="margin-bottom: 8px;"> <img src="assets/img/tradesman-screens/a2-1-screen.png" alt="Upload Theme" class="img-polaroid">
                         </li>
-						<li>
-                            <p>Once it's uploaded, click the <strong>Activate</strong> link.</p>
-                            <img src="assets/img/tradesman-screens/a4-screen.png" alt="Activate Theme" class="img-polaroid">
+
+                        <li>
+                            <p>Browse your computer to select "tradesman.zip" (it's located in the zip file you downloaded after purchasing the theme). Click <strong>"Install Now"</strong> button.</p><img src="assets/img/tradesman-screens/a3-screen.png" alt="Install Now" class="img-polaroid">
                         </li>
-					</ol>
 
-
-					<h3>B. FTP Installation (alternative method)</h3>
-
-
-					<ol>
-					<li>Use your FTP software (i.e. Filezilla) to browse to the <em>wp-content/themes</em> folder.</li>
-					<li>Extract <strong>smartmag.zip</strong> and upload the <strong>smart-mag</strong> folder.</li>
-					<li>
-                        <p>Once it's uploaded, go to your WordPress Admin, browse to <strong>Appearance > Themes.</strong></p>
-                        <img src="assets/img/tradesman-screens/b3-screen.png" alt="Activate Theme" class="img-polaroid">
-                    </li>
-					<li>
-                        <p>Click the <strong>Activate</strong> link.</p>
-                        <img src="assets/img/tradesman-screens/b4-screen.png" alt="Activate Theme" class="img-polaroid">
-                    </li>
-					</ol>
-
-
-					<p><span class="label label-warning">Important</span> After activation, you will be presented with several plugins that you <strong>must activate</strong> in order for all of the theme features to be available.</p>
-
-					<h3>Sample Content Import (optional)</h3>
-
-                    <p>
-                        Installing the sample content will set the theme up to look similar to the demo site. It will provide you a clear reference of
-                        how the theme is set up to achieve the desired look. We highly recommend <strong>against</strong> using this method in production. Please only use on a an extra copy for testing or experimenting. This method
-                        most likely will <storng>fail</storng> on shared web hosts. Uncheck "import attachments" option if it fails and try again.
-                    </p>
-
-					<p><span class="label label-important">Warning</span> Please <strong>do not</strong> import content on a WordPress installation that already has a lot of content. Or the very least, make a backup first. A catastrophic mess can be created.</p>
-
-					<ol>
-						<li>
-                            <p>Log into Admin and go to <strong>Tools &gt; Import &gt; WordPress</strong>.</p>
-                            <img src="assets/img/tradesman-screens/sample-data-1.png" alt="Tools Import" class="img-polaroid" style="margin-bottom: 8px;">
-                            <img src="assets/img/tradesman-screens/sample-data-1-2.png" alt="Import Wordpress" class="img-polaroid">
+                        <li>
+                            <p>Once it's uploaded, click the <strong>Activate</strong> link.</p><img src="assets/img/tradesman-screens/a4-screen.png" alt="Activate Theme" class="img-polaroid">
                         </li>
-						<li>
-                            <p>Install the WordPress importer.</p>
-                            <img src="assets/img/tradesman-screens/sample-data-2.png" alt="Install Wordpress Importer" class="img-polaroid">
+                    </ol>
+
+                    <h3>B. FTP Installation (alternative method)</h3>
+
+                    <ol>
+                        <li>Use your FTP software (i.e. Filezilla) to browse to the <em>wp-content/themes</em> folder.</li>
+
+                        <li>Extract <strong>smartmag.zip</strong> and upload the <strong>smart-mag</strong> folder.</li>
+
+                        <li>
+                            <p>Once it's uploaded, go to your WordPress Admin, browse to <strong>Appearance &gt; Themes.</strong></p><img src="assets/img/tradesman-screens/b3-screen.png" alt="Activate Theme" class="img-polaroid">
                         </li>
-						<li>
-                            <p>Select the tradesman-sample.xml (located in the main zip file in the Sample Data folder) and upload it.</p>
-                            <img src="assets/img/tradesman-screens/sample-data-3.png" alt="Install Wordpress Sample Upload" class="img-polaroid">
+
+                        <li>
+                            <p>Click the <strong>Activate</strong> link.</p><img src="assets/img/tradesman-screens/b4-screen.png" alt="Activate Theme" class="img-polaroid">
                         </li>
-						<li>
-                            <p>On the next screen, under Assign Authors, select or enter a new username for each author.</p>
-                            <img src="assets/img/tradesman-screens/sample-data-4.png" alt="Wordpress Importer Select Authors" class="img-polaroid">
+                    </ol>
+
+                    <p><span class="label label-warning">Important</span> After activation, you will be presented with several plugins that you <strong>must activate</strong> in order for all of the theme features to be available.</p>
+
+                    <h3>Sample Content Import (optional)</h3>
+
+                    <p>Installing the sample content will set the theme up to look similar to the demo site. It will provide you a clear reference of how the theme is set up to achieve the desired look. However, we strongly advise <strong>against</strong> using this method in production. Importing content will most likely fail on shared web hosts. If it fails, uncheck the "import attachments" option and try again.</p>
+
+                    <p><span class="label label-important">Warning</span> Please <strong>do not</strong> import content on a WordPress installation that already has a lot of content. Or the very least, make a backup first. A catastrophic mess can be created.</p>
+
+                    <ol>
+                        <li>
+                            <p>Log into Admin and go to <strong>Tools &gt; Import &gt; WordPress</strong>.</p><img src="assets/img/tradesman-screens/sample-data-1.png" alt="Tools Import" class="img-polaroid" style="margin-bottom: 8px;"> <img src="assets/img/tradesman-screens/sample-data-1-2.png" alt="Import Wordpress" class="img-polaroid">
                         </li>
-						<li>Checking "Download and import file attachments" will download placeholder images.</li>
-						<li>The process can take several minutes, so please be patient.</li>
-						<li>
-                            <p>In order to setup the site navigation, go to <strong>Appearance &gt; Menus &gt; Manage Locations</strong>. Select "Main Menu" from the dropdown for "Header Navigation".</p>
-                            <img src="assets/img/tradesman-screens/sample-data-7.png" alt="Appearance Menus" class="img-polaroid">
-                            <img src="assets/img/tradesman-screens/sample-data-7-2.png" alt="Set Menu Locations" class="img-polaroid">
+
+                        <li>
+                            <p>Install the WordPress importer.</p><img src="assets/img/tradesman-screens/sample-data-2.png" alt="Install Wordpress Importer" class="img-polaroid">
                         </li>
-						<li>*****Will the importer script automatically set the homepage to the proper static page???****</li>
+
+                        <li>
+                            <p>Select the tradesman-sample.xml (located in the main zip file in the Sample Data folder) and upload it.</p><img src="assets/img/tradesman-screens/sample-data-3.png" alt="Install Wordpress Sample Upload" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>On the next screen, under Assign Authors, select or enter a new username for each author.</p><img src="assets/img/tradesman-screens/sample-data-4.png" alt="Wordpress Importer Select Authors" class="img-polaroid">
+                        </li>
+
+                        <li>Checking "Download and import file attachments" will download placeholder images.</li>
+
+                        <li>The process can take several minutes, so please be patient.</li>
+
+                        <li>
+                            <p>In order to setup the site navigation, go to <strong>Appearance &gt; Menus &gt; Manage Locations</strong>. Select "Main Menu" from the dropdown for "Header Navigation".</p><img src="assets/img/tradesman-screens/sample-data-7.png" alt="Appearance Menus" class="img-polaroid"> <img src="assets/img/tradesman-screens/sample-data-7-2.png" alt="Set Menu Locations" class="img-polaroid">
+                        </li>
+
+                        <li>*****Will the importer script automatically set the homepage to the proper static page???****</li>
+
                         <li>At this point the site will closely resemble the demo site.</li>
-					</ol>
-
+                    </ol>
 
                     <p><span class="label label-info">Tip</span> If it fails, uncheck "Download and import file attachments" and try again.</p>
 
                     <p><span class="label label-info">Tip</span> If it still fails, you will have to request your webhost to increase your PHP max_execution_time (or any other webserver timeout to at least 300 secs) and memory_limit (to at least 196M) temporarily.</p>
-
-
                 </section>
-				
-				
 
-				<section id="creating-pages">
-					
-					<div class="page-header">
-						<h1><a href="#creating-pages">Creating Pages</a></h1>
-					</div>
-					
-					<p>The Tradesman Theme comes equipped with several page templates. Each of the templates achieves a specific page layout that is demonstrated on the <a href="#">demo site</a>.</p>
+                <section id="creating-pages">
+                    <div class="page-header">
+                        <h1><a href="#creating-pages">Creating Pages</a></h1>
+                    </div>
+
+                    <p>The Tradesman Theme comes equipped with several page templates. Each of the templates achieves a specific page layout that is demonstrated on the <a href="#">demo site</a>.</p>
 
                     <h3>Creating a Page</h3>
-
+                    
                     <ol>
                         <li>
-                            <p>Navigate to Pages &gt; Add New</p>
-                            <img src="assets/img/tradesman-screens/new-page.png" alt="New Page" class="img-polaroid" />
+                            <p>Navigate to Pages &gt; Add New</p><img src="assets/img/tradesman-screens/new-page.png" alt="New Page" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Select a page template from the sidebar</p>
-                            <img src="assets/img/tradesman-screens/page-templates.png" alt="Page Templates" class="img-polaroid" />
+                            <p>Select a page template from the sidebar</p><img src="assets/img/tradesman-screens/page-templates.png" alt="Page Templates" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Save the page as a draft</p>
-                            <img src="assets/img/tradesman-screens/save-as-draft.png" alt="Save Page as Draft" class="img-polaroid" />
+                            <p>Save the page as a draft</p><img src="assets/img/tradesman-screens/save-as-draft.png" alt="Save Page as Draft" class="img-polaroid">
                         </li>
+
                         <li>When the page reloads, the page fields will have changed to reflect the selected template.</li>
+
                         <li>Refer to the template specific sections below for detailed information about what each field does.</li>
+
                         <li>
-                            <p>After filling in the fields, <strong>publish</strong> the page</p>
-                            <img src="assets/img/tradesman-screens/publish-page.png" alt="Publish Page" class="img-polaroid" />
+                            <p>After filling in the fields, <strong>publish</strong> the page</p><img src="assets/img/tradesman-screens/publish-page.png" alt="Publish Page" class="img-polaroid">
                         </li>
                     </ol>
 
+                    <h3>Page Templates</h3>
 
-					<h3>Page Templates</h3>
-
-                    <p><img src="assets/img/tradesman-screens/page-templates.png" alt="Page Templates" class="img-polaroid" /></p>
+                    <p><img src="assets/img/tradesman-screens/page-templates.png" alt="Page Templates" class="img-polaroid"></p>
 
                     <ol>
-                        <li><strong>Homepage</strong>: You can see an example of this template on the <a href="#">demo site</a>.</li>
-                        <li><strong>Services</strong>: You can see an example of this template on the <a href="#">demo site</a>.</li>
-                        <li><strong>Testimonials</strong>: You can see an example of this template on the <a href="#">demo site</a>.</li>
-                        <li><strong>About Us</strong>: You can see an example of this template on the <a href="#">demo site</a>.</li>
-                        <li><strong>Contact</strong>: You can see an example of this template on the <a href="#">demo site</a>.</li>
-                        <li><strong>Default</strong>: This is a bare-bones template. It has a page title and content area populated by a WYSIWYG. You can see an example of this template on the <a href="#">demo site</a>.</li>
+                        <li>
+                            <strong>Homepage</strong>: You can see an example of this template on the <a href="#">demo site</a>.
+                        </li>
+
+                        <li>
+                            <strong>Services</strong>: You can see an example of this template on the <a href="#">demo site</a>.
+                        </li>
+
+                        <li>
+                            <strong>Testimonials</strong>: You can see an example of this template on the <a href="#">demo site</a>.
+                        </li>
+
+                        <li>
+                            <strong>About Us</strong>: You can see an example of this template on the <a href="#">demo site</a>.
+                        </li>
+
+                        <li>
+                            <strong>Contact</strong>: You can see an example of this template on the <a href="#">demo site</a>.
+                        </li>
+
+                        <li>
+                            <strong>Default</strong>: This is a bare-bones template. It has a page title and content area populated by a WYSIWYG. You can see an example of this template on the <a href="#">demo site</a>.
+                        </li>
                     </ol>
 
-						
-					<h3>Sidebar</h3>
-						
-					<p>Detailed instructions can be found in the <a href="#widgets">Sidebar &amp; Widgets</a> section.</p>
+                    <h3>Sidebar</h3>
 
-				</section>
-
+                    <p>Detailed instructions can be found in the <a href="#widgets">Sidebar &amp; Widgets</a> section.</p>
+                </section>
 
                 <section id="homepage">
                     <div class="page-header">
                         <h1>Homepage</h1>
                     </div>
+                    
+                    <p>To create the homepage, select the <strong>Homepage Template</strong>. Refer to <a href="#creating-pages"><a href="#creating-pages">Creating Pages</a></a> for instructions on how to create a new page.</p>
 
-                    <p>The homepage serves as the front page of your website. It is the first thing the user will see when they arrive at your website and therefore almost always the most important, first impressions count, especially when you're trying to convert a visitor in to a customer. You can see an example of what the homepage looks like on the <a href="#">demo site</a>.</p>
-                    <p>The homepage layout has been designed with conversions in mind. The lead generation form is above the fold, to ensure visitors to your page can instantly see what they're supposed to do. The form has minimal fields as research has shown the more fields a visitor has to fill out, the less likely they are to complete it.</p>
-
-                    <p>When creating the homepage, select the <strong>Homepage Template</strong>. Refer to <a href="#creating-pages"><a href="#creating-pages">Creating Pages</a></a> for instructions on how to create a new page.</p>
+                    <p>The homepage is often the first page a visitor will land on and first impressions count. You can see an example of what the homepage looks like on the <a href="#">demo site</a>.</p>
+                    
+                    <h2>Filling in the homepage fields</h2>
 
                     <h3>Header Block</h3>
 
                     <ol>
-                        <li>
-                            Benefits and Quote Request Form
+                        <li>Benefits and Quote Request Form
+
                             <ul>
-                            	<li>To add features and benefits, refer to the image below.Choose product/service/brand benefits that give your visitor good reason to choose your company.</li>
+                                <li>To add features and benefits, refer to the images below. Choose product/service/brand benefits that give your visitors good reason to choose your company. E.g. Free Quote, No Callout Charge etc.</li>
+
                                 <li>To add the quote request form, enter your Contact Form 7 shortcode.</li>
-                                <li><p>Refer to the <a href="#setup-contact-forms">Setup Contact Forms</a> section for instructions on how to generate the shortcode.</p></li>
-                            </ul>
-                            <img src="assets/img/tradesman-screens/homepage/cta.png" alt="Homepage CTA" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/homepage/cta-fields.png" alt="Homepage CTA Fields" class="img-polaroid" />
+
+                                <li>
+                                    <p>Refer to the <a href="#setup-contact-forms">Setup Contact Forms</a> section for instructions on how to generate the shortcode.</p>
+                                </li>
+                            </ul><img src="assets/img/tradesman-screens/homepage/cta.png" alt="Homepage CTA" class="img-polaroid"> <img src="assets/img/tradesman-screens/homepage/cta-fields.png" alt="Homepage CTA Fields" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Features Block</p>
-                            <img src="assets/img/tradesman-screens/homepage/features.png" alt="Homepage Features" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/homepage/feature-fields.png" alt="Homepage Features Fields" class="img-polaroid" />
+                            <p>Features / Services Block</p>
+                            <p>This section is primarily designed to house the 3 best features of your services, but it can also be used for services or anything else you choose.</p>
+                            <img src="assets/img/tradesman-screens/homepage/features.png" alt="Homepage Features" class="img-polaroid"> <img src="assets/img/tradesman-screens/homepage/feature-fields.png" alt="Homepage Features Fields" class="img-polaroid">
                         </li>
-                        <li>
-                            Testimonial Block
+
+                        <li>Testimonial Block
+
                             <ul>
                                 <li>To add a testimonial, simply select a previously created testimonial from the dropdown list.</li>
-                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.</li>
-                                <li><p>The homepage supports 3 testimonials.</p></li>
-                            </ul>
-                            <img src="assets/img/tradesman-screens/homepage/testimonials.png" alt="Homepage Testimonials" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/homepage/testimonial-fields.png" alt="Homepage Testimonial Fields" class="img-polaroid" />
+
+                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.
+                                </li>
+
+                                <li>
+                                    <p>The homepage supports 3 testimonials.</p>
+                                </li>
+                            </ul><img src="assets/img/tradesman-screens/homepage/testimonials.png" alt="Homepage Testimonials" class="img-polaroid"> <img src="assets/img/tradesman-screens/homepage/testimonial-fields.png" alt="Homepage Testimonial Fields" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Call to Action Block</p>
-                            <img src="assets/img/tradesman-screens/homepage/bottom.png" alt="Homepage Bottom" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/homepage/bottom-fields.png" alt="Homepage Bottom Fields" class="img-polaroid" />
+                            <p>Call to Action Block. Visitors who have scrolled down far enough to reach this section are likely reasonably interested in your services, now is great opportunity to turn the visitor in to a customer. Give them everything you've got, an offer they cannot refuse, followed by the best way to contact you.</p><img src="assets/img/tradesman-screens/homepage/bottom.png" alt="Homepage Bottom" class="img-polaroid"> <img src="assets/img/tradesman-screens/homepage/bottom-fields.png" alt="Homepage Bottom Fields" class="img-polaroid">
                         </li>
                     </ol>
 
@@ -369,19 +454,17 @@
 
                     <ol>
                         <li>
-                            <p>Go to <strong>Settings > Reading</strong>.</p>
-                            <img src="assets/img/tradesman-screens/homepage/settings-reading.png" alt="Homepage Bottom" class="img-polaroid" />
+                            <p>Go to <strong>Settings &gt; Reading</strong>.</p><img src="assets/img/tradesman-screens/homepage/settings-reading.png" alt="Homepage Bottom" class="img-polaroid">
                         </li>
+
                         <li>Under <em>Front page displays</em> choose <strong>"A static page"</strong> option.</li>
+
                         <li>
-                            <p>Next to <em>Front Page</em>, select the page you created to be used as the homepage.</p>
-                            <img src="assets/img/tradesman-screens/homepage/frontpage-settings.png" alt="Homepage Bottom" class="img-polaroid" />
+                            <p>Next to <em>Front Page</em>, select the page you created to be used as the homepage.</p><img src="assets/img/tradesman-screens/homepage/frontpage-settings.png" alt="Homepage Bottom" class="img-polaroid">
                         </li>
+
                         <li>Save Changes.</li>
-                    </ol>
-
-
-                    <!--
+                    </ol><!--
                     <dl class="dl-horizontal">
                         <dt>Highlights Block</dt>
                         <dd>4 Posts, 2 Columns, and categories selected for each column.</dd>
@@ -405,153 +488,161 @@
                     -->
                 </section>
 
-
                 <section id="services-page">
                     <div class="page-header">
                         <h1>Services Page</h1>
                     </div>
 
-                    <p>The services page is another important page. This is where you list the services you provide. The services page includes a quote request form to enable the visitor to quickly contact you without leaving the page, helping increase conversions.</p>
-                    <p>When creating the services page, make sure to select the <strong>Services Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
+                    <p>This is where you list your companies services. This page also supports a contact page, so that the visitor can contact you, right there on the page.</p>
+
+                    <p>When creating the services page, select the <strong>Services Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>Services Template Fields</h3>
 
                     <ul>
                         <li>The <strong>Services</strong> field will allow you to select existing services from the dropdown.</li>
-                        <li>Refer to the <a href="#adding-services">Adding Services</a> section for details on how to create the services that appear in the dropdown.</li>
+
+                        <li>Refer to the <a href="#adding-services">Adding Services</a> section for details on how to create the services that appear in the dropdown.
+                        </li>
+
                         <li>You can add as many services as you like, on desktop they will appear 3 in a row.</li>
-                    </ul>
-                    <img src="assets/img/tradesman-screens/services-template/services-1.png" alt="Services Template" class="img-polaroid" />
-                    <img src="assets/img/tradesman-screens/services-template/services-1-fields.png" alt="Services Template Fields" class="img-polaroid" />
+                    </ul><img src="assets/img/tradesman-screens/services-template/services-1.png" alt="Services Template" class="img-polaroid"> <img src="assets/img/tradesman-screens/services-template/services-1-fields.png" alt="Services Template Fields" class="img-polaroid">
+
                     <p>&nbsp;</p>
+
                     <ul>
                         <li>The Form Shortcode field requires a shortcode from the plugin: Contact Form 7</li>
-                        <li>Refer to the <a href="#setup-contact-forms">Setup Contact Forms</a> section for instructions on how to generate the shortcode.</li>
-                    </ul>
-                    <img src="assets/img/tradesman-screens/services-template/services-2.png" alt="Services Template 2" class="img-polaroid" />
-                    <img src="assets/img/tradesman-screens/services-template/services-2-fields.png" alt="Services Template 2 Fields" class="img-polaroid" />
-                </section>
 
+                        <li>Refer to the <a href="#setup-contact-forms">Setup Contact Forms</a> section for instructions on how to generate the shortcode.
+                        </li>
+                    </ul><img src="assets/img/tradesman-screens/services-template/services-2.png" alt="Services Template 2" class="img-polaroid"> <img src="assets/img/tradesman-screens/services-template/services-2-fields.png" alt="Services Template 2 Fields" class="img-polaroid">
+                </section>
 
                 <section id="testimonials-page">
                     <div class="page-header">
                         <h1>Testimonials Page</h1>
                     </div>
-                    <p>The testimonials page is for you to show off the awesome things your customers have to say about you. Try to include as much information about each customer, this will ensure the testimonial looks legit.</p>
-                    <p>When creating the testimonials page, make sure to select the <strong>Testimonials Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
+
+                    <p>Add as many testimonials as you can, the more the better. When possible include as much information about the customer, this will give your testimonials more legitimacy.</p>
+
+                    <p>When creating the testimonials page, select the <strong>Testimonials Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>Testimonials Template Fields</h3>
+
                     <ul>
                         <li>The <strong>Testimonial Format</strong> specifies the layout for the page. The testimonials can be formatted to show 1, 2, or 3 per row.</li>
-                        <li>You can add unlimited testimonials.</li>
-                        <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
-                        <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials.</li>
-                    </ul>
-                    <img src="assets/img/tradesman-screens/testimonials/testimonials.png" alt="Testimonials Template" class="img-polaroid" />
-                    <img src="assets/img/tradesman-screens/testimonials/testimonial-fields.png" alt="Testimonials Template Fields" class="img-polaroid" />
-                </section>
 
+                        <li>You can add unlimited testimonials.</li>
+
+                        <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
+
+                        <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials.
+                        </li>
+                    </ul><img src="assets/img/tradesman-screens/testimonials/testimonials.png" alt="Testimonials Template" class="img-polaroid"> <img src="assets/img/tradesman-screens/testimonials/testimonial-fields.png" alt="Testimonials Template Fields" class="img-polaroid">
+                </section>
 
                 <section id="about-us-page">
                     <div class="page-header">
                         <h1>About Us Page</h1>
                     </div>
-                    <p>The about us page is for you tell your visitors all about your company and what makes it unique. On this page you can also add your team members, testimonials and a call to action at the bottom of the page to aid conversions.</p>
+
+                    <p>As well as talking about your company, include what your company can do for the visitor. What makes your company unique, why should the visitor choose you over a competitor? Talk about your experience, success, awards and accreditations you've earned. Introduce some of your team and then follow up with testimonials to offer social proof.</p>
+
                     <p>When creating the about us page, make sure to select the <strong>About Us Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>About Us Template Fields</h3>
 
                     <ol>
+                        <li>Template Fields <img src="assets/img/tradesman-screens/about/about.png" alt="About Top" class="img-polaroid"> <img src="assets/img/tradesman-screens/about/about-fields.png" alt="About Top Fields" class="img-polaroid"></li>
+
                         <li>
-                            Template Fields
-                            <img src="assets/img/tradesman-screens/about/about.png" alt="About Top" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/about/about-fields.png" alt="About Top Fields" class="img-polaroid" />
+                            <p>Meet The Team Block Fields</p><img src="assets/img/tradesman-screens/about/about-team.png" alt="About Team" class="img-polaroid"> <img src="assets/img/tradesman-screens/about/about-team-fields.png" alt="About Team Fields" class="img-polaroid">
                         </li>
-                        <li>
-                            <p>Meet The Team Block Fields</p>
-                            <img src="assets/img/tradesman-screens/about/about-team.png" alt="About Team" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/about/about-team-fields.png" alt="About Team Fields" class="img-polaroid" />
-                        </li>
-                        <li>
-                            Testimonials Block Fields
+
+                        <li>Testimonials Block Fields
+
                             <ul>
                                 <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
-                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials.</li>
-                                <li><p>The about page supports up to 3 testimonials.</p></li>
-                            </ul>
-                            <img src="assets/img/tradesman-screens/about/about-testimonials.png" alt="About Testimonials" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/about/about-testimonial-fields.png" alt="About Testimonial Fields" class="img-polaroid" />
+
+                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials.
+                                </li>
+
+                                <li>
+                                    <p>The about page supports up to 3 testimonials.</p>
+                                </li>
+                            </ul><img src="assets/img/tradesman-screens/about/about-testimonials.png" alt="About Testimonials" class="img-polaroid"> <img src="assets/img/tradesman-screens/about/about-testimonial-fields.png" alt="About Testimonial Fields" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Call to Action Fields</p>
-                            <img src="assets/img/tradesman-screens/about/about-bottom.png" alt="About Bottom" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/about/about-bottom-fields.png" alt="About Bottom Fields" class="img-polaroid" />
+                            <p>Call to Action Fields</p><img src="assets/img/tradesman-screens/about/about-bottom.png" alt="About Bottom" class="img-polaroid"> <img src="assets/img/tradesman-screens/about/about-bottom-fields.png" alt="About Bottom Fields" class="img-polaroid">
                         </li>
                     </ol>
                 </section>
-
 
                 <section id="contact-us-page">
                     <div class="page-header">
                         <h1>Contact Us Page</h1>
                     </div>
-                    <p>The contact us page is for your to provide details on how your customers can contact you. This page also supports testimonials to aid conversions.h </p>
+
+                    <p>The contact us page is for your to provide details on how your customers can contact you. This page also supports testimonials to aid conversions.h</p>
+
                     <p>When creating the contact us page, make sure to select the <strong>Contact Us Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
                     <h3>Contact Us Template Fields</h3>
 
                     <ol>
                         <li>
-                            <p>Contact Fields</p>
-                            <img src="assets/img/tradesman-screens/contact/contact-top.png" alt="About Top" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/contact/contact-top-fields.png" alt="About Top Fields" class="img-polaroid" />
+                            <p>Contact Fields</p><img src="assets/img/tradesman-screens/contact/contact-top.png" alt="About Top" class="img-polaroid"> <img src="assets/img/tradesman-screens/contact/contact-top-fields.png" alt="About Top Fields" class="img-polaroid">
                         </li>
-                        <li>
-                            Testimonial Fields
+
+                        <li>Testimonial Fields
+
                             <ul>
                                 <li>The <strong>Testimonials</strong> field will allow you to select existing testimonials from the dropdown.</li>
-                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.</li>
-                                <li><p>The contact page supports 3 testimonials.</p></li>
-                            </ul>
-                            <img src="assets/img/tradesman-screens/contact/contact-testimonials.png" alt="Homepage Testimonials" class="img-polaroid" />
-                            <img src="assets/img/tradesman-screens/contact/contact-testimonial-fields.png" alt="Homepage Testimonial Fields" class="img-polaroid" />
+
+                                <li>Refer to the <a href="#adding-testimonials">Adding Testimonials</a> section for details on how to create the testimonials that appear in the dropdown.
+                                </li>
+
+                                <li>
+                                    <p>The contact page supports 3 testimonials.</p>
+                                </li>
+                            </ul><img src="assets/img/tradesman-screens/contact/contact-testimonials.png" alt="Homepage Testimonials" class="img-polaroid"> <img src="assets/img/tradesman-screens/contact/contact-testimonial-fields.png" alt="Homepage Testimonial Fields" class="img-polaroid">
                         </li>
                     </ol>
                 </section>
-
 
                 <section id="default-page">
                     <div class="page-header">
                         <h1>Default Page</h1>
                     </div>
-                    <p>The default template is for you to create additional pages, for example a privacy policy.</p>
-                    <p>When creating a default page, make sure to select the <strong>Default Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
 
+                    <p>The default template is for you to create additional pages, for example a privacy policy.</p>
+
+                    <p>When creating a default page, make sure to select the <strong>Default Template</strong>. Refer to <a href="#creating-pages">Creating Pages</a> for instructions on how to create a new page.</p>
                 </section>
 
-
                 <section id="adding-content">
-
                     <div class="page-header">
                         <h1>Adding Content</h1>
                     </div>
 
-                    <p>The Tradesman Theme comes equipped 3 types of custom content (post) types. They include Services, Team Members, and Testimonials. Each custom content type is used to easily create repeatable content throughout the website.</p>
+                    <p>The Tradesman Theme comes equipped 3 types of custom content (post) types. They include Services, Team Members, and Testimonials. Each custom content type is used to easily create content such as a testimonial, which you can then use repeatedly throughout the website.</p>
 
                     <h3>Adding a Content Post</h3>
 
                     <ol>
                         <li>
-                            <p>Select <strong>Add New</strong> from the dropdown for the desired content type in the sidebar menu.</p>
-                            <img src="assets/img/tradesman-screens/services/add-new-testimonial.png" alt="Add New" class="img-polaroid" />
+                            <p>Select <strong>Add New</strong> from the dropdown for the desired content type in the sidebar menu.</p><img src="assets/img/tradesman-screens/services/add-new-testimonial.png" alt="Add New" class="img-polaroid">
                         </li>
+
                         <li>
                             <p>Fill in all of the available fields.</p>
+
                             <p><span class="label label-info">Note</span> Refer to the content specific sections below for detailed information about what each field does.</p>
                         </li>
+
                         <li>
-                            <p>After filling in the fields, <strong>publish</strong> the page</p>
-                            <img src="assets/img/tradesman-screens/publish-page.png" alt="Publish Page" class="img-polaroid" />
+                            <p>After filling in the fields, <strong>publish</strong> the page</p><img src="assets/img/tradesman-screens/publish-page.png" alt="Publish Page" class="img-polaroid">
                         </li>
                     </ol>
                 </section>
@@ -565,11 +656,7 @@
 
                     <p><span class="label label-info">Note</span> Refer to the <a href="#services-page">Services Page</a> section for instructions on how to attach existing services to the template page.</p>
 
-                    <h3>Service Fields</h3>
-
-                    <img src="assets/img/tradesman-screens/services/service.png" alt="Service" class="img-polaroid" />
-                    <img src="assets/img/tradesman-screens/services/service-fields.png" alt="Service Fields" class="img-polaroid" />
-
+                    <h3>Service Fields</h3><img src="assets/img/tradesman-screens/services/service.png" alt="Service" class="img-polaroid"> <img src="assets/img/tradesman-screens/services/service-fields.png" alt="Service Fields" class="img-polaroid">
                 </section>
 
                 <section id="adding-testimonials">
@@ -581,13 +668,8 @@
 
                     <p><span class="label label-info">Note</span> Testimonials appear on several pages throughout the site. Refer to the <a href="#homepage">Homepage</a>, <a href="#testimonials-page">Testimonials Page</a>, <a href="#about-us-page">About Us Page</a>, and <a href="#contact-us-page">Contact Us Page</a> sections for instructions on how to add testimonials to the different template pages.</p>
 
-                    <h3>Testimonial Fields</h3>
-
-                    <img src="assets/img/tradesman-screens/testimonial/testimonial.png" alt="Testimonial" class="img-polaroid" />
-                    <img src="assets/img/tradesman-screens/testimonial/testimonial-fields.png" alt="Testimonial Fields" class="img-polaroid" />
-
+                    <h3>Testimonial Fields</h3><img src="assets/img/tradesman-screens/testimonial/testimonial.png" alt="Testimonial" class="img-polaroid"> <img src="assets/img/tradesman-screens/testimonial/testimonial-fields.png" alt="Testimonial Fields" class="img-polaroid">
                 </section>
-
 
                 <section id="adding-team-members">
                     <div class="page-header">
@@ -598,17 +680,10 @@
 
                     <p><span class="label label-info">Note</span> Refer to the <a href="#about-us-page">About Us Page</a> section for instructions on how to attach existing team members to the template page.</p>
 
+                    <h3>Team Member Fields</h3><img src="assets/img/tradesman-screens/team/team-member.png" alt="Testimonial" class="img-polaroid">
 
-                    <h3>Team Member Fields</h3>
-
-                    <img src="assets/img/tradesman-screens/team/team-member.png" alt="Testimonial" class="img-polaroid" />
-                    <div class="clearfix"></div>
-                    <img src="assets/img/tradesman-screens/team/team-member-fields.png" alt="Testimonial Fields" class="img-polaroid" />
-
+                    <div class="clearfix"></div><img src="assets/img/tradesman-screens/team/team-member-fields.png" alt="Testimonial Fields" class="img-polaroid">
                 </section>
-
-
-
 
                 <section id="setup-contact-forms">
                     <div class="page-header">
@@ -623,16 +698,18 @@
 
                     <ol>
                         <li>
-                            <p>Go to <strong>Contact &gt; Add New</strong>.</p>
-                            <img src="assets/img/tradesman-screens/contact-form/add-new.png" alt="Add New Contact Form" class="img-polaroid" />
+                            <p>Go to <strong>Contact &gt; Add New</strong>.</p><img src="assets/img/tradesman-screens/contact-form/add-new.png" alt="Add New Contact Form" class="img-polaroid">
                         </li>
+
                         <li>Select the desired language and click <strong>Add New</strong></li>
+
                         <li>
-                            <p>Name the Contact form <strong>Request a Quote</strong></p>
-                            <img src="assets/img/tradesman-screens/contact-form/set-title.png" alt="Set Contact Form Title" class="img-polaroid" />
+                            <p>Name the Contact form <strong>Request a Quote</strong></p><img src="assets/img/tradesman-screens/contact-form/set-title.png" alt="Set Contact Form Title" class="img-polaroid">
                         </li>
-                        <li><p>Replace the form content with the following:</p>
-<pre class="prettyprint">
+
+                        <li>
+                            <p>Replace the form content with the following:</p>
+                            <pre class="prettyprint">
 &lt;div class="form-half"&gt;
     [text* your-name placeholder "Name"]
 &lt;/div&gt;
@@ -648,21 +725,22 @@
 </pre>
                         </li>
 
-
                         <li>Edit the "Mail" settings to suit your needs and <strong>Save</strong></li>
-                        <li>For more information, refer to <a href="http://contactform7.com/faq/">Contact Form 7's FAQ</a> and <a href="http://contactform7.com/docs/">Docs</a>.</li>
+
+                        <li>For more information, refer to <a href="http://contactform7.com/faq/">Contact Form 7's FAQ</a> and <a href="http://contactform7.com/docs/">Docs</a>.
+                        </li>
                     </ol>
 
                     <p>Once you have created your form:</p>
 
                     <ol>
                         <li>
-                            <p>Go to <strong>Contact</strong> again. Copy the code under the <strong>Shortcode</strong> column.</p>
-                            <img src="assets/img/tradesman-screens/contact-form/shortcode.png" alt="Contact Form Shortcode" class="img-polaroid" />
+                            <p>Go to <strong>Contact</strong> again. Copy the code under the <strong>Shortcode</strong> column.</p><img src="assets/img/tradesman-screens/contact-form/shortcode.png" alt="Contact Form Shortcode" class="img-polaroid">
                         </li>
-                        <li>Navigate to the <a href="#homepage">Homepage</a> and paste the shortcode into the <strong>Form Shortcode</strong> field.</li>
-                    </ol>
 
+                        <li>Navigate to the <a href="#homepage">Homepage</a> and paste the shortcode into the <strong>Form Shortcode</strong> field.
+                        </li>
+                    </ol>
 
                     <h4>Get in Touch Form</h4>
 
@@ -672,16 +750,18 @@
 
                     <ol>
                         <li>
-                            <p>Go to <strong>Contact &gt; Add New</strong>.</p>
-                            <img src="assets/img/tradesman-screens/contact-form/add-new.png" alt="Add New Contact Form" class="img-polaroid" />
+                            <p>Go to <strong>Contact &gt; Add New</strong>.</p><img src="assets/img/tradesman-screens/contact-form/add-new.png" alt="Add New Contact Form" class="img-polaroid">
                         </li>
+
                         <li>Select the desired language and click <strong>Add New</strong></li>
+
                         <li>
-                            <p>Name the Contact form <strong>Get in Touch</strong></p>
-                            <img src="assets/img/tradesman-screens/contact-form/set-title-2.png" alt="Set Contact Form Title" class="img-polaroid" />
+                            <p>Name the Contact form <strong>Get in Touch</strong></p><img src="assets/img/tradesman-screens/contact-form/set-title-2.png" alt="Set Contact Form Title" class="img-polaroid">
                         </li>
-                        <li><p>Replace the form content with the following:</p>
-<pre class="prettyprint">
+
+                        <li>
+                            <p>Replace the form content with the following:</p>
+                            <pre class="prettyprint">
 &lt;div class="form-half"&gt;
     [text* your-name placeholder "Name"]
 &lt;/div&gt;
@@ -697,134 +777,137 @@
 </pre>
                         </li>
 
-
                         <li>Edit the "Mail" settings to suit your needs and <strong>Save</strong></li>
-                        <li>For more information, refer to <a href="http://contactform7.com/faq/">Contact Form 7's FAQ</a> and <a href="http://contactform7.com/docs/">Docs</a>.</li>
+
+                        <li>For more information, refer to <a href="http://contactform7.com/faq/">Contact Form 7's FAQ</a> and <a href="http://contactform7.com/docs/">Docs</a>.
+                        </li>
                     </ol>
 
                     <p>Once you have created your form:</p>
 
                     <ol>
                         <li>
-                            <p>Go to <strong>Contact</strong> again. Copy the code under the <strong>Shortcode</strong> column.</p>
-                            <img src="assets/img/tradesman-screens/contact-form/shortcode-2.png" alt="Contact Form Shortcode" class="img-polaroid" />
+                            <p>Go to <strong>Contact</strong> again. Copy the code under the <strong>Shortcode</strong> column.</p><img src="assets/img/tradesman-screens/contact-form/shortcode-2.png" alt="Contact Form Shortcode" class="img-polaroid">
                         </li>
-                        <li>Navigate to the <a href="#services-page">Services Page</a> and paste the shortcode into the <strong>Form Shortcode</strong> field.</li>
-                        <li>Navigate to the <a href="#contact-us-page">Contact Us Page</a> and paste the shortcode into the <strong>Form Shortcode</strong> field.</li>
+
+                        <li>Navigate to the <a href="#services-page">Services Page</a> and paste the shortcode into the <strong>Form Shortcode</strong> field.
+                        </li>
+
+                        <li>Navigate to the <a href="#contact-us-page">Contact Us Page</a> and paste the shortcode into the <strong>Form Shortcode</strong> field.
+                        </li>
+                    </ol>
+                </section>
+
+                <section id="setup-navigation">
+                    <div class="page-header">
+                        <h1>Setup Navigation &amp; Menus</h1>
+                    </div>
+
+                    <p>If you have imported demo content, refer to (a), otherwise refer to (b) to create a new menu.</p>
+
+                    <h3>(a) Existing Menu</h3>
+
+                    <ol>
+                        <li>
+                            <p>Go to to <strong>Appearance &gt; Menus</strong>.</p><img src="assets/img/tradesman-screens/menus/apperance-menus.png" alt="Appearance Menus" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>In the "Manage Locations" area, under <strong>Header Navigation</strong>, select <strong>Main Menu</strong>. Click Save.</p><img src="assets/img/tradesman-screens/menus/set-menu-locations.png" alt="Set Menu Locations" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>In the "Manage Locations" area, under <strong>Footer Navigation</strong>, select <strong>Footer Menu</strong>. Click Save.</p><img src="assets/img/tradesman-screens/menus/set-menu-locations-2.png" alt="Set Menu Locations" class="img-polaroid">
+                        </li>
                     </ol>
 
+                    <h3 id="creating-new-menu">(b) Creating a New Menu</h3>
+
+                    <ol>
+                        <li>
+                            <p>Go to to <strong>Appearance &gt; Menus</strong>.</p><img src="assets/img/tradesman-screens/menus/apperance-menus.png" alt="Appearance Menus" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>Click on the <strong>+</strong> button or the <strong>create a new menu</strong> link. Enter a menu name and click <strong>Create Menu</strong>.</p><img src="assets/img/tradesman-screens/menus/create-menu.png" alt="Create Menu" class="img-polaroid">
+                        </li>
+
+                        <li>Using the <strong>Custom Links</strong> and <strong>Pages</strong> boxes at the left, add items to the menu and drag/drop to arrange them.</li>
+
+                        <li>
+                            <p>Select the <strong>Manage Locations</strong> tab and assign the newly created menu a location</p><img src="assets/img/tradesman-screens/menus/set-menu-locations.png" alt="Set Menu Locations" class="img-polaroid">
+                        </li>
+
+                        <li>Click <strong>Save Menu</strong>.</li>
+                    </ol>
                 </section>
-				
-				<section id="setup-navigation">
-					<div class="page-header">
-						<h1>Setup Navigation &amp; Menus</h1>
-					</div>
-				
-					<p>If you have imported demo content, refer to (a), otherwise refer to (b) to create a new menu.</p>
-					
-					<h3>(a) Existing Menu</h3>
-						<ol>
-							<li>
-                                <p>Go to to <strong>Appearance &gt; Menus</strong>.</p>
-                                <img src="assets/img/tradesman-screens/menus/apperance-menus.png" alt="Appearance Menus" class="img-polaroid" />
-                            </li>
-							<li>
-                                <p>In the "Manage Locations" area, under <strong>Header Navigation</strong>, select <strong>Main Menu</strong>. Click Save.</p>
-                                <img src="assets/img/tradesman-screens/menus/set-menu-locations.png" alt="Set Menu Locations" class="img-polaroid" />
-                            </li>
-                            <li>
-                                <p>In the "Manage Locations" area, under <strong>Footer Navigation</strong>, select <strong>Footer Menu</strong>. Click Save.</p>
-                                <img src="assets/img/tradesman-screens/menus/set-menu-locations-2.png" alt="Set Menu Locations" class="img-polaroid" />
-                            </li>
-						</ol>
-						
-					<h3 id="creating-new-menu">(b) Creating a New Menu</h3>
-					
-						<ol>
-							<li>
-                                <p>Go to to <strong>Appearance &gt; Menus</strong>.</p>
-                                <img src="assets/img/tradesman-screens/menus/apperance-menus.png" alt="Appearance Menus" class="img-polaroid" />
-                            </li>
-							<li>
-                                <p>Click on the <strong>+</strong> button or the <strong>create a new menu</strong> link. Enter a menu name and click <strong>Create Menu</strong>.</p>
-                                <img src="assets/img/tradesman-screens/menus/create-menu.png" alt="Create Menu" class="img-polaroid" />
-                            </li>
-							<li>Using the <strong>Custom Links</strong> and <strong>Pages</strong> boxes at the left, add items to the menu and drag/drop to arrange them.</li>
-							<li>
-                                <p>Select the <strong>Manage Locations</strong> tab and assign the newly created menu a location</p>
-                                <img src="assets/img/tradesman-screens/menus/set-menu-locations.png" alt="Set Menu Locations" class="img-polaroid" />
-                            </li>
-							<li>Click <strong>Save Menu</strong>.</li>
-						</ol>
-				</section>
-				
-				
-				
-				<section id="header-setup">
-					<div class="page-header">
-						<h1>Header & Logo Setup</h1>
-					</div>
-					
-					<h3>Custom Logo</h3>
-						
-						<p>By default, your site title will be a text-based logo. However, you can also use an image-based logo.</p>
-						
-						<h4>Multi-colored Text-based Logo</h4>
 
-							<ol>
-								<li>
-                                    <p>Go to <strong>Appearance &gt; Theme Options</strong>.</p>
-                                    <img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid" />
-                                </li>
-								<li>
-                                    <p>Under <strong>Logo Text</strong>, specify the website/company name.</p>
-                                    <img src="assets/img/tradesman-screens/header/logo-text.png" alt="Logo Text" class="img-polaroid" />
-                                    <p><span class="label label-info">Note</span> The first word in the name will appear in black, while any additional words will appear in the theme color.</p>
-                                </li>
-								<li>Save Changes.</li>
-							</ol>
-						
-						<h4>Using an Image-based Logo</h4>
+                <section id="header-setup">
+                    <div class="page-header">
+                        <h1>Header & Logo Setup</h1>
+                    </div>
 
-							<p>To be retina friendly (look high quality on devices like iPad), you will have to create two images of your logo. One the normal size and the second exactly double the height and width.</p>
-							
-							<ol>
-								<li>
-                                    <p>Go to <strong>Appearances &gt; Theme Options</strong>.</p>
-                                    <img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid" />
-                                </li>
-								<li>Under <strong>Logo Image</strong>, click <strong>Upload</strong> button.</li>
-								<li>
-                                    <p>Upload your second logo (2x size) under <strong>Logo Image Retina (2x)</strong>.</p>
-                                    <img src="assets/img/tradesman-screens/header/logo-images.png" alt="Logo Images" class="img-polaroid" />
-                                </li>
-								<li>Click <strong>Save Settings</strong>.</li>
-							</ol>
+                    <h3>Custom Logo</h3>
+
+                    <p>By default, your site title will be a text-based logo. However, you can also use an image-based logo.</p>
+
+                    <h4>Multi-colored Text-based Logo</h4>
+
+                    <ol>
+                        <li>
+                            <p>Go to <strong>Appearance &gt; Theme Options</strong>.</p><img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>Under <strong>Logo Text</strong>, specify the website/company name.</p><img src="assets/img/tradesman-screens/header/logo-text.png" alt="Logo Text" class="img-polaroid">
+
+                            <p><span class="label label-info">Note</span> The first word in the name will appear in black, while any additional words will appear in the theme color.</p>
+                        </li>
+
+                        <li>Save Changes.</li>
+                    </ol>
+
+                    <h4>Using an Image-based Logo</h4>
+
+                    <p>To be retina friendly (look high quality on devices like iPad), you will have to create two images of your logo. One the normal size and the second exactly double the height and width.</p>
+
+                    <ol>
+                        <li>
+                            <p>Go to <strong>Appearances &gt; Theme Options</strong>.</p><img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid">
+                        </li>
+
+                        <li>Under <strong>Logo Image</strong>, click <strong>Upload</strong> button.</li>
+
+                        <li>
+                            <p>Upload your second logo (2x size) under <strong>Logo Image Retina (2x)</strong>.</p><img src="assets/img/tradesman-screens/header/logo-images.png" alt="Logo Images" class="img-polaroid">
+                        </li>
+
+                        <li>Click <strong>Save Settings</strong>.</li>
+                    </ol>
 
                     <h3>Phone Numbers</h3>
 
-                    <p>The Tradesman theme supports a phone number and cell phone number that appear in the global header.</p>
+                    <p>The Tradesman theme supports a phone number and cell phone number that appear in the global header.</p><img src="assets/img/tradesman-screens/header/phone-numbers.png" alt="Phone Numbers" class="img-polaroid">
 
-                    <img src="assets/img/tradesman-screens/header/phone-numbers.png" alt="Phone Numbers" class="img-polaroid" />
                     <ol>
                         <li>
-                            <p>Go to <strong>Appearances &gt; Theme Options</strong>.</p>
-                            <img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid" />
+                            <p>Go to <strong>Appearances &gt; Theme Options</strong>.</p><img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid">
                         </li>
+
                         <li>Under <strong>Phone Number</strong>, enter your phone number.</li>
+
                         <li>
-                            <p>Under <strong>Cell Phone Number</strong>, enter your cell phone number.</p>
-                            <img src="assets/img/tradesman-screens/header/phone-number-fields.png" alt="Phone Numbers" class="img-polaroid" />
+                            <p>Under <strong>Cell Phone Number</strong>, enter your cell phone number.</p><img src="assets/img/tradesman-screens/header/phone-number-fields.png" alt="Phone Numbers" class="img-polaroid">
                         </li>
+
                         <li>Click <strong>Save Settings</strong>.</li>
                     </ol>
-				</section>
-				
-				
-				<section id="widgets">
-					<div class="page-header">
-						<h1>Sidebars and Widgets</h1>
-					</div>
+                </section>
+
+                <section id="widgets">
+                    <div class="page-header">
+                        <h1>Sidebars and Widgets</h1>
+                    </div>
 
                     <p>The theme comes equipped with two custom widgets that can be put into the sidebar. The first widget allows for an embedded google map showing your location, and the second provides a list view of the available services.</p>
 
@@ -832,12 +915,15 @@
 
                     <ol>
                         <li>
-                            <p>Go to <strong>Appearance &gt; Widgets</strong>.</p>
-                            <img src="assets/img/tradesman-screens/widgets/appearance-widgets.png" alt="Appearance Widgets" class="img-polaroid" />
+                            <p>Go to <strong>Appearance &gt; Widgets</strong>.</p><img src="assets/img/tradesman-screens/widgets/appearance-widgets.png" alt="Appearance Widgets" class="img-polaroid">
                         </li>
-                        <li><strong>Site Sidebar</strong> is the main right sidebar.
+
+                        <li><strong>Site Sidebar</strong> is the main right sidebar.</li>
+
                         <li>Expand the box at right, where you would like to place your widget, by clicking on the arrow icon next to it.</li>
+
                         <li>Drag &amp; drop the widget you wish to use, in the expanded area below the box.</li>
+
                         <li>Fill in the information necessary and click Save.</li>
                     </ol>
 
@@ -846,176 +932,164 @@
                     <p>The Google map widget allows you to embed an interactive google map into the sidebar of the website.</p>
 
                     <h4>How to get a Google Maps Embed:</h4>
+
                     <ol>
-                        <li>Go to <a href="https://maps.google.com">Google Maps</a>.</li>
-                        <li>
-                            <p>Find the desired location</p>
-                            <img src="assets/img/tradesman-screens/widgets/gmap-location.png" alt="Google Map Embed" class="img-polaroid" />
+                        <li>Go to <a href="https://maps.google.com">Google Maps</a>.
                         </li>
+
                         <li>
-                            <p>Under <strong>Settings</strong> click <strong>Share and embed map</strong></p>
-                            <img src="assets/img/tradesman-screens/widgets/gmap-share.png" alt="Google Share Embed" class="img-polaroid" />
+                            <p>Find the desired location</p><img src="assets/img/tradesman-screens/widgets/gmap-location.png" alt="Google Map Embed" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Click the <strong>Embed map</strong> tab and copy the IFRAME code</p>
-                            <img src="assets/img/tradesman-screens/widgets/gmap-embed.png" alt="Google Share Embed" class="img-polaroid" />
+                            <p>Under <strong>Settings</strong> click <strong>Share and embed map</strong></p><img src="assets/img/tradesman-screens/widgets/gmap-share.png" alt="Google Share Embed" class="img-polaroid">
                         </li>
+
                         <li>
-                            <p>Paste the IFRAME code into the <strong>Google Maps Embed</strong> field</p>
-                            <img src="assets/img/tradesman-screens/widgets/embed-map-fields.png" alt="Google Map Widget Fields" class="img-polaroid" />
+                            <p>Click the <strong>Embed map</strong> tab and copy the IFRAME code</p><img src="assets/img/tradesman-screens/widgets/gmap-embed.png" alt="Google Share Embed" class="img-polaroid">
                         </li>
+
+                        <li>
+                            <p>Paste the IFRAME code into the <strong>Google Maps Embed</strong> field</p><img src="assets/img/tradesman-screens/widgets/embed-map-fields.png" alt="Google Map Widget Fields" class="img-polaroid">
+                        </li>
+
                         <li><strong>Save</strong> the widget</li>
                     </ol>
 
-                    <h4>Google Map Widget Fields</h4>
+                    <h4>Google Map Widget Fields</h4><img src="assets/img/tradesman-screens/widgets/google-map.png" style="margin-right: 8px;" alt="Google Map" class="img-polaroid">
 
-                    <img src="assets/img/tradesman-screens/widgets/google-map.png" style="margin-right: 8px;" alt="Google Map" class="img-polaroid" />
-                    <div class="clearfix"></div>
-                    <img src="assets/img/tradesman-screens/widgets/google-map-fields.png" alt="Google Map" class="img-polaroid" />
+                    <div class="clearfix"></div><img src="assets/img/tradesman-screens/widgets/google-map-fields.png" alt="Google Map" class="img-polaroid">
 
                     <h3>Tradesman Services Widget</h3>
 
                     <p>The Services Widget allows you to provide an overview of the offered services.</p>
 
-                    <h4>Services Widget Fields</h4>
+                    <h4>Services Widget Fields</h4><img src="assets/img/tradesman-screens/widgets/services.png" style="margin-right: 8px;" alt="Services Widget" class="img-polaroid">
 
-                    <img src="assets/img/tradesman-screens/widgets/services.png" style="margin-right: 8px;" alt="Services Widget" class="img-polaroid" />
-                    <div class="clearfix"></div>
-                    <img src="assets/img/tradesman-screens/widgets/service-fields.png" alt="Services Widget Fields" class="img-polaroid" />
-
+                    <div class="clearfix"></div><img src="assets/img/tradesman-screens/widgets/service-fields.png" alt="Services Widget Fields" class="img-polaroid">
                 </section>
-				
-				
-				<section id="footer-setup">
-					<div class="page-header">
-						<h1>Footer Setup</h1>
-					</div>
-					
-					<p>The Tradesman Theme comes with a footer that's split into two sections, the left and the right. The left side shows a simple copyright, while the right side shows a menu.</p>
+
+                <section id="footer-setup">
+                    <div class="page-header">
+                        <h1>Footer Setup</h1>
+                    </div>
+
+                    <p>The Tradesman Theme comes with a footer that's split into two sections, the left and the right. The left side shows a simple copyright, while the right side shows a menu.</p>
 
                     <ol>
                         <li>
-                            <p>To edit the copyright, navigate to Appearance &gt; Theme Options and update the copyright field.</p>
-                            <img src="assets/img/tradesman-screens/footer/theme-options.png" style="margin-right: 8px;" alt="Theme Options" class="img-polaroid" /><br>
-                            <img src="assets/img/tradesman-screens/footer/copyright.png" alt="Copyright" class="img-polaroid" />
+                            <p>To edit the copyright, navigate to Appearance &gt; Theme Options and update the copyright field.</p><img src="assets/img/tradesman-screens/footer/theme-options.png" style="margin-right: 8px;" alt="Theme Options" class="img-polaroid"><br>
+                            <img src="assets/img/tradesman-screens/footer/copyright.png" alt="Copyright" class="img-polaroid">
                         </li>
-                        <li>Refer to the <a href="#setup-navigation">Setup Navigation</a> section for instructions on creating a menu and getting it to appear in the footer</li>
+
+                        <li>Refer to the <a href="#setup-navigation">Setup Navigation</a> section for instructions on creating a menu and getting it to appear in the footer
+                        </li>
                     </ol>
-				</section>
-				
-				
+                </section>
 
-				
-				
-				
+                <section id="internationalization">
+                    <div class="page-header">
+                        <h1>Translation &amp; Internationalization</h1>
+                    </div>
 
+                    <p>The Tradesman Theme comes with a .po and .pot file included under the languages folder. To translate:</p>
 
+                    <ol>
+                        <li>Download and install <a href="http://www.poedit.net/">Poedit</a>.
+                        </li>
 
+                        <li>Open tradesman.pot in Poedit. Translate as needed.</li>
 
-				<section id="internationalization">
-					<div class="page-header">
-						<h1>Translation &amp; Internationalization</h1>
-					</div>
-					
-						<p>The Tradesman Theme comes with a .po and .pot file included under the languages folder. To translate:</p>
-						
-						<ol>
-							<li>Download and install <a href="http://www.poedit.net/">Poedit</a>.</li>
-							<li>Open tradesman.pot in Poedit. Translate as needed.</li>
-							<li>Save the file with the locale. If you have already setup WordPress in your language, you can get it from your wp-config.php file under, for example:  
-								<code>define('WPLANG', 'en_GB');</code>. In this case, you would save your file as en_GB.po.</li>
-							<li>The previous step should have generated a <strong>.po</strong> and an <strong>.mo</strong> file. Copy both these files under the languages folder of tradesman.</li>
-						</ol>
+                        <li>Save the file with the locale. If you have already setup WordPress in your language, you can get it from your wp-config.php file under, for example: <code>define('WPLANG', 'en_GB');</code>. In this case, you would save your file as en_GB.po.</li>
 
-						<h3>Your Language &amp; Localization</h3>
-							<p>After translating, you may wish to use the correct locale to translate and localize your WordPress installation completely. Refer to <a href="http://codex.wordpress.org/Installing_WordPress_in_Your_Language">Installing WordPress In Your Language</a> at WordPress Codex to learn how to.</p>
+                        <li>The previous step should have generated a <strong>.po</strong> and an <strong>.mo</strong> file. Copy both these files under the languages folder of tradesman.</li>
+                    </ol>
 
-						<h3>RTL Version</h3>
-							<p>For languages that read from right-to-left unlike English which is left-to-right, SmartMag will automatically switch to an RTL style, as long as you it's in your language and uses the correct locale (as explained above).</p>
-						
-						<h3>Multilingual Sites</h3>
-						
-							<p>For multilingual sites, the best way is to purchase the <a href="http://wpml.org/">WPML Plugin</a>. SmartMag is compatible with the plugin.</p>
-							
-							<p>When using WPML, we recommend you use <strong>Display the language switcher in the WP Menu</strong> option and select <strong>Main Menu</strong>. 
-							This will display the languages drop down menu in the main navigation menu.</p>
+                    <h3>Your Language &amp; Localization</h3>
 
-				</section>
+                    <p>After translating, you may wish to use the correct locale to translate and localize your WordPress installation completely. Refer to <a href="http://codex.wordpress.org/Installing_WordPress_in_Your_Language">Installing WordPress In Your Language</a> at WordPress Codex to learn how to.</p>
 
+                    <h3>RTL Version</h3>
 
-				<section id="customizations">
-					<div class="page-header">
-						<h1>Advanced Customizations</h1>
-					</div>
-					
-					<p>If you are looking for layout customizations beyond the <a href="#style-typography">Style &amp; Typography</a> settings built into the theme, 
-					it's important to judge the nature of customization.</p> 
-					
-					<p>If it's a simple layout change, it's very likely achievable by using different <a href="#shortcodes">Shortcodes</a> or 
-						<a href="#custom-css">Custom CSS</a>. However, for something not possible using either of these, a child theme is recommended.</p>
-						
-					<h3>Child Theme</h3>
-					
-						<p>WPBeginner has a great article on <a href="http://www.wpbeginner.com/wp-themes/how-to-create-a-wordpress-child-theme-video/" target="_blank">How to create a 
-						WordPress Child Theme</a>. Use <code>Template: smart-mag</code> instead of twentyeleven.
-						</p>
-						
-						<p>Also, use <code>@import url("../smart-mag/style.css");</code> in the CSS file to import parent stylesheet.</p>
+                    <p>For languages that read from right-to-left unlike English which is left-to-right, SmartMag will automatically switch to an RTL style, as long as you it's in your language and uses the correct locale (as explained above).</p>
 
-				</section>
+                    <h3>Multilingual Sites</h3>
 
-				
+                    <p>For multilingual sites, the best way is to purchase the <a href="http://wpml.org/">WPML Plugin</a>. SmartMag is compatible with the plugin.</p>
 
-				
-				<section id="credits">
-					<div class="page-header">
-						<h1>Copyright &amp; Credits</h1>
-					</div>
-				
-					<h3>Demo Images Authors <small>creative commons, not included</small></h3>
-					
-						<ul>
-							<li>Demo Images (Not Included): (flickr CC-BY-2.0) Yasser Alghofily, Daniel Zedda, Jonathan Kos-Read, Alejandro Pinto, Jim H., Luis Hernandez, William Cho, Lucas Zallio, Mark Sebastian, Lies Thru a Lens.</li>
-						</ul>
+                    <p>When using WPML, we recommend you use <strong>Display the language switcher in the WP Menu</strong> option and select <strong>Main Menu</strong>. This will display the languages drop down menu in the main navigation menu.</p>
+                </section>
 
-				</section>
+                <section id="customizations">
+                    <div class="page-header">
+                        <h1>Advanced Customizations</h1>
+                    </div>
 
-			</div>
-		</div>
-	</div>
-	<!-- Footer
-		================================================== -->
-	<footer class="footer">
-		<div class="container">
-			<p>Designed and built by <a href="http://theme-sphere.com" target="_blank">ThemeSphere</a>.</p>
-			<p>Documentation based on the CC 3.0 licensed <a href="http://blog.getbootstrap.com">Twitter Bootstrap</a> and Apache 2.0 licensed <a href="http://bootswatch.com/flatly/">Flatly</a>.</p>
-			<ul class="footer-links">
-				<li><a href="http://theme-sphere.com">Support</a></li>
-				<li class="muted">&middot;</li>
-				<li><a href="https://twitter.com/Theme_Sphere">Twitter</a></li>
-			</ul>
-		</div>
-	</footer>
-	<!-- Le javascript
-		================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
+                    <p>If you are looking for layout customizations beyond the <a href="#style-typography">Style &amp; Typography</a> settings built into the theme, it's important to judge the nature of customization.</p>
 
-	<script src="assets/js/jquery.js"></script>
-	<script src="assets/js/bootstrap-transition.js"></script>
-	<script src="assets/js/bootstrap-alert.js"></script>
-	<script src="assets/js/bootstrap-modal.js"></script>
-	<script src="assets/js/bootstrap-dropdown.js"></script>
-	<script src="assets/js/bootstrap-scrollspy.js"></script>
-	<script src="assets/js/bootstrap-tab.js"></script>
-	<script src="assets/js/bootstrap-tooltip.js"></script>
-	<script src="assets/js/bootstrap-popover.js"></script>
-	<script src="assets/js/bootstrap-button.js"></script>
-	<script src="assets/js/bootstrap-collapse.js"></script>
-	<script src="assets/js/bootstrap-carousel.js"></script>
-	<script src="assets/js/bootstrap-typeahead.js"></script>
-	<script src="assets/js/bootstrap-affix.js"></script>
-	<script src="assets/js/holder/holder.js"></script>
-	<script src="assets/js/google-code-prettify/prettify.js"></script>
-	<script src="assets/js/application.js"></script>
+                    <p>If it's a simple layout change, it's very likely achievable by using different <a href="#shortcodes">Shortcodes</a> or <a href="#custom-css">Custom CSS</a>. However, for something not possible using either of these, a child theme is recommended.</p>
+
+                    <h3>Child Theme</h3>
+
+                    <p>WPBeginner has a great article on <a href="http://www.wpbeginner.com/wp-themes/how-to-create-a-wordpress-child-theme-video/" target="_blank">How to create a WordPress Child Theme</a>. Use <code>Template: smart-mag</code> instead of twentyeleven.</p>
+
+                    <p>Also, use <code>@import url("../smart-mag/style.css");</code> in the CSS file to import parent stylesheet.</p>
+                </section>
+
+                <section id="credits">
+                    <div class="page-header">
+                        <h1>Copyright &amp; Credits</h1>
+                    </div>
+
+                    <h3>Demo Images Authors <small>creative commons, not included</small></h3>
+
+                    <ul>
+                        <li>Demo Images (Not Included): (flickr CC-BY-2.0) Yasser Alghofily, Daniel Zedda, Jonathan Kos-Read, Alejandro Pinto, Jim H., Luis Hernandez, William Cho, Lucas Zallio, Mark Sebastian, Lies Thru a Lens.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div><!-- Footer
+        ================================================== -->
+
+    <footer class="footer">
+        <div class="container">
+            <p>Designed and built by <a href="http://theme-sphere.com" target="_blank">ThemeSphere</a>.</p>
+
+            <p>Documentation based on the CC 3.0 licensed <a href="http://blog.getbootstrap.com">Twitter Bootstrap</a> and Apache 2.0 licensed <a href="http://bootswatch.com/flatly/">Flatly</a>.</p>
+
+            <ul class="footer-links">
+                <li>
+                    <a href="http://theme-sphere.com">Support</a>
+                </li>
+
+                <li class="muted">&middot;</li>
+
+                <li>
+                    <a href="https://twitter.com/Theme_Sphere">Twitter</a>
+                </li>
+            </ul>
+        </div>
+    </footer><!-- Le javascript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js">
+</script> <script src="assets/js/bootstrap-transition.js">
+</script> <script src="assets/js/bootstrap-alert.js">
+</script> <script src="assets/js/bootstrap-modal.js">
+</script> <script src="assets/js/bootstrap-dropdown.js">
+</script> <script src="assets/js/bootstrap-scrollspy.js">
+</script> <script src="assets/js/bootstrap-tab.js">
+</script> <script src="assets/js/bootstrap-tooltip.js">
+</script> <script src="assets/js/bootstrap-popover.js">
+</script> <script src="assets/js/bootstrap-button.js">
+</script> <script src="assets/js/bootstrap-collapse.js">
+</script> <script src="assets/js/bootstrap-carousel.js">
+</script> <script src="assets/js/bootstrap-typeahead.js">
+</script> <script src="assets/js/bootstrap-affix.js">
+</script> <script src="assets/js/holder/holder.js">
+</script> <script src="assets/js/google-code-prettify/prettify.js">
+</script> <script src="assets/js/application.js">
+</script>
 </body>
 </html>

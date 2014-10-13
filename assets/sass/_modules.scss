@@ -57,31 +57,21 @@ h1, h2, h3, h4, h5 {
 }
 
 .panel-features__block {
+	@include grid(1, 1);
     margin-bottom: 1em;
-    text-align: center;
+    
     &:last-of-type {
         margin: 0;
     }
-    .fa {
-        color: $primary-color;
-    }
-    .fa-circle {
-        color: darken($primary-color-background,2%);
-    }
-    h3 {
-        font-size: 20px;
-        font-weight: bold;
-        color: $secondary-color
-    }
     @include media(min, $mobile-landscape) {
-        @include grid(1, 1);
-        float: left;
         img {
             width: 100%;
         }
     }
-    @include media(min, $desktopmax) {
+    @include media(min, $desktop) {
         @include grid(1, 3);
+        text-align: center;
+        float: left;
     }
 }
 
@@ -90,13 +80,47 @@ h1, h2, h3, h4, h5 {
     border-radius: 10px;
     background-color: $tertiary-color-background;
     border-bottom: 4px solid $primary-color-border;
+    overflow: hidden;
     .fa {
+        color: $primary-color;
         cursor: pointer;
-        &:hover {
-            animation: 2s ease 0.5s normal none 1 rotateIn;
+        &:hover { 
+        	animation: 2s ease 0.5s normal none 1 flash; 
+        }
+     }
+    .fa-circle {
+        color: darken($primary-color-background,2%);
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        color: $secondary-color;
+        margin-left: 70px;
+        margin-bottom: 5px;
+        @include media(min, $desktop) {
+        	margin-left: 0;
         }
     }
-
+    p {
+	    margin-left: 70px;
+	    margin-bottom: 0;
+	    color: lighten($primary-color-font,20%);
+	    @include media(min, $desktop) { 
+	    	margin-left: 0;
+	    }
+    }
+    span.fa-stack {
+	    float: left;
+	    @include media(min, $desktop) {
+	    	float: none;
+	    }
+	    &.fa-4x {
+		    font-size:  em(30px);
+		    @include media(min, $desktop) {
+		    	font-size: 4em;
+		    }
+	    }
+    }
 }
 
 /* PANEL TESTIMONIALS */
@@ -108,12 +132,20 @@ h1, h2, h3, h4, h5 {
         font-size: em(32px);
         margin-bottom: em(12px);
     }
+    @include media (min, $tablet) {
+	    hr {
+		    display: none;
+	    }
+    }
 }
 
 .panel-testimonials__block {
     margin-bottom: 2em;
     div {
         margin-left: 85px;
+    }
+    p {
+	    margin-bottom: 10px !important;
     }
     img {
         width: 75px;
@@ -126,9 +158,6 @@ h1, h2, h3, h4, h5 {
     @include media(min, $mobile-landscape) {
         @include grid(1, 2);
         float: left;
-    }
-    @include media(min, $tablet) {
-        @include grid(1, 1);
     }
     @include media(min, $desktop) {
         @include grid(1, 2);
@@ -266,8 +295,8 @@ p.panel-testimonials__author {
 .home-cta__background {
     background-color: transparent;
     background-image: url(../img/wallpaper_01.jpg);
-    background-size: auto auto;
-    background-position: right -240px;
+    background-size: cover;
+    background-position: -120px -90px;
     background-repeat: no-repeat;
     position: absolute;
     top: 0;
@@ -276,6 +305,9 @@ p.panel-testimonials__author {
     opacity: 0.25;
     width: 100%;
     height: 100%;
+    @include media(min, $tablet) {
+    	background-position: center center;
+    }
     @include media(min, $desktopmax) {
         padding: 2em 1em 0;
         background-size: cover;
@@ -285,7 +317,6 @@ p.panel-testimonials__author {
 .home-cta__holder {
 	position: relative;
 	bottom: -3px;
-	animation: 0.5s ease 6.5s normal forwards 1 bounce;
 	background-color: $primary-color-background;
 	background-repeat: repeat;
     border-radius: 5px;
@@ -384,19 +415,19 @@ p.panel-testimonials__author {
     }
 
     li:nth-child(1) {
-        animation: 1s ease 1s bounceIn;
+        animation: 1s ease 1s pulse;
     }
     li:nth-child(2) {
-        animation: 1s ease 2s bounceIn;
+        animation: 1s ease 2s pulse;
     }
     li:nth-child(3) {
-        animation: 1s ease 3s bounceIn;
+        animation: 1s ease 3s pulse;
     }
     li:nth-child(4) {
-        animation: 1s ease 4s bounceIn;
+        animation: 1s ease 4s pulse;
     }
     li:nth-child(5) {
-        animation: 1s ease 5s bounceIn;
+        animation: 1s ease 5s pulse;
     }
     i.fa {
         margin-right: em(4px);

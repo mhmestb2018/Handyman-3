@@ -150,7 +150,7 @@ input[type="submit"] {
 	-moz-transition: background 1s ease;
 	-ms-transition: background 1s ease;
 	transition: background 1s ease;
-	animation: 0.5s ease 8s both flip;
+	animation: 0.5s ease 8s pulse;
 
     &:hover {
         background-color: darken($primary-color, 10%);
