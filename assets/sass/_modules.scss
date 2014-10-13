@@ -269,6 +269,12 @@ p.panel-testimonials__author {
     }
 }
 
+.panel__inner-about-wrapper-full {
+    @include media(min, $tablet-large) {
+        @include grid(12, 12);
+    }
+}
+
 /* HOME CTA */
 .home-cta {
     background-color: lighten($quaternary-color-background,10);
