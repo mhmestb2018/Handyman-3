@@ -190,6 +190,10 @@
                 </li>
 
                 <li>
+                    <a href="#color-scheme">Color Scheme</a>
+                </li>
+
+                <li>
                     <a href="#internationalization">Translation &amp; Internationalization</a>
                 </li>
 
@@ -219,9 +223,6 @@
                     <ul>
                         <li>Created By: Company Name</li>
 
-                        <li>Support Site: <a href="http://theme-sphere.com">Will we have support forums?</a>
-                        </li>
-
                         <li>Version: 1.0</li>
                     </ul>
                 </section>
@@ -230,15 +231,25 @@
                 	<div class="page-header">
                 		<h1>Quick Start</h1>
                 	</div>
-                	
-                	<ol>
-                		<li>Install theme</li>
-						<li>Import sample data</li>
-						<li><strong>Settings</strong> &gt; <strong>Reading</strong> &gt; <strong>Set Front Page to static page</strong> (Home)</li>
-						<li>Set permalinks to Post Name</li>
-						<li>Set menu locations</li>
-						<li><strong>Appearance</strong> &gt; <strong>Theme Options</strong> (set site name, logo, phone number, copyright, color scheme)</li>
-						<li>Set Widgets</li>
+
+                    <p>Use the following set of steps to quickly get your site set up to look similar to the demo site.</p>
+
+                    <ol>
+                		<li><a href="#installation">Install the Tradesman Theme</a></li>
+						<li><a href="#sample-content-import">Import the Theme Sample Data</a></li>
+						<li><a href="#setting-the-homepage">Set the Homepage</a></li>
+						<li><a href="#permalinks">Set Permalinks to Post Name</a></li>
+						<li><a href="#setup-navigation">Setup the Navigation</a></li>
+						<li>
+                            Define the Theme Options
+                            <ol>
+                                <li><a href="#header-setup">Logo</a></li>
+                                <li><a href="#phone-numbers">Phone Numbers</a></li>
+                                <li><a href="#footer-setup">Footer Copyright</a></li>
+                                <li><a href="#color-scheme">Theme Color Scheme</a></li>
+                            </ol>
+                        </li>
+						<li><a href="#widgets">Setup the Widgets</a></li>
                 	</ol>
                 	
                 	
@@ -289,7 +300,7 @@
 
                     <p><span class="label label-warning">Important</span> After activation, you will be presented with several plugins that you <strong>must activate</strong> in order for all of the theme features to be available.</p>
 
-                    <h3>Sample Content Import (optional)</h3>
+                    <h3 id="sample-content-import">Sample Content Import (optional)</h3>
 
                     <p>Installing the sample content will set the theme up to look similar to the demo site. It will provide you a clear reference of how the theme is set up to achieve the desired look. However, we strongly advise <strong>against</strong> using this method in production. Importing content will most likely fail on shared web hosts. If it fails, uncheck the "import attachments" option and try again.</p>
 
@@ -320,19 +331,41 @@
                             <p>In order to setup the site navigation, go to <strong>Appearance &gt; Menus &gt; Manage Locations</strong>. Select "Main Menu" from the dropdown for "Header Navigation".</p><img src="assets/img/tradesman-screens/sample-data-7.png" alt="Appearance Menus" class="img-polaroid"> <img src="assets/img/tradesman-screens/sample-data-7-2.png" alt="Set Menu Locations" class="img-polaroid">
                         </li>
 
-                        <li>*****Will the importer script automatically set the homepage to the proper static page???****</li>
-
                         <li>At this point the site will closely resemble the demo site.</li>
                     </ol>
 
                     <p><span class="label label-info">Tip</span> If it fails, uncheck "Download and import file attachments" and try again.</p>
 
                     <p><span class="label label-info">Tip</span> If it still fails, you will have to request your webhost to increase your PHP max_execution_time (or any other webserver timeout to at least 300 secs) and memory_limit (to at least 196M) temporarily.</p>
+
+
+                    <h3 id="permalinks">Permalinks (URL Structure)</h3>
+
+                    <p>The commonly used URL structure is when the page name appears in the site url.<br>Example: http://www.site.com/contact-us</p>
+
+                    <ol>
+                        <li>
+                            <p>Navigate to Settings &gt; Permalinks</p>
+                            <img src="assets/img/tradesman-screens/permalinks/permalinks.png" alt="Permalinks" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>Select Post Name from the list of Permalink Settings.</p>
+                            <img src="assets/img/tradesman-screens/permalinks/post-name.png" alt="Page Templates" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>Save the changes.</p>
+                            <img src="assets/img/tradesman-screens/permalinks/save-changes.png" alt="Save Page as Draft" class="img-polaroid">
+                        </li>
+
+                    </ol>
+
                 </section>
 
                 <section id="creating-pages">
                     <div class="page-header">
-                        <h1><a href="#creating-pages">Creating Pages</a></h1>
+                        <h1>Creating Pages</h1>
                     </div>
 
                     <p>The Tradesman Theme comes equipped with several page templates. Each of the templates achieves a specific page layout that is demonstrated on the <a href="#">demo site</a>.</p>
@@ -448,7 +481,7 @@
                         </li>
                     </ol>
 
-                    <h3>Setting The Homepage</h3>
+                    <h3 id="setting-the-homepage">Setting The Homepage</h3>
 
                     <p>Once you've created a page that you would like to use as your homepage, follow these steps:</p>
 
@@ -464,7 +497,8 @@
                         </li>
 
                         <li>Save Changes.</li>
-                    </ol><!--
+                    </ol>
+                    <!--
                     <dl class="dl-horizontal">
                         <dt>Highlights Block</dt>
                         <dd>4 Posts, 2 Columns, and categories selected for each column.</dd>
@@ -885,7 +919,7 @@
                         <li>Click <strong>Save Settings</strong>.</li>
                     </ol>
 
-                    <h3>Phone Numbers</h3>
+                    <h3 id="phone-numbers">Phone Numbers</h3>
 
                     <p>The Tradesman theme supports a phone number and cell phone number that appear in the global header.</p><img src="assets/img/tradesman-screens/header/phone-numbers.png" alt="Phone Numbers" class="img-polaroid">
 
@@ -987,37 +1021,50 @@
                     </ol>
                 </section>
 
+                <section id="color-scheme">
+                    <div class="page-header">
+                        <h1>Color Scheme</h1>
+                    </div>
+
+                    <p>The Tradesman Theme comes with a footer that's split into two sections, the left and the right. The left side shows a simple copyright, while the right side shows a menu.</p>
+
+                    <ol>
+                        <li>
+                            <p>Go to <strong>Appearance &gt; Theme Options</strong>.</p><img src="assets/img/tradesman-screens/header/theme-options.png" alt="Logo Text" class="img-polaroid">
+                        </li>
+
+                        <li>
+                            <p>Under <strong>Color Scheme</strong>, select the desired theme color scheme.</p>
+                            <img src="assets/img/tradesman-screens/color-scheme.png" alt="Color Scheme" class="img-polaroid">
+                        </li>
+
+                        <li>Save Changes.</li>
+                    </ol>
+                </section>
+
                 <section id="internationalization">
                     <div class="page-header">
                         <h1>Translation &amp; Internationalization</h1>
                     </div>
 
-                    <p>The Tradesman Theme comes with a .po and .pot file included under the languages folder. To translate:</p>
+                    <p>The Trade Theme contains no hard coded english text, therefore no additional work is required to translate the theme. Everything that appears on the frontend of the site is editable through the Wordpress CMS.</p>
 
-                    <ol>
-                        <li>Download and install <a href="http://www.poedit.net/">Poedit</a>.
-                        </li>
-
-                        <li>Open tradesman.pot in Poedit. Translate as needed.</li>
-
-                        <li>Save the file with the locale. If you have already setup WordPress in your language, you can get it from your wp-config.php file under, for example: <code>define('WPLANG', 'en_GB');</code>. In this case, you would save your file as en_GB.po.</li>
-
-                        <li>The previous step should have generated a <strong>.po</strong> and an <strong>.mo</strong> file. Copy both these files under the languages folder of tradesman.</li>
-                    </ol>
 
                     <h3>Your Language &amp; Localization</h3>
 
-                    <p>After translating, you may wish to use the correct locale to translate and localize your WordPress installation completely. Refer to <a href="http://codex.wordpress.org/Installing_WordPress_in_Your_Language">Installing WordPress In Your Language</a> at WordPress Codex to learn how to.</p>
+                    <p>You may wish to use the correct locale to translate and localize your WordPress installation completely. Refer to <a href="http://codex.wordpress.org/Installing_WordPress_in_Your_Language">Installing WordPress In Your Language</a> at WordPress Codex to learn how to.</p>
 
                     <h3>RTL Version</h3>
 
                     <p>For languages that read from right-to-left unlike English which is left-to-right, SmartMag will automatically switch to an RTL style, as long as you it's in your language and uses the correct locale (as explained above).</p>
 
+                    <!--
                     <h3>Multilingual Sites</h3>
 
                     <p>For multilingual sites, the best way is to purchase the <a href="http://wpml.org/">WPML Plugin</a>. SmartMag is compatible with the plugin.</p>
 
                     <p>When using WPML, we recommend you use <strong>Display the language switcher in the WP Menu</strong> option and select <strong>Main Menu</strong>. This will display the languages drop down menu in the main navigation menu.</p>
+                    -->
                 </section>
 
                 <section id="customizations">
@@ -1025,15 +1072,13 @@
                         <h1>Advanced Customizations</h1>
                     </div>
 
-                    <p>If you are looking for layout customizations beyond the <a href="#style-typography">Style &amp; Typography</a> settings built into the theme, it's important to judge the nature of customization.</p>
-
-                    <p>If it's a simple layout change, it's very likely achievable by using different <a href="#shortcodes">Shortcodes</a> or <a href="#custom-css">Custom CSS</a>. However, for something not possible using either of these, a child theme is recommended.</p>
+                    <p>For layout customizations beyond the settings built into the theme, the best option is to create a child theme.</p>
 
                     <h3>Child Theme</h3>
 
-                    <p>WPBeginner has a great article on <a href="http://www.wpbeginner.com/wp-themes/how-to-create-a-wordpress-child-theme-video/" target="_blank">How to create a WordPress Child Theme</a>. Use <code>Template: smart-mag</code> instead of twentyeleven.</p>
+                    <p>WPBeginner has a great article on <a href="http://www.wpbeginner.com/wp-themes/how-to-create-a-wordpress-child-theme-video/" target="_blank">How to create a WordPress Child Theme</a>. Use <code>Template: tradesman</code> instead of twentyeleven.</p>
 
-                    <p>Also, use <code>@import url("../smart-mag/style.css");</code> in the CSS file to import parent stylesheet.</p>
+                    <p>Also, use <code>@import url("../tradesman/style.css");</code> in the CSS file to import parent stylesheet.</p>
                 </section>
 
                 <section id="credits">
