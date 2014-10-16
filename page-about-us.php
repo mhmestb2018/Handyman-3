@@ -28,7 +28,7 @@
 
             <?php $team_members = get_post_meta($post_id, 'about-team-posts', true); ?>
             <?php if (is_array($team_members) && count($team_members) > 0) : ?>
-                <?php $wide = count($team_members) > 4 ? 4 : count($team_members); ?>
+                <?php $wide = count($team_members) > 3 ? 3 : count($team_members); ?>
                 <section class="panel panel-meet-team panel-meet-team-<?php echo $wide; ?>-wide">
                     <div class="panel__inner">
                         <h2><?php echo get_post_meta($post_id, 'about-template-team-headline', true); ?></h2>
