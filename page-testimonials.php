@@ -14,7 +14,7 @@
                 $format = get_post_meta($post_id, 'testimonials-format', true);
                 $format = $format ? $format : \Wordpress\Themes\Tradesman\MetaBoxes::TESTIMONIALS_3_WIDE; //default to 3 wide
 
-                $format_class = '';
+                $format_class = ' block-3';
                 $row_size = 3;
                 if ($format == \Wordpress\Themes\Tradesman\MetaBoxes::TESTIMONIALS_2_WIDE) {
                     $format_class = ' block-2';
@@ -27,10 +27,10 @@
             ?>
 
             <section class="panel post-content panel-testimonials">
+            	<div class="heading">
+                	<h1><?php the_title(); ?></h1>
+                </div>
                 <div class="panel__inner panel-testimonials__inner">
-                    <div class="heading">
-                        <h1><?php the_title(); ?></h1>
-                    </div>
 
                     <?php $testimonials = get_post_meta($post_id, 'testimonial-posts', true); ?>
                     <?php if (is_array($testimonials) && count($testimonials) > 0) : ?>

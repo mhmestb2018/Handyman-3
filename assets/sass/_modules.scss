@@ -139,6 +139,31 @@ h1, h2, h3, h4, h5 {
     }
 }
 
+.panel-testimonials__inner {
+	div.block-3 {
+		@include media(min, $desktop) {
+			&:nth-child(2n+1) {
+				clear: left;
+			}
+		}
+		@include media(min, $desktopmax) {
+			&:nth-child(2n+1) {
+				clear: none !important;
+			}
+			&:nth-child(3n+1) {
+			clear: left;
+			}
+		}
+	}
+	div.block-2 {
+		@include media(min, $desktop) {
+			&:nth-child(2n+1) {
+				clear: left;
+			}
+		}
+	}
+}	    
+
 .panel-testimonials__block {
     margin-bottom: 2em;
     div {
@@ -280,7 +305,7 @@ p.panel-testimonials__author {
     background-color: lighten($quaternary-color-background,10);
     color: $primary-color-font;
     position: relative;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.9);;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.9);
     @extend .group;
     h2 {
     	color: $tertiary-color-font;
