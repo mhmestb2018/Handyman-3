@@ -9,6 +9,11 @@
 		<title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title('|', true, 'right'); ?></title>
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php $favicon = of_get_option('tradesman_favicon'); ?>
+        <?php if ($favicon) : ?>
+            <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
+            <link rel="shortcut icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
+        <?php endif; ?>
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
@@ -20,7 +25,7 @@
                             $company_logo = of_get_option('tradesman_company_logo');
                             $company_name = of_get_option('tradesman_company_name');
                         ?>
-                        
+
                         <?php if ($company_logo) : ?>
                             <a rel="home" title="<?php echo $company_name; ?>" href="<?php echo site_url(); ?>">
                                 <img src="<?php echo $company_logo; ?>" alt="<?php echo $company_name; ?>" title="<?php echo $company_name; ?>"/>

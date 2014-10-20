@@ -68,10 +68,18 @@ function optionsframework_options() {
         'id' => 'tradesman_company_logo',
         'type' => 'upload');
 
+    /*
     $options[] = array(
         'name' => __('Logo Image Retina (2x)', 'options_framework_theme'),
         'desc' => __('', 'options_framework_theme'),
         'id' => 'tradesman_company_logo_retina',
+        'type' => 'upload');
+    */
+
+    $options[] = array(
+        'name' => __('Favicon', 'options_framework_theme'),
+        'desc' => __('', 'options_framework_theme'),
+        'id' => 'tradesman_favicon',
         'type' => 'upload');
 
     $options[] = array(
