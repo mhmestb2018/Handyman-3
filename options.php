@@ -83,12 +83,12 @@ function optionsframework_options() {
         'type' => 'upload');
 
     $options[] = array(
-        "name" => "Color Scheme",
-        "id" => "tradesman_color_scheme",
-        "std" => "fresh",
-        "type" => "select",
+        "name" => "Primary Color",
+        "id" => "tradesman_primary_color",
+        "type" => "color",
         "class" => "mini", //mini, tiny, small
-        "options" => $color_scheme_array);
+        "std" => "#E0AB18"
+        );
 
     $options[] = array(
         "name" => "Contact Page",

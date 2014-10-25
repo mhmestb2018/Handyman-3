@@ -45,7 +45,7 @@
                                         <div class="testimonial">
                                 <?php endif; ?>
                                 <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial_id, 'testimonial-quote-text', true); ?></p>
-                                <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial_id, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
+                                <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial_id, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span class="primary-color"><?php echo $location; ?></span><?php endif;?></p>
                                 <?php if ($attach_id) : ?>
                                     </div>
                                 <?php endif; ?>

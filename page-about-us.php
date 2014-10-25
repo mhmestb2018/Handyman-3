@@ -42,7 +42,7 @@
                                     <img src="<?php echo wp_get_attachment_url($attach_id); ?>">
                                 <?php endif; ?>
                                 <h3><?php echo $team_member_post->post_title; ?></h3>
-                                <p class="team-title"><?php echo get_post_meta($team_member, 'team-member-job-title', true); ?></p>
+                                <p class="team-title primary-color"><?php echo get_post_meta($team_member, 'team-member-job-title', true); ?></p>
                                 <p class="team-description"><?php echo get_post_meta($team_member, 'team-member-content', true); ?></p>
                             </div>
                         <?php endforeach; ?>
@@ -60,7 +60,7 @@
                                 <?php $location = get_post_meta($testimonial, 'testimonial-author-location', true); ?>
                                 <div class="panel-testimonials__block block-<?php echo count($testimonials); ?>">
                                     <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial, 'testimonial-quote-text', true); ?></p>
-                                    <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
+                                    <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span class="primary-color"><?php echo $location; ?></span><?php endif;?></p>
                                 </div>
                             <?php endforeach; ?>
                         </div>

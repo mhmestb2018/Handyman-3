@@ -19,7 +19,7 @@
                                     <?php $icon = $icon ? $icon : 'fa-question'; ?>
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
+                                        <i class="primary-color fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
                                     </span>
                                     <h3><?php echo get_post_meta($post_id, 'home-feature-1-headline', true); ?></h3>
                                     <p><?php echo get_post_meta($post_id, 'home-feature-1-content', true); ?></p>
@@ -31,7 +31,7 @@
                                     <?php $icon = $icon ? $icon : 'fa-question'; ?>
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
+                                        <i class="primary-color fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
                                     </span>
                                     <h3><?php echo get_post_meta($post_id, 'home-feature-2-headline', true); ?></h3>
                                     <p><?php echo get_post_meta($post_id, 'home-feature-2-content', true); ?></p>
@@ -43,7 +43,7 @@
                                     <?php $icon = $icon ? $icon : 'fa-question'; ?>
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
+                                        <i class="primary-color fa <?php echo $icon;?> fa-stack-1x fa-inverse"></i>
                                     </span>
                                     <h3><?php echo get_post_meta($post_id, 'home-feature-3-headline', true); ?></h3>
                                     <p><?php echo get_post_meta($post_id, 'home-feature-3-content', true); ?></p>
@@ -63,7 +63,7 @@
                                     <?php $location = get_post_meta($testimonial, 'testimonial-author-location', true); ?>
                                     <div class="panel-testimonials__block">
                                         <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial, 'testimonial-quote-text', true); ?></p>
-                                        <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span><?php echo $location; ?></span><?php endif;?></p>
+                                        <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span class="primary-color"><?php echo $location; ?></span><?php endif;?></p>
                                     </div>
                                 <?php endforeach; ?>
                             </div>

@@ -41,7 +41,7 @@
                                 <?php if ($pos === false) : ?>
                                     <?php echo $company_name; ?>
                                 <?php else: ?>
-                                    <?php echo $name_start; ?><span><?php echo $name_end; ?></span>
+                                    <?php echo $name_start; ?><span class="primary-color"><?php echo $name_end; ?></span>
                                 <?php endif; ?>
                             </a>
                         <?php endif; ?>

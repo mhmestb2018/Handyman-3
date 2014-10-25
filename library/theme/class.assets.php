@@ -31,7 +31,7 @@ class Assets extends Theme {
                 'version' => $this->theme_information->Version
             ),
 			'front-end' => (object) array(
-				'source' => get_stylesheet_directory_uri() . '/assets/css/app-'.$color_scheme.'.css',
+				'source' => get_stylesheet_directory_uri() . '/assets/css/app.css',
 				'dependencies' => FALSE,
 				'version' => $this->theme_information->Version
 			)

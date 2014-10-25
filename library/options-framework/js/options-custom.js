@@ -7,8 +7,9 @@ jQuery(document).ready(function($) {
 	
 	// Fade out the save message
 	$('.fade').delay(1000).fadeOut(1000);
-	
-	$('.of-color').wpColorPicker();
+
+    //DMM: These are the recommended color palettes for the handy man theme
+	$('.of-color').wpColorPicker({palettes : ['#E0AB18', '#3498db', '#65c178','#e67e22', '#8e44ad', '#e15258']});
 	
 	// Switches option sections
 	$('.group').hide();
