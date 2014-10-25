@@ -8,8 +8,8 @@ class tradesman_services_widget extends WP_Widget
     {
         parent::__construct(
             'tradesman_services_widget',
-            __('Tradesman Services Widget', 'tradesman_widget_domain'),
-            array('description' => __('Services widget for the Tradesman theme that appears in the sidebar. Add one service per line.', 'tradesman_widget_domain'),)
+            __('Handyman Services Widget', 'tradesman_widget_domain'),
+            array('description' => __('Services widget for the Handyman theme that appears in the sidebar. Add one service per line.', 'tradesman_widget_domain'),)
         );
     }
 

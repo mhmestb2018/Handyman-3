@@ -8,8 +8,8 @@ class tradesman_gmap_widget extends WP_Widget
     {
         parent::__construct(
             'tradesman_gmap_widget',
-            __('Tradesman Google Map Widget', 'tradesman_widget_domain'),
-            array('description' => __('Google Map Widget for the Tradesman theme that appears in the sidebar', 'tradesman_widget_domain'),)
+            __('Handyman Google Map Widget', 'tradesman_widget_domain'),
+            array('description' => __('Google Map Widget for the Handyman theme that appears in the sidebar', 'tradesman_widget_domain'),)
         );
     }
 
