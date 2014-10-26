@@ -53,7 +53,7 @@ function optionsframework_options() {
     $options = array();
 
     $options[] = array(
-        'name' => __('Tradesman Theme Settings', 'options_framework_theme'),
+        'name' => __('Handyman Theme Settings', 'options_framework_theme'),
         'type' => 'heading');
 
     $options[] = array(
