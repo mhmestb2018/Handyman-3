@@ -20,8 +20,8 @@ class tradesman_gmap_widget extends WP_Widget
         // This is where you run the code and display the output
         echo '<h3><span class="primary-color-bg-before">' . $args['before_title'] . $instance['title'] .  $args['after_title'] . '</span></h3>';
         echo '<div class="google-maps">';
-        echo '<iframe src="'.html_entity_decode($instance['gmap_url']).'" width="600" height="450" frameborder="0" style="border:0"></iframe>';
-        //echo html_entity_decode($instance['gmap_url']);
+        //echo '<iframe src="'.html_entity_decode($instance['gmap_url']).'" width="600" height="450" frameborder="0" style="border:0"></iframe>';
+        echo html_entity_decode($instance['gmap_url']);
         echo '</div>';
         echo '<address>';
         echo nl2br($instance['address']);
