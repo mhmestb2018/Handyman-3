@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5 {
     border-bottom: 4px solid $primary-color-border;
     overflow: hidden;
     .fa {
-        color: $primary-color;
+        color: #fff;
         cursor: pointer;
         &:hover { 
         	animation: 2s ease 0.5s normal none 1 flash; 
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5 {
     }
     h3 {
         font-size: 20px;
-        font-weight: bold;
+        font-weight: 500;
         color: $secondary-color;
         margin-left: 70px;
         margin-bottom: 5px;
@@ -129,7 +129,6 @@ h1, h2, h3, h4, h5 {
     background-color: transparent;
     h2 {
         text-align: center;
-        font-size: em(32px);
         margin-bottom: em(12px);
     }
     @include media (min, $tablet) {
@@ -201,7 +200,7 @@ h1, h2, h3, h4, h5 {
 }
 
 p.panel-testimonials__author {
-    font-weight: bold;
+    font-weight: 500;
     margin-top: 10px;
     text-align: center;
     span {
@@ -305,15 +304,18 @@ p.panel-testimonials__author {
     background-color: lighten($quaternary-color-background,10);
     color: $primary-color-font;
     position: relative;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.9);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    top: -4px;
+    z-index: 1;
     @extend .group;
     h2 {
     	color: $tertiary-color-font;
     	text-shadow:0px 0px 2px #333333;
         font-size: em(22px);
+        font-weight: 500;
         margin-bottom: em(8px);
         position: relative;
-        line-height: 1.5em;
+        line-height: 1.2em;
         padding: $grid-gutter;
         padding-left: 0px;
         padding-bottom: 0;
@@ -353,14 +355,17 @@ p.panel-testimonials__author {
     border-radius: 5px;
     overflow: hidden;
     padding: 15px 0 0;
-    border-left: 3px solid rgba(0, 0, 0, 0.9);
+    border-left: 3px solid rgba(0, 0, 0, 0.3);
     border-radius: 10px 10px 0 0;
     -webkit-border-top-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
     -moz-border-radius-topleft: 10px;
     -moz-border-radius-topright: 10px;
-    border-right: 3px solid rgba(0, 0, 0, 0.9);
-    border-top: 3px solid rgba(0, 0, 0, 0.9);
+    border-right: 3px solid rgba(0, 0, 0, 0.3);
+    border-top: 3px solid rgba(0, 0, 0, 0.3);
+      -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 .home-cta__inner {
@@ -440,7 +445,7 @@ p.panel-testimonials__author {
             margin-bottom: em(7px);
             font-weight: normal;
             .fa {
-                line-height: 1.25em;
+                line-height: 1.55em;
             }
         }
     }

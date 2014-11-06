@@ -1,7 +1,7 @@
 /* HEADER */
 .header {
     position: relative;
-    background: #fff;
+    background: transparent;
     ._logo {
         background-size: 100% 100%;
         float: left;
@@ -16,6 +16,7 @@
     @extend .group;
     @include media(min, $mobile-landscape) {
         margin: 0 1em;
+        padding: 1.25em 0;
     }
 
     @include media(min, $desktopmaxplus40) {
@@ -30,15 +31,19 @@
     }
     .title {
         text-align: center;
-        font-weight: bold;
+        font-weight: 700;
         color: $secondary-color;
         font-size: 30px;
         text-transform: uppercase;
+        letter-spacing: -1px;
+		line-height: 1;
+		margin: 20px 0;
         @include media(min, $tablet) {
-            font-size: 30px;
-            float: left;
-            text-align: left;
-            margin-top: 2px;
+                float: left;
+				font-size: 35px;
+				line-height: 1;
+				margin: 5px 0 0;
+				text-align: left;
         }
         a {
             color: #4e4e4e;
@@ -52,18 +57,39 @@
 
 .header__right {
     text-align: center;
+    margin: 0 0 10px 0;
     @include media(min, $tablet) {
         float: right;
         padding-right: 20px;
+        margin: 0;
+    }
+    .horiz-line {
+	    width: 4px;
+	    background: #fff;
+	    transform: rotate(45deg);
     }
 }
 
 .header__right--block {
+    background: none repeat scroll 0 0 #eee;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     display: inline-block;
+    margin: 0 5px;
+    width: 45%;
+    @include media(min, $mobile-landscape) {
+	    background: none;
+	    width: auto;
+	    box-shadow: none;
+	    -moz-box-shadow: none;
+	    -webkit-box-shadow: none;
+	}
     h3 {
         font-size: 16px;
-        font-family: "Franklin Gothic", Times New Roman, Serif;
-        letter-spacing: 0.1px;
         font-weight: bold;
         margin: 5px 0;
         text-align: center;
@@ -71,7 +97,6 @@
         display: inline-block;
         @include media(min, $mobile-landscape) {
             background: transparent;
-            letter-spacing: 0.3px;
         }
         .fa {
             color: rgba(0, 0, 0, 0.2);
@@ -148,6 +173,12 @@ span.header__right--mobile-num a, .header__right--phone-num a {
     background-color: darken($quaternary-color-background, 10%);
     color: $secondary-color-font;
     padding: 8px 0;
+    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 3;
+      -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
     @extend .group;
     ul {
         margin-bottom: 0;
@@ -157,7 +188,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         }
     }
     a {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.7);
         @include transition-property(color);
         @include transition-duration($trans-time);
 
@@ -221,7 +252,6 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 
 .m-main-navigation {
     position: static;
-    float: right;
     @extend .group;
     @include media(min, $tablet-large) {
         position: relative;
@@ -229,13 +259,21 @@ span.header__right--mobile-num a, .header__right--phone-num a {
     }
     .menu-toggle {
         display: block;
-        color: inherit;
         @include transition(none);
-        padding: em(0) em(14px) em(0) em(0);
+        padding: em(0) em(14px) em(0) em(14px);
         i {
             position: relative;
-            top: 3px;
-            line-height: 1em;
+            top: 1px;
+            line-height: 1;
+            float: right;
+        }
+        span {
+	            font-size: 20px;
+				font-weight: 500;
+				letter-spacing: 1px;
+				position: relative;
+				top: 4px;
+				line-height: 1;
         }
         @include media(min, $tablet-large) {
             display: none;
@@ -246,6 +284,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             z-index: 20;
             position: absolute;
             left: 0;
+            top: 46px;
             width: 100%;
             background-color: darken($quaternary-color-background, 10%);
             max-height: 0;
@@ -267,6 +306,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
         }
         a {
             display: block;
+            font-weight: 400;
             font-size: em(16px);
             padding-right: em(35px);
             padding-left: 1em;
@@ -335,7 +375,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
     h3 {
         border-bottom: 1px solid #dddddd;
         font-size: 20px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 30px;
         margin-bottom: 25px;
         margin-top: 0;
@@ -393,25 +433,11 @@ footer {
         width: $desktopmax;
         margin: 0 auto;
     }
-    @include media(min, $tablet) {
-        text-align: left;
-    }
 }
 
 .footer__left-block {
     margin-bottom: 0.5em;
     @include media(min, $tablet) {
-        @include grid(1, 2);
-        float: left;
         margin: 0;
-    }
-}
-
-.footer__right-block {
-    @include media(min, $tablet) {
-        @include grid(1, 2);
-        float: right;
-        text-align: right;
-        margin: 0
     }
 }

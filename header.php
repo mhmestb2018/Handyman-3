@@ -69,7 +69,7 @@
                 <div class="site-navigation__inner">
                     <div class="width-restrict">
                         <nav class="m-main-navigation">
-                            <a data-target="menu-toggle" class="menu-toggle" href="javascript:void(0);"><i class="fa fa-align-justify fa-2x"></i></a>
+                            <a data-target="menu-toggle" class="menu-toggle" href="javascript:void(0);"><span>Menu</span> <i class="fa fa-bars fa-2x"></i></a>
 
                             <?php
                             wp_nav_menu(
