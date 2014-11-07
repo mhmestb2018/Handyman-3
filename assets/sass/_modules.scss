@@ -172,6 +172,8 @@ h1, h2, h3, h4, h5 {
 .panel-testimonials__block {
 	@include grid(1, 1); 
     margin-bottom: 2em;
+    padding-left: 0;
+    padding-right: 0;
     div {
         margin-left: 85px;
     }
@@ -191,6 +193,8 @@ h1, h2, h3, h4, h5 {
     @include media(min, $mobile-landscape) {
         @include grid(1, 2);
         float: left;
+        padding-left: 1em;
+        padding-right: 1em;
     }
     @include media(min, $desktop) {
         @include grid(1, 2);
@@ -208,6 +212,12 @@ h1, h2, h3, h4, h5 {
     }
     &.testimonials-other {
 	    @include grid(1, 1); 
+	    padding-left: 0;
+	    padding-right: 0;
+	    @include media(min, $mobile-landscape) {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
 	    @include media(min, $desktop) {
 		   @include grid(1, 3); 
 		}
