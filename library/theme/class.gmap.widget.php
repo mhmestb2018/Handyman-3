@@ -8,8 +8,8 @@ class tradesman_gmap_widget extends WP_Widget
     {
         parent::__construct(
             'tradesman_gmap_widget',
-            __('Handyman Google Map Widget', 'tradesman_widget_domain'),
-            array('description' => __('Google Map Widget for the Handyman theme that appears in the sidebar', 'tradesman_widget_domain'),)
+            __('Handyman Google Map Widget', 'tradesman_domain'),
+            array('description' => __('Google Map Widget for the Handyman theme that appears in the sidebar', 'tradesman_domain'),)
         );
     }
 
@@ -36,7 +36,7 @@ class tradesman_gmap_widget extends WP_Widget
         if (isset($instance['title'])) {
             $title = $instance['title'];
         } else {
-            $title = __('Our Location', 'tradesman_widget_domain');
+            $title = __('Our Location', 'tradesman_domain');
         }
 
         if (isset($instance['gmap_url'])) {
@@ -54,21 +54,21 @@ class tradesman_gmap_widget extends WP_Widget
         // Widget admin form
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'tradesman_domain'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
                    name="<?php echo $this->get_field_name('title'); ?>" type="text"
                    value="<?php echo esc_attr($title); ?>"
                    placeholder="e.g. Our Location"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('gmap_url'); ?>"><?php _e('Google Maps Embed Code:'); ?></label>
+            <label for="<?php echo $this->get_field_id('gmap_url'); ?>"><?php _e('Google Maps Embed Code:', 'tradesman_domain'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('gmap_url'); ?>"
                    name="<?php echo $this->get_field_name('gmap_url'); ?>" type="text"
                    value="<?php echo esc_attr($gmap_url); ?>"/>
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_id('address'); ?>"><?php _e('Address:'); ?></label>
+            <label for="<?php echo $this->get_field_id('address'); ?>"><?php _e('Address:', 'tradesman_domain'); ?></label>
             <textarea class="widefat" rows="5" id="<?php echo $this->get_field_id('address'); ?>" name="<?php echo $this->get_field_name('address'); ?>"><?php echo esc_attr($address); ?></textarea>
         </p>
     <?php

@@ -9,10 +9,10 @@ class PostTypes
         $arguments = array(
             'public' => true,
             'labels' => array(
-                'name' => __('Testimonials'),
-                'singular_name' => __('Testimonial'),
-                'add_new' => __('Add New Testimonial'),
-                'add_new_item' => __('Add New Testimonial'),
+                'name' => __('Testimonials', 'tradesman_domain'),
+                'singular_name' => __('Testimonial', 'tradesman_domain'),
+                'add_new' => __('Add New Testimonial', 'tradesman_domain'),
+                'add_new_item' => __('Add New Testimonial', 'tradesman_domain'),
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,
@@ -35,10 +35,10 @@ class PostTypes
         $arguments = array(
             'public' => true,
             'labels' => array(
-                'name' => __('Services'),
-                'singular_name' => __('Service'),
-                'add_new' => __('Add New Service'),
-                'add_new_item' => __('Add New Service'),
+                'name' => __('Services', 'tradesman_domain'),
+                'singular_name' => __('Service', 'tradesman_domain'),
+                'add_new' => __('Add New Service', 'tradesman_domain'),
+                'add_new_item' => __('Add New Service', 'tradesman_domain'),
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,
@@ -61,10 +61,10 @@ class PostTypes
         $arguments = array(
             'public' => true,
             'labels' => array(
-                'name' => __('Team Members'),
-                'singular_name' => __('Team Member'),
-                'add_new' => __('Add New Team Member'),
-                'add_new_item' => __('Add New Team Member'),
+                'name' => __('Team Members', 'tradesman_domain'),
+                'singular_name' => __('Team Member', 'tradesman_domain'),
+                'add_new' => __('Add New Team Member', 'tradesman_domain'),
+                'add_new_item' => __('Add New Team Member', 'tradesman_domain'),
             ),
             'supports' => array('title', 'revisions'),
             'has_archive' => true,

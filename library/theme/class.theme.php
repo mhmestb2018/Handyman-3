@@ -170,8 +170,8 @@ class Theme
 
 		register_nav_menus(
 			array(
-				'header_navigation' => __('Header Navigation'),
-				'footer_navigation' => __('Footer Navigation')
+				'header_navigation' => __('Header Navigation', 'tgmpa'),
+				'footer_navigation' => __('Footer Navigation', 'tgmpa')
 			)
 		);
 	}
