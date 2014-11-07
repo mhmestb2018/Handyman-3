@@ -22,6 +22,10 @@ h1, h2, h3, h4, h5 {
     }
 }
 
+.page-template-page-contact-php .panel, .page-template-page-contact-php #sidebar {
+	margin-top: 0;
+}
+
 .panel__inner {
     @extend .group;
     @include media(min, $desktopmaxplus40) {
@@ -34,6 +38,8 @@ h1, h2, h3, h4, h5 {
 .panel-features {
     @include media(min, $mobile-landscape) {
         @include grid(1, 1);
+        padding-left: 0;
+        padding-right: 0;
         background-color: transparent;
         img {
             width: 90%;
@@ -76,7 +82,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .panel-features__block--tile {
-    padding: 20px;
+    padding: 20px 0 20px 0;
     background-color: transparent;
     overflow: hidden;
     .fa {
@@ -124,6 +130,8 @@ h1, h2, h3, h4, h5 {
 /* PANEL TESTIMONIALS */
 .panel-testimonials {
     @include grid(1, 1);
+    padding-left: 0;
+    padding-right: 0;
     background-color: transparent;
     h2 {
         text-align: center;
@@ -162,6 +170,7 @@ h1, h2, h3, h4, h5 {
 }	    
 
 .panel-testimonials__block {
+	@include grid(1, 1); 
     margin-bottom: 2em;
     div {
         margin-left: 85px;
@@ -197,6 +206,12 @@ h1, h2, h3, h4, h5 {
     &.block-1 {
         @include grid(1, 1);
     }
+    &.testimonials-other {
+	    @include grid(1, 1); 
+	    @include media(min, $desktop) {
+		   @include grid(1, 3); 
+		}
+    }
 }
 
 p.panel-testimonials__author {
@@ -215,6 +230,8 @@ p.panel-testimonials__author {
 /* PANEL CLOSE */
 .panel-close {
     @include grid(1, 1);
+    padding-left: 0;
+    padding-right: 0;
     background-color: $primary-color-background;
     img {
         width: 90%;

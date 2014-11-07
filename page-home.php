@@ -61,7 +61,7 @@
                             <div>
                                 <?php foreach ($testimonials as $testimonial) : ?>
                                     <?php $location = get_post_meta($testimonial, 'testimonial-author-location', true); ?>
-                                    <div class="panel-testimonials__block">
+                                    <div class="panel-testimonials__block testimonials-other">
                                         <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial, 'testimonial-quote-text', true); ?></p>
                                         <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span class="primary-color"><?php echo $location; ?></span><?php endif;?></p>
                                     </div>
