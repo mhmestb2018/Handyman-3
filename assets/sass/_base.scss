@@ -151,6 +151,7 @@ box-shadow:         0 2px 5px 0 rgba(0, 0, 0, 0.26);
 	-ms-transition: background 1s ease;
 	transition: background 1s ease;
 	animation: 0.5s ease 8s pulse;
+	-webkit-appearance:none;
 
     &:active {
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
