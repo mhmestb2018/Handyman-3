@@ -46,32 +46,24 @@ h1 {
 }
 .heading {
 	margin-bottom: 40px;
+	padding: 15px 0;
+	text-align: center;
+    position: relative;
+    background: $primary-color;
+    @include media(min, $tablet-large) {
+	    margin-bottom: 60px;
+	}
     h1 {
-	    color: #212121;
+	    color: #fff;
 	    font-weight: 300;
         font-size: 28px;
-        line-height: 36px;
-        background: $primary-color-background;
+        line-height: 1;
         display: inline-block;
-        padding: 0 10px;
         margin-bottom: 0;
          @include media(min, $tablet-large) {
-         font-size: 56px;
-         line-height: 36px;
+         font-size: 40px;
          }
         
-    }
-    h1:after {
-        content:"";
-        height: 4px;
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 50%;
-        z-index: -1;
-        border-top: 1px solid $primary-color-border;
-        border-bottom: 1px solid $primary-color-border;
     }
 }
 h2 {
@@ -99,10 +91,6 @@ h5 {
      @include media(min, $tablet-large) {
     	font-size: em(18px);
     }
-}
-.heading {
-    text-align: center;
-    position: relative;
 }
 blockquote, q {
     quotes: none;
@@ -132,12 +120,12 @@ input[type="text"], input[type="email"], input[type="url"], input[type="search"]
     line-height: 24px;
     -webkit-appearance: none;
     @include transition(background-color 300ms ease-outs);
-    @include border-radius(4px);
+    @include border-radius(2px);
 }
 
 
 input[type="submit"] {
-    border-radius: 6px;
+    border-radius: 2px;
     font-size: 18px;
     line-height: 1.33;
     padding: 10px 16px;

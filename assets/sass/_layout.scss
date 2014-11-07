@@ -31,7 +31,7 @@
     }
     .title {
         text-align: center;
-        font-weight: 700;
+        font-weight: 800;
         color: $secondary-color;
         font-size: 30px;
         text-transform: uppercase;
@@ -49,7 +49,7 @@
             color: #4e4e4e;
             span {
                 color: $primary-color;
-                font-style: italic;
+                font-weight: 400;
             }
         }
     }
@@ -99,7 +99,7 @@
             background: transparent;
         }
         .fa {
-            color: rgba(0, 0, 0, 0.2);
+            color: $primary-color;
             font-size: 20px;
             margin-top: -5px;
             vertical-align: middle;
@@ -170,10 +170,11 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 
 /* NAVIGATION */
 .site-navigation {
-    background-color: darken($quaternary-color-background, 10%);
+    background-color: #212121;
     color: $secondary-color-font;
     padding: 8px 0;
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     position: relative;
     z-index: 3;
       -moz-background-clip: padding;     /* Firefox 3.6 */
@@ -330,11 +331,12 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             padding-right: 20px;
             a {
                 color: $tertiary-color-font;
-                background-color: lighten($quaternary-color-background, 5);
+                background-color: $primary-color;
+                font-weight: 400;
                 display: block;
-                border-radius: 5px;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
                 font-size: em(16px);
                 padding-right: em(20px);
                 padding-left: em(20px);
@@ -373,7 +375,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 .sidebar__block {
     margin-bottom: 30px;
     h3 {
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid $primary-color-border;
         font-size: 20px;
         font-weight: 400;
         line-height: 30px;
@@ -383,7 +385,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
             background: $primary-color;
             bottom: 0;
             content: "";
-            height: 2px;
+            height: 3px;
             position: absolute;
             width: 100%;
         }
@@ -423,6 +425,7 @@ span.header__right--mobile-num a, .header__right--phone-num a {
 footer {
     background-color: $secondary-color-background;
     color: lighten($primary-color-font, 40);
+    border-top: 1px solid $primary-color-border;
 }
 
 .footer__inner {
