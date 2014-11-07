@@ -17,6 +17,11 @@ class Assets extends Theme {
 	{
 		$stylesheets = $this->_get_front_end_stylesheets();
 		$this->_register_stylesheets($stylesheets);
+
+        // comment reply script for threaded comments
+        if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+            wp_enqueue_script('comment-reply');
+        }
 	}
 
 	private function _get_front_end_stylesheets()
@@ -49,11 +54,11 @@ class Assets extends Theme {
 	private function _get_back_end_stylesheets()
 	{
 		$stylesheets = (object) array(
-			'font-awesome' => (object) array(
+			/*'font-awesome' => (object) array(
 				'source' => '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',
 				'dependencies' => FALSE,
 				'version' => 'v4.1.0'
-			),
+			),*/
 			'back-end' => (object) array(
 				'source' => get_stylesheet_directory_uri() . '/assets/styles/back-end-prefixed.css',
 				'dependencies' => array('font-awesome'),

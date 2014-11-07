@@ -22,7 +22,8 @@ class Theme
         $this->_manage_post_types();
         $this->_manage_meta_boxes();
         $this->_register_ajax_methods();
-        $this->_register_shortcodes();
+        $this->set_content_width();
+        $this->set_theme_support();
 
         add_action('init', array($this, 'register_menus'));
         add_action('admin_init', array($this, 'hide_editor'));
@@ -157,13 +158,6 @@ class Theme
 		$ajax_methods->add_ajax_methods();
 	}
 
-	private function _register_shortcodes()
-	{
-		$this->_require_from_library('theme', 'class.shortcodes.php');
-		$shortcodes = new ShortCodes();
-		$shortcodes->add_shortcodes();
-	}
-
 	public function register_menus()
 	{
 		$this->_require_walker_library();
@@ -175,6 +169,20 @@ class Theme
 			)
 		);
 	}
+
+    public function set_content_width() {
+        if (!isset($content_width)) {
+            $content_width = 1180;
+        }
+    }
+
+    public function set_theme_support() {
+        // rss thingy
+        add_theme_support('automatic-feed-links');
+
+        add_theme_support( "post-thumbnails" );
+    }
+
 
 	private function _require_walker_library()
 	{
