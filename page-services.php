@@ -4,13 +4,13 @@
 */
 ?>
 <?php get_header(); ?>
-<div class="heading">
-                        <h1><?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
-                    </div>
-<div class="wrapper">
-    <div class="container">
-        <?php if (have_posts()): the_post(); // load the page ?>
-            <?php $post_id = get_the_ID(); ?>
+<?php if (have_posts()): the_post(); // load the page ?>
+<?php $post_id = get_the_ID(); ?>
+    <div class="heading">
+        <h1><?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
+    </div>
+    <div class="wrapper">
+        <div class="container">
             <section class="panel post-content panel-services">
                 <div class="panel__inner">
 
@@ -66,8 +66,8 @@
                     <?php endif; ?>
                 </div>
             </section>
-        <?php endif; ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>
