@@ -5,10 +5,13 @@
 ?>
 <?php get_header(); ?>
 
-<div class="wrapper">
-    <div class="container">
-    <?php if (have_posts()): the_post(); // load the page ?>
-        <?php $post_id = get_the_ID(); ?>
+<?php if (have_posts()): the_post(); // load the page ?>
+    <?php $post_id = get_the_ID(); ?>
+    <div class="heading">
+        <h1><?php the_title();?></h1>
+    </div>
+    <div class="wrapper">
+        <div class="container">
             <div class="home-left">
                 <section class="panel panel-contact">
                     <div class="panel__inner panel-contact__inner">
@@ -40,10 +43,9 @@
                     </section>
                 <?php endif; ?>
             </div>
-        <?php endif; ?>
-
-        <?php get_sidebar(); ?>
+            <?php get_sidebar(); ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>
