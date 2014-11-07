@@ -4,16 +4,15 @@
 */
 ?>
 <?php get_header(); ?>
-
+<div class="heading">
+	<h1><?php the_title(); ?></h1>
+</div>
 <div class="wrapper">
     <div class="container">
         <?php if (have_posts()): the_post(); // load the page ?>
             <?php $post_id = get_the_ID(); ?>
             <section class="panel post-content panel-about">
                 <div class="panel__inner">
-                    <div class="heading">
-                        <h1><?php the_title(); ?></h1>
-                    </div>
 
                     <?php $attach_id =  get_post_meta($post_id, 'about-template-image', true); ?>
                     <?php if ($attach_id) : ?>

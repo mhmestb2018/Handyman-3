@@ -5,6 +5,9 @@
 ?>
 <?php get_header(); ?>
 
+<div class="heading">
+	<h1><?php the_title(); ?></h1>
+</div>
 <div class="wrapper">
     <div class="container">
         <?php if (have_posts()): the_post(); // load the page ?>
@@ -27,9 +30,6 @@
             ?>
 
             <section class="panel post-content panel-testimonials">
-            	<div class="heading">
-                	<h1><?php the_title(); ?></h1>
-                </div>
                 <div class="panel__inner panel-testimonials__inner">
 
                     <?php $testimonials = get_post_meta($post_id, 'testimonial-posts', true); ?>

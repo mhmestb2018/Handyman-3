@@ -4,16 +4,15 @@
 */
 ?>
 <?php get_header(); ?>
-
+<div class="heading">
+                        <h1><?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
+                    </div>
 <div class="wrapper">
     <div class="container">
         <?php if (have_posts()): the_post(); // load the page ?>
             <?php $post_id = get_the_ID(); ?>
             <section class="panel post-content panel-services">
                 <div class="panel__inner">
-                    <div class="heading">
-                        <h1><?php echo get_post_meta($post_id, 'services-template-page-headline', true); ?></h1>
-                    </div>
 
                     <?php $services = get_post_meta($post_id, 'service-posts', true); ?>
                     <?php if (is_array($services) && count($services) > 0) : ?>

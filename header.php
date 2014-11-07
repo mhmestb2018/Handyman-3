@@ -52,14 +52,14 @@
                     <?php $cell_number = of_get_option('tradesman_cell_number'); ?>
                     <?php if ($cell_number) : ?>
                         <div class="header__right--block">
-                            <h3><i class="fa fa-mobile"></i> <span class="header__right--mobile-num"><a href="tel:<?php echo $cell_number; ?>"><?php echo $cell_number; ?></a></span></h3>
+                            <h3><i class="fa fa-mobile primary-color"></i> <span class="header__right--mobile-num"><a href="tel:<?php echo $cell_number; ?>"><?php echo $cell_number; ?></a></span></h3>
                         </div>
                     <?php endif; ?>
 
                     <?php $phone_number = of_get_option('tradesman_phone_number'); ?>
                     <?php if ($phone_number) : ?>
                         <div class="header__right--block">
-                            <h3><i class="fa fa-phone"></i> <span class="header__right--phone-num"><a href="tel:<?php echo $phone_number; ?>"><?php echo $phone_number; ?></a></span></h3>
+                            <h3><i class="fa fa-phone primary-color"></i> <span class="header__right--phone-num"><a href="tel:<?php echo $phone_number; ?>"><?php echo $phone_number; ?></a></span></h3>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -87,7 +87,7 @@
 
                             <?php $contact_page = of_get_option('tradesman_contact_page'); ?>
                             <?php if ($contact_page && $contact_page > 0) : ?>
-                                <div class="quote">
+                                <div class="quote primary-color">
                                     <a href="<?php echo get_permalink($contact_page); ?>">Free Quote</a>
                                 </div>
                             <?php endif; ?>
