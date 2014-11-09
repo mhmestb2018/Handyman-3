@@ -19,15 +19,17 @@ class Theme
         $this->_register_widgets();
         $this->_manage_assets();
         $this->_manage_plugin_dependencies();
-        $this->_manage_post_types();
         $this->_manage_meta_boxes();
         $this->_register_ajax_methods();
-        $this->set_content_width();
-        $this->set_theme_support();
+        $this->_set_content_width();
+        $this->_set_theme_support();
 
         add_action('init', array($this, 'register_menus'));
         add_action('admin_init', array($this, 'hide_editor'));
         add_action('wp_head', array($this, 'output_primary_color'));
+
+        add_filter('esc_html', array($this, 'rename_post_formats'));
+        add_filter('admin_head', array($this, 'live_rename_formats'));
     }
 
     private function _get_theme_information()
@@ -128,15 +130,6 @@ class Theme
 		);
 	}
 
-	private function _manage_post_types()
-	{
-		$this->_require_from_library('theme', 'class.post-types.php');
-
-		$post_types = new PostTypes();
-        add_action('init', array($post_types, 'register_testimonials_post_type'));
-        add_action('init', array($post_types, 'register_services_post_type'));
-        add_action('init', array($post_types, 'register_team_members_post_type'));
-	}
 
 	private function _manage_meta_boxes()
 	{
@@ -170,17 +163,19 @@ class Theme
 		);
 	}
 
-    public function set_content_width() {
+    private function _set_content_width() {
         if (!isset($content_width)) {
             $content_width = 1180;
         }
     }
 
-    public function set_theme_support() {
+    private function _set_theme_support() {
         // rss thingy
         add_theme_support('automatic-feed-links');
 
-        add_theme_support( "post-thumbnails" );
+        add_theme_support('post-thumbnails');
+
+        add_theme_support('post-formats', array('aside', 'gallery', 'quote'));
     }
 
 
@@ -227,8 +222,25 @@ class Theme
             MetaBoxes::TESTIMONIALS_TEMPLATE
         );
 
-        if(in_array($template, $hide_from_templates)){ // the filename of the page template
+        if(in_array($template, $hide_from_templates)) { // the filename of the page template
             remove_post_type_support('page', 'editor');
+        }
+
+        // Hide the editor on a page with a specific post format
+        // Get the name of the post format.
+        $format = get_post_format($post_id);
+
+        $hide_from_format = array(
+            MetaBoxes::TEAM_MEMBER_FORMAT,
+            MetaBoxes::SERVICE_FORMAT,
+            MetaBoxes::TESTIMONIAL_FORMAT
+        );
+
+        if(in_array($format, $hide_from_format)) {
+            remove_post_type_support('post', 'editor');
+            remove_post_type_support('post', 'thumbnail');
+            remove_meta_box('tagsdiv-post_tag', 'post', 'side');
+            remove_meta_box('categorydiv', 'post', 'side');
         }
     }
 
@@ -246,4 +258,51 @@ class Theme
             echo $output;
         }
     }
+
+    public function rename_post_formats( $safe_text ) {
+        if ($safe_text == 'Aside') {
+            return 'Testimonial';
+        }else if ($safe_text == 'Gallery') {
+            return 'Service';
+        }else if ($safe_text == 'Quote') {
+            return 'Team Member';
+        }
+
+        return $safe_text;
+    }
+
+
+    //rename Aside in posts list table
+    public function live_rename_formats() {
+        global $current_screen;
+
+        if ( $current_screen->id == 'edit-post' ) { ?>
+            <script type="text/javascript">
+                jQuery('document').ready(function() {
+                    jQuery("span.post-state-format").each(function() {
+                        var el = jQuery(this);
+                        var name = el.text();
+
+                        if (name == "Aside") {
+                            el.text("Testimonial");
+                        }else if (name == "Gallery") {
+                            el.text("Service");
+                        }else if (name == "Quote") {
+                            el.text("Team Member");
+                        }
+                    });
+                });
+            </script>
+        <?php }
+
+        //reassign the post format icons to represent the handyman format types
+        $output = '<style type="text/css" media="screen">';
+        $output .= '.post-format-icon.post-format-aside:before, .post-state-format.post-format-aside:before, a.post-state-format.format-aside:before {content: "\f125";}';
+        $output .= '.post-format-icon.post-format-gallery:before, .post-state-format.post-format-gallery:before, a.post-state-format.format-gallery:before {content: "\f308";}';
+        $output .= '.post-format-icon.post-format-quote:before, .post-state-format.post-format-quote:before, a.post-state-format.format-quote:before {content: "\f110";}';
+        $output .= '</style>';
+
+        echo $output;
+    }
+
 }

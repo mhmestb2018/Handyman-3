@@ -107,14 +107,15 @@ class Assets extends Theme {
 
 	private function _get_back_end_scripts()
 	{
-		$scripts = (object) array(
+        $scripts = (object) array();
+		/*$scripts = (object) array(
 			'back-end' => (object) array(
 				'source' => get_stylesheet_directory_uri() . '/assets/scripts/back-end/back-end.min.js',
 				'dependencies' => array('jquery'),
 				'version' => $this->theme_information->Version,
 				'in_footer' => TRUE
 			),
-		);
+		);*/
 
 		return $scripts;
 	}

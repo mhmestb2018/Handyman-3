@@ -10,6 +10,10 @@ class MetaBoxes
     const SERVICES_TEMPLATE = 'page-services.php';
     const TESTIMONIALS_TEMPLATE = 'page-testimonials.php';
 
+    const TESTIMONIAL_FORMAT = 'aside';
+    const SERVICE_FORMAT = 'gallery';
+    const TEAM_MEMBER_FORMAT = 'quote';
+
     const TESTIMONIALS_3_WIDE = '3wide';
     const TESTIMONIALS_2_WIDE = '2wide';
     const TESTIMONIALS_FULL_WIDTH = 'fullwidth';
@@ -65,13 +69,17 @@ class MetaBoxes
         $post_id = (int)$post_id;
 
         $template = get_post_meta($post_id, '_wp_page_template', true);
+        $format = get_post_format($post_id);
 
-        $meta_boxes = array_merge(
-            $this->_define_testimonial_meta_boxes(),
-            $this->_define_service_meta_boxes(),
-            $this->_define_team_member_meta_boxes()
-        );
+        $meta_boxes = array();
 
+        if ($format == self::TESTIMONIAL_FORMAT) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_testimonial_meta_boxes());
+        } elseif ($format == self::SERVICE_FORMAT) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_service_meta_boxes());
+        } elseif ($format == self::TEAM_MEMBER_FORMAT) {
+            $meta_boxes = array_merge($meta_boxes, $this->_define_team_member_meta_boxes());
+        }
 
         if ($template == self::HOMEPAGE_TEMPLATE) {
             $meta_boxes = array_merge($meta_boxes, $this->_define_homepage_meta_boxes($icons));
@@ -130,12 +138,6 @@ class MetaBoxes
                         'desc' => __('Paste the contact form shortcode into this field', 'rwmb'),
                         'clone' => false,
                     ),
-                    /*array(
-                        'name' => __('Your Photo', 'rwmb'),
-                        'id' => 'home-cta-image',
-                        'type' => 'image_advanced',
-                        'max_file_uploads' => 1
-                    ),*/
                     array(
                         'name' => __('Background Image', 'rwmb'),
                         'id' => 'home-cta-bg-image',
@@ -247,13 +249,20 @@ class MetaBoxes
                         'name'    => __('Testimonials', 'rwmb'),
                         'id'      => "home-testimonial-posts",
                         'type'    => 'post',
-                        'post_type' => 'testimonials',
+                        'post_type' => 'post',
                         'field_type' => 'select_advanced',
                         'clone' => true,
                         'desc' => __('You can have a maximum of 3 testimonials on the homepage. Click the blue [+] button to the right to add another testimonial and then use the dropdown to select the testimonial you\'d like to add', 'rwmb'),
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field'    => 'slug',
+                                    'terms'    => array('post-format-'.self::TESTIMONIAL_FORMAT),
+                                ),
+                            )
                         )
                     )
                 )
@@ -326,12 +335,19 @@ class MetaBoxes
                         'name'    => __('Services', 'rwmb'),
                         'id'      => "service-posts",
                         'type'    => 'post',
-                        'post_type' => 'services',
+                        'post_type' => 'post',
                         'field_type' => 'select_advanced',
                         'clone' => true,
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field'    => 'slug',
+                                    'terms'    => array('post-format-'.self::SERVICE_FORMAT),
+                                ),
+                            )
                         )
                     )
                 )
@@ -441,12 +457,19 @@ class MetaBoxes
                         'name'    => __('Team Members', 'rwmb'),
                         'id'      => "about-team-posts",
                         'type'    => 'post',
-                        'post_type' => 'team-members',
+                        'post_type' => 'post',
                         'field_type' => 'select_advanced',
                         'clone' => true,
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field'    => 'slug',
+                                    'terms'    => array('post-format-'.self::TEAM_MEMBER_FORMAT),
+                                )
+                            )
                         )
                     )
                 )
@@ -471,12 +494,19 @@ class MetaBoxes
                         'name'    => __('Testimonials', 'rwmb'),
                         'id'      => "about-testimonial-posts",
                         'type'    => 'post',
-                        'post_type' => 'testimonials',
+                        'post_type' => 'post',
                         'field_type' => 'select_advanced',
                         'clone' => true,
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field'    => 'slug',
+                                    'terms'    => array('post-format-'.self::TESTIMONIAL_FORMAT),
+                                )
+                            )
                         )
                     )
                 )
@@ -563,12 +593,19 @@ class MetaBoxes
                         'name'    => __('Testimonials', 'rwmb'),
                         'id'      => "contact-testimonial-posts",
                         'type'    => 'post',
-                        'post_type' => 'testimonials',
+                        'post_type' => 'post',
                         'field_type' => 'select_advanced',
                         'clone' => true,
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field'    => 'slug',
+                                    'terms'    => array('post-format-'.self::TESTIMONIAL_FORMAT),
+                                )
+                            )
                         )
                     )
                 )
@@ -605,12 +642,19 @@ class MetaBoxes
                         'name'    => __('Testimonials', 'rwmb'),
                         'id'      => "testimonial-posts",
                         'type'    => 'post',
-                        'post_type' => 'testimonials',
+                        'post_type' => 'post',
                         'field_type' => 'select_advanced',
                         'clone' => true,
                         'query_args' => array(
                             'post_status' => 'publish',
                             'posts_per_page' => '-1',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'post_format',
+                                    'field'    => 'slug',
+                                    'terms'    => array('post-format-'.self::TESTIMONIAL_FORMAT),
+                                )
+                            )
                         )
                     )
                 )
@@ -624,7 +668,7 @@ class MetaBoxes
             array(
                 'id' => 'testimonial',
                 'title' => __('Testimonial Fields', 'rwmb'),
-                'pages' => array('testimonials'),
+                'pages' => array('post'),
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
@@ -668,7 +712,7 @@ class MetaBoxes
             array(
                 'id' => 'service',
                 'title' => __('Service Fields', 'rwmb'),
-                'pages' => array('services'),
+                'pages' => array('post'),
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
@@ -702,7 +746,7 @@ class MetaBoxes
             array(
                 'id' => 'team-member',
                 'title' => __('Team Member Fields', 'rwmb'),
-                'pages' => array('team-members'),
+                'pages' => array('post'),
                 'context' => 'normal',
                 'priority' => 'high',
                 'autosave' => true,
