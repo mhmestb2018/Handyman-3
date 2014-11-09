@@ -75,9 +75,9 @@ class MetaBoxes
 
         if ($format == self::TESTIMONIAL_FORMAT) {
             $meta_boxes = array_merge($meta_boxes, $this->_define_testimonial_meta_boxes());
-        } elseif ($format == self::SERVICE_FORMAT) {
+        } /*elseif ($format == self::SERVICE_FORMAT) {
             $meta_boxes = array_merge($meta_boxes, $this->_define_service_meta_boxes());
-        } elseif ($format == self::TEAM_MEMBER_FORMAT) {
+        }*/ elseif ($format == self::TEAM_MEMBER_FORMAT) {
             $meta_boxes = array_merge($meta_boxes, $this->_define_team_member_meta_boxes());
         }
 
@@ -687,12 +687,12 @@ class MetaBoxes
                         'std' => __('', 'rwmb'),
                         'clone' => false,
                     ),
-                    array(
+                    /*array(
                         'name' => __('Photo (optional)', 'rwmb'),
                         'id' => 'testimonial-quote-photo',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
-                    ),
+                    ),*/
                     array(
                         'name' => __('Location', 'rwmb'),
                         'id' => 'testimonial-author-location',
@@ -706,7 +706,7 @@ class MetaBoxes
         );
     }
 
-    private function _define_service_meta_boxes()
+    /*private function _define_service_meta_boxes()
     {
         return array(
             array(
@@ -738,7 +738,7 @@ class MetaBoxes
                 )
             )
         );
-    }
+    }*/
 
     private function _define_team_member_meta_boxes()
     {
@@ -751,12 +751,12 @@ class MetaBoxes
                 'priority' => 'high',
                 'autosave' => true,
                 'fields' => array(
-                    array(
+                    /*array(
                         'name' => __('Team Member Photo', 'rwmb'),
                         'id' => 'team-member-image',
                         'type' => 'image_advanced',
                         'max_file_uploads' => 1
-                    ),
+                    ),*/
                     array(
                         'name' => __('Job title', 'rwmb'),
                         'id' => 'team-member-job-title',

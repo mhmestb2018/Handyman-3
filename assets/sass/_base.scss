@@ -387,9 +387,22 @@ img.alignright {
     margin-left: 20px;
 }
 /* REQUIRED */
-.wp-caption {}
-.wp-caption-text {}
-.sticky {}
-.gallery-caption {}
-.bypostauthor {}
-.aligncenter {}
+.wp-caption {
+    max-width: 100%;
+    height: auto;
+}
+.wp-caption-text {
+    font-style: italic;
+}
+.sticky {
+    padding: 15px;
+}
+.gallery-caption {
+    font-style: italic;
+}
+.bypostauthor {
+    max-width: 100%;
+}
+.aligncenter {
+    text-align: center;
+}

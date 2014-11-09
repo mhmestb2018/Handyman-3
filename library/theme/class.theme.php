@@ -237,8 +237,10 @@ class Theme
         );
 
         if(in_array($format, $hide_from_format)) {
-            remove_post_type_support('post', 'editor');
-            remove_post_type_support('post', 'thumbnail');
+            if ($format != MetaBoxes::SERVICE_FORMAT) {
+                remove_post_type_support('post', 'editor');
+            }
+
             remove_meta_box('tagsdiv-post_tag', 'post', 'side');
             remove_meta_box('categorydiv', 'post', 'side');
         }

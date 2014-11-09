@@ -41,8 +41,6 @@
                                 ));
                             ?>
 
-                            <?php comments_template(); ?>
-
                             <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'handymantheme' ) . '</span> ', ', ', '</p>' ); ?>
 
                             <div class="row">
@@ -68,6 +66,10 @@
                             </div>
                         </section>
                     <?php endif; ?>
+
+
+                    <?php comments_template(); ?>
+
                 </div>
                 <?php get_sidebar(); ?>
             </div>

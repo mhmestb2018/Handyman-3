@@ -19,20 +19,17 @@
                         <?php if (is_array($services) && count($services) > 0) : ?>
                             <?php foreach ($services as $service) : ?>
                                 <?php $service_post = get_post($service); ?>
-                                <?php $service_id = get_the_ID(); ?>
                                 <div class="panel-services__block">
-                                    <?php $attach_id =  get_post_meta($service, 'service-image', true); ?>
-                                    <?php if ($attach_id) : ?>
+                                    <?php if (has_post_thumbnail($service_post->ID)) : ?>
                                         <div class="panel-services__block-image-wrapper">
-                                            <img src="<?php echo wp_get_attachment_url($attach_id); ?>" alt="<?php echo $service_post->post_title;?>" title="<?php echo $service_post->post_title;?>">
+                                            <?php echo get_the_post_thumbnail($service_post->ID); ?>
                                             <h3><?php echo $service_post->post_title;?></h3>
                                         </div>
                                     <?php else : ?>
                                         <h3><?php echo $service_post->post_title;?></h3>
                                     <?php endif; ?>
 
-
-                                    <?php echo get_post_meta($service, 'service-content', true); ?>
+                                    <?php echo $service_post->post_content; ?>
                                 </div>
                             <?php endforeach;?>
                         <?php endif; ?>

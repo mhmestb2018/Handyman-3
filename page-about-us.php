@@ -44,8 +44,6 @@
                                 ));
                             ?>
 
-                            <?php comments_template(); ?>
-
                             <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'handymantheme' ) . '</span> ', ', ', '</p>' ); ?>
                         </div>
                     </div>
@@ -60,12 +58,10 @@
 
                             <?php foreach ($team_members as $team_member) : ?>
                                 <?php $team_member_post = get_post($team_member); ?>
-                                <?php $attach_id =  get_post_meta($team_member, 'team-member-image', true); ?>
+                                <?php $attach_id = get_post_meta($team_member, 'team-member-image', true); ?>
 
                                 <div class="panel-meet-team__team-member">
-                                    <?php if ($attach_id) : ?>
-                                        <img src="<?php echo wp_get_attachment_url($attach_id); ?>">
-                                    <?php endif; ?>
+                                    <?php echo get_the_post_thumbnail($team_member); ?>
                                     <h3><?php echo $team_member_post->post_title; ?></h3>
                                     <p class="team-title primary-color"><?php echo get_post_meta($team_member, 'team-member-job-title', true); ?></p>
                                     <p class="team-description"><?php echo get_post_meta($team_member, 'team-member-content', true); ?></p>
@@ -99,6 +95,9 @@
                         <?php echo get_post_meta($post_id, 'about-bottom-content', true); ?>
                     </div>
                 </section>
+
+
+                <?php comments_template(); ?>
             </article>
         <?php endif; ?>
     </div>

@@ -31,22 +31,21 @@
 
             <section class="panel post-content panel-testimonials">
                 <div class="panel__inner panel-testimonials__inner">
-
                     <?php $testimonials = get_post_meta($post_id, 'testimonial-posts', true); ?>
                     <?php if (is_array($testimonials) && count($testimonials) > 0) : ?>
                         <?php $count = 1; ?>
                         <?php foreach ($testimonials as $testimonial) : ?>
                             <?php $testimonial_id = $testimonial; ?>
                             <?php $location = get_post_meta($testimonial_id, 'testimonial-author-location', true); ?>
-                            <?php $attach_id =  get_post_meta($testimonial_id, 'testimonial-quote-photo', true); ?>
+                            <?php $has_thumbnail = has_post_thumbnail($testimonial_id); ?>
                             <div class="panel-testimonials__block<?php echo $format_class; ?>">
-                                <?php if ($attach_id) : ?>
-                                    <img src="<?php echo wp_get_attachment_url($attach_id); ?>">
-                                        <div class="testimonial">
+                                <?php if ($has_thumbnail) : ?>
+                                    <?php echo get_the_post_thumbnail($testimonial_id, 'full'); ?>
+                                    <div class="testimonial">
                                 <?php endif; ?>
                                 <p><i class="fa fa-quote-left fa-2x pull-left"></i> <?php echo get_post_meta($testimonial_id, 'testimonial-quote-text', true); ?></p>
                                 <p class="panel-testimonials__author"><?php echo get_post_meta($testimonial_id, 'testimonial-quote-author', true); ?><?php if ($location) : ?>, <span class="primary-color"><?php echo $location; ?></span><?php endif;?></p>
-                                <?php if ($attach_id) : ?>
+                                <?php if ($has_thumbnail) : ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
