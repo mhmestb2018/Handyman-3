@@ -252,6 +252,7 @@ class Theme
         if ($primary_color) {
             $output = '<style type="text/css" media="screen">';
             $output .= ".primary-color {color : ".$primary_color." !important;} ";
+            $output .= ".primary-color-bg {background-color : ".$primary_color." !important;} ";
             $output .= ".primary-color-bg-before:before {background : ".$primary_color." !important;} ";
             $output .= 'input[type="submit"] {background-color: '.$primary_color.'} ';
             $output .= 'input[type="submit"]:hover {background-color: '.Utility::adjust_brightness($primary_color, -30).'} ';
