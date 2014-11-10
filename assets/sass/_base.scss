@@ -41,6 +41,9 @@ h1, h2, h3, h4, h5 {
     color: #212121;
     margin-bottom: 15px;
 }
+h1, h2 {
+	text-transform: uppercase;
+}
 h1 {
     font-size: 32px;
 }
@@ -49,47 +52,48 @@ h1 {
 	padding: 15px 0;
 	text-align: center;
     position: relative;
-    background: $primary-color;
+    background: #fff;
+    border-bottom: 1px solid $primary-color-border;
     @include media(min, $tablet-large) {
 	    margin-bottom: 60px;
 	}
     h1 {
-	    color: #fff;
-	    font-weight: 300;
+	    color: $primary-color-font;
+	    font-weight: 500;
         font-size: 28px;
         line-height: 1;
         display: inline-block;
         margin-bottom: 0;
          @include media(min, $tablet-large) {
-         font-size: 40px;
+         font-size: 35px;
          }
         
     }
 }
 h2 {
-    font-size: em(28px);
-    font-weight: 300;
+    font-size: em(22px);
+    font-weight: 400;
     @include media(min, $tablet-large) {
-    	font-size: em(38px);
+    	font-size: em(28px);
     }
 }
 h3 {
-    font-size: em(20px);
+    font-size: em(18px);
     font-weight: 400;
     @include media(min, $tablet-large) {
-    	font-size: em(22px);
+    	font-size: em(24px);
     }
 }
 h4 {
-    font-size: em(18px);
+    font-size: em(16px);
      @include media(min, $tablet-large) {
-    	font-size: em(20px);
+    	font-size: em(22px);
     }
 }
 h5 {
-    font-size: em(16px);
+    font-size: em(14px);
      @include media(min, $tablet-large) {
-    	font-size: em(18px);
+    	font-size: em(20px);
     }
 }
 blockquote, q {
@@ -139,6 +143,7 @@ input[type="submit"] {
     display: inline-block;
     font-weight: 500;
     width: 100%;
+    max-width: 500px;
     margin-bottom: 0;
     text-align: center;
     vertical-align: middle;
