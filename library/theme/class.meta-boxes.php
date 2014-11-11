@@ -292,8 +292,8 @@ class MetaBoxes
                         'clone' => false,
                         'options' => array(
                             'textarea_rows' => 10,
-                            'teeny'         => true,
-                            'media_buttons' => false,
+                            //'teeny'         => true,
+                            'media_buttons' => true,
                         )
                     )
                 )
