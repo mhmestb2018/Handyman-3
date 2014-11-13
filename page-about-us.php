@@ -55,18 +55,19 @@
                     <section class="panel panel-meet-team panel-meet-team-<?php echo $wide; ?>-wide">
                         <div class="panel__inner">
                             <h2><?php echo get_post_meta($post_id, 'about-template-team-headline', true); ?></h2>
-
+							<div>
                             <?php foreach ($team_members as $team_member) : ?>
                                 <?php $team_member_post = get_post($team_member); ?>
                                 <?php $attach_id = get_post_meta($team_member, 'team-member-image', true); ?>
 
-                                <div class="panel-meet-team__team-member">
+                                <div class="panel-meet-team__block">
                                     <?php echo get_the_post_thumbnail($team_member); ?>
                                     <h3><?php echo $team_member_post->post_title; ?></h3>
                                     <p class="team-title primary-color"><?php echo get_post_meta($team_member, 'team-member-job-title', true); ?></p>
                                     <p class="team-description"><?php echo get_post_meta($team_member, 'team-member-content', true); ?></p>
                                 </div>
                             <?php endforeach; ?>
+                        </div>
                         </div>
                     </section>
                 <?php endif; ?>
